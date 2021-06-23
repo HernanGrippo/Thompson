@@ -7,39 +7,6 @@ image: php:7.4.3
 
 pipelines:
   branches:
-    # develop:
-    #   - step:
-    #       name: Deploy to develop
-    #       deployment: develop
-    #       script:
-    #         - echo "Deploying to develop environment"
-    #         - apt-get update
-    #         - apt-get install -y zip
-    #         - mv appspec-dev.yml appspec.yml
-    #         - zip -r admin-dev-elevate.zip . -x "appspec-pro.yml"
-    #         - pipe: atlassian/aws-code-deploy:0.6.0
-    #           variables:
-    #             AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-    #             AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-    #             AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-    #             APPLICATION_NAME: $APPLICATION_NAME_DEV
-    #             S3_BUCKET: $S3_BUCKET
-    #             COMMAND: 'upload'
-    #             ZIP_FILE: 'admin-dev-elevate.zip'
-    #             VERSION_LABEL: 'admin-dev-elevate-1.0.0'
-    #         - pipe: atlassian/aws-code-deploy:0.6.0
-    #           variables:
-    #             AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-    #             AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-    #             AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-    #             APPLICATION_NAME: $APPLICATION_NAME_DEV
-    #             DEPLOYMENT_GROUP: $DEPLOYMENT_GROUP_DEV
-    #             S3_BUCKET: $S3_BUCKET
-    #             COMMAND: 'deploy'
-    #             WAIT: 'true'
-    #             VERSION_LABEL: 'admin-dev-elevate-1.0.0'
-    #             IGNORE_APPLICATION_STOP_FAILURES: 'true'
-    #             FILE_EXISTS_BEHAVIOR: 'OVERWRITE'
     master:
       - step:
           name: Deploy to production
@@ -54,7 +21,7 @@ pipelines:
                 AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-                APPLICATION_NAME: $APPLICATION_NAME_PRO
+                APPLICATION_NAME: $APPLICATION_NAME
                 S3_BUCKET: $S3_BUCKET
                 COMMAND: 'upload'
                 ZIP_FILE: 'tbp-v2-pro.zip'
@@ -64,8 +31,8 @@ pipelines:
                 AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-                APPLICATION_NAME: $APPLICATION_NAME_PRO
-                DEPLOYMENT_GROUP: $DEPLOYMENT_GROUP_PRO
+                APPLICATION_NAME: $APPLICATION_NAME
+                DEPLOYMENT_GROUP: $DEPLOYMENT_GROUP
                 S3_BUCKET: $S3_BUCKET
                 COMMAND: 'deploy'
                 WAIT: 'true'
