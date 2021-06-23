@@ -1,0 +1,18 @@
+<button class="<?php echo TBP_PREFIX; ?>-navigation-icon-open" id="<?php echo TBP_PREFIX; ?>-navigation-icon-open">
+	<div class="d-block d-md-none mobile">
+		<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="40" height="40" fill="#BE1E2D"/>
+			<rect x="10" y="19" width="19" height="2" fill="white"/>
+			<rect x="10" y="11" width="19" height="2" fill="white"/>
+			<rect x="10" y="27" width="19" height="2" fill="white"/>
+		</svg>
+	</div>
+	<div class="d-none d-md-block">
+		<span>MENU</span>
+		<svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect y="13" width="34" height="5" fill="white"/>
+			<rect width="34" height="5" fill="white"/>
+			<rect y="26" width="34" height="5" fill="white"/>
+		</svg>
+	</div>
+</button>

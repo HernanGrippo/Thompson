@@ -1,0 +1,26 @@
+<section class="{{prefix}}-related-posts-fixed {{class}}">
+	<div class="container">
+		<div class="row">
+			{{#each data.related.posts}}
+				{{#ifCond @index "<" ../data.related.limit}}
+					<div class="col-md-4">
+						<div class="card-wrapper">
+							<a class="card" title="{{title}}" href="{{link}}">
+								<div class="img-wrapper">
+									<div class="img-bg" style="background: url({{img}}) no-repeat top; background-size: cover;"></div>
+								</div>
+								<div class="card-body">
+									<p class="card-title">{{slogan}}</p>
+									<p>
+										{{title}}
+									</p>
+									<small class="publication-date text-muted">{{date}}</small>
+								</div>
+							</a>
+						</div>
+					</div>
+				{{/ifCond}}
+			{{/each}}
+		</div>
+	</div>
+</section>

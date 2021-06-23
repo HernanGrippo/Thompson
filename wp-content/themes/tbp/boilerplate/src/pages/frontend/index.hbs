@@ -1,0 +1,49 @@
+{{#> layouts/base title="Thompson Boxing Promotions - Home"}}
+	<div class="{{global.prefix}}-page home">
+		<div class="shape">
+			{{> components/slider prefix=global.prefix }}
+
+			{{> components/countdown prefix=global.prefix }}
+
+			{{> components/commercial prefix=global.prefix }}
+
+			{{!-- {{> fighters
+						data=global.home.fighters
+						prefix=global.prefix }} --}}
+
+			{{!-- {{> video-thumbs data=video_thumbs prefix=prefix }} --}}
+
+			{{!-- {{> quote data=quote prefix=prefix }} --}}
+
+			{{> components/sponsors
+						data=global.home.sponsors_partners
+						prefix=global.prefix }}
+
+			{{!-- {{> promotions
+						data=global.home.promotions
+						prefix=global.prefix }} --}}
+
+			<div class="news">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="related-header">
+								<h4>
+									{{ global.home.related.header }}
+								</h4>
+							</div>
+						</div>
+					</div>
+					{{> components/related
+								data=global.home.related
+								prefix=global.prefix
+								class="home" }}
+				</div>
+			</div>
+
+			{{> components/instagram
+						data=global.home.instagram
+						prefix=global.prefix }}
+		</div>
+	</div>
+{{/ layouts/base }}

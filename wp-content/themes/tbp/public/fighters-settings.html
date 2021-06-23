@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Language" content="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<meta name="description" content="">
+	<!-- Disable tap highlight on IE -->
+	<meta name="msapplication-tap-highlight" content="no">
+	<link rel="stylesheet" href="./assets/styles/backend.css">
+</head>
+
+<body>
+	<main role="main">
+		<div id="yield">
+			  <div class="container">
+			    <div class="row text-center">
+			      <h2 class="mx-auto p-2">
+			        Fighters Table
+			        <button class="btn btn-primary update_all_records">Update All Datas</button>
+			      </h2>
+			    </div>
+			    <div class="row">
+			      <div class="tbp-model">
+			        <div class="progress w-100 mt-2 mb-2">
+			          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0;"
+			            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+			        </div>
+			        <div class="fighter-msg w-100"></div>
+			      </div>
+			    </div>
+			    <div class="row mt-0 mb-3">
+			      <div class="tbp-data-checkboxes mx-auto text-center">
+			        <label class="checkbox-inline mb-0"> <input type="checkbox" class="check_profile_data" checked="" />Profile Data
+			        </label>
+			        <label class="checkbox-inline mb-0"> <input type="checkbox" class="check_records" checked="" />Records </label>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <table class="table table-bordered table-hover table-sm">
+			        <thead class="thead-light">
+			          <tr class="text-center">
+			            <th scope="col">No</th>
+			            <th scope="col">Boxrec ID</th>
+			            <th scope="col">Full Name</th>
+			            <th scope="col">Visible</th>
+			            <th scope="col">Action</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              1 <input type="hidden" id="boxer_name" value="Giovani Santillán" />
+			              <input type="hidden" id="boxer_id" value="5794" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/612589" target="_blank">612589</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/giovani-santillan/" target="_blank">Giovani
+			                Santillán</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5794" checked="" />
+			                <label class="custom-control-label" for="customSwitch5794"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              2 <input type="hidden" id="boxer_name" value="Juan Carlos Burgos" />
+			              <input type="hidden" id="boxer_id" value="5796" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/287229" target="_blank">287229</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/juan-carlos-burgos/" target="_blank">Juan Carlos
+			                Burgos</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5796" checked="" />
+			                <label class="custom-control-label" for="customSwitch5796"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              3 <input type="hidden" id="boxer_name" value="Erick Ituarte" />
+			              <input type="hidden" id="boxer_id" value="5797" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/582468" target="_blank">582468</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/erick-ituarte/" target="_blank">Erick Ituarte</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5797" checked="" />
+			                <label class="custom-control-label" for="customSwitch5797"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              4 <input type="hidden" id="boxer_name" value="Mario Hernandez" />
+			              <input type="hidden" id="boxer_id" value="5810" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/793191" target="_blank">793191</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/mario-hernandez/" target="_blank">Mario Hernandez</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5810" checked="" />
+			                <label class="custom-control-label" for="customSwitch5810"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              5 <input type="hidden" id="boxer_name" value="Ruben Villa IV" />
+			              <input type="hidden" id="boxer_id" value="5812" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/768427" target="_blank">768427</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/ruben-villa-iv/" target="_blank">Ruben Villa IV</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5812" checked="" />
+			                <label class="custom-control-label" for="customSwitch5812"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              6 <input type="hidden" id="boxer_name" value="Scott Alexander" />
+			              <input type="hidden" id="boxer_id" value="5814" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/499685" target="_blank">499685</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/scott-alexander/" target="_blank">Scott Alexander</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5814" checked="" />
+			                <label class="custom-control-label" for="customSwitch5814"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              7 <input type="hidden" id="boxer_name" value="Carlos Carlson" />
+			              <input type="hidden" id="boxer_id" value="5815" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/573732" target="_blank">573732</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/carlos-carlson/" target="_blank">Carlos Carlson</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5815" />
+			                <label class="custom-control-label" for="customSwitch5815"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              8 <input type="hidden" id="boxer_name" value="Daniel Roman" />
+			              <input type="hidden" id="boxer_id" value="5816" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/549073" target="_blank">549073</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/daniel-roman/" target="_blank">Daniel Roman</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5816" checked="" />
+			                <label class="custom-control-label" for="customSwitch5816"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              9 <input type="hidden" id="boxer_name" value="Jonathan Romero" />
+			              <input type="hidden" id="boxer_id" value="5817" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/496561" target="_blank">496561</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/jonathan-romero/" target="_blank">Jonathan Romero</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5817" checked="" />
+			                <label class="custom-control-label" for="customSwitch5817"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              10 <input type="hidden" id="boxer_name" value="Darleys Perez" />
+			              <input type="hidden" id="boxer_id" value="5819" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/484828" target="_blank">484828</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/darleys-perez/" target="_blank">Darleys Perez</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5819" />
+			                <label class="custom-control-label" for="customSwitch5819"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              11 <input type="hidden" id="boxer_name" value="Taras Shelestyuk" />
+			              <input type="hidden" id="boxer_id" value="5820" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/645118" target="_blank">645118</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/taras-shelestyuk/" target="_blank">Taras Shelestyuk</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5820" checked="" />
+			                <label class="custom-control-label" for="customSwitch5820"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              12 <input type="hidden" id="boxer_name" value="LaRon Mitchell" />
+			              <input type="hidden" id="boxer_id" value="5821" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/652739" target="_blank">652739</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/laron-mitchell/" target="_blank">LaRon Mitchell</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5821" checked="" />
+			                <label class="custom-control-label" for="customSwitch5821"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              13 <input type="hidden" id="boxer_name" value="Giovanni Mioletti" />
+			              <input type="hidden" id="boxer_id" value="5861" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/756050" target="_blank">756050</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/giovanni-mioletti/" target="_blank">Giovanni
+			                Mioletti</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5861" />
+			                <label class="custom-control-label" for="customSwitch5861"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              14 <input type="hidden" id="boxer_name" value="Christian Ayala" />
+			              <input type="hidden" id="boxer_id" value="5863" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/808489" target="_blank">808489</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/christian-ayala/" target="_blank">Christian Ayala</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5863" />
+			                <label class="custom-control-label" for="customSwitch5863"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              15 <input type="hidden" id="boxer_name" value="Ricardo Espinoza" />
+			              <input type="hidden" id="boxer_id" value="5864" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/40536" target="_blank">40536</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/ricardo-espinoza/" target="_blank">Ricardo Espinoza</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5864" />
+			                <label class="custom-control-label" for="customSwitch5864"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              16 <input type="hidden" id="boxer_name" value="Saúl Sánchez" />
+			              <input type="hidden" id="boxer_id" value="5865" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/746614" target="_blank">746614</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/saul-sanchez/" target="_blank">Saúl Sánchez</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5865" checked="" />
+			                <label class="custom-control-label" for="customSwitch5865"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              17 <input type="hidden" id="boxer_name" value="Juan Ramon Reyes" />
+			              <input type="hidden" id="boxer_id" value="5866" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/866762" target="_blank">866762</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/juan-ramon-reyes/" target="_blank">Juan Ramon Reyes</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5866" />
+			                <label class="custom-control-label" for="customSwitch5866"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              18 <input type="hidden" id="boxer_name" value="Miguel Madueño" />
+			              <input type="hidden" id="boxer_id" value="6206" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/795163" target="_blank">795163</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/miguel-madueno/" target="_blank">Miguel Madueño</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6206" checked="" />
+			                <label class="custom-control-label" for="customSwitch6206"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              19 <input type="hidden" id="boxer_name" value="Jesus Delgado" />
+			              <input type="hidden" id="boxer_id" value="6203" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/661890" target="_blank">661890</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/jesus-delgado/" target="_blank">Jesus Delgado</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6203" checked="" />
+			                <label class="custom-control-label" for="customSwitch6203"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              20 <input type="hidden" id="boxer_name" value="Francisco Armenta" />
+			              <input type="hidden" id="boxer_id" value="6224" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/788512" target="_blank">788512</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/francisco-armenta/" target="_blank">Francisco
+			                Armenta</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6224" checked="" />
+			                <label class="custom-control-label" for="customSwitch6224"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              21 <input type="hidden" id="boxer_name" value="Roberto Arriaza" />
+			              <input type="hidden" id="boxer_id" value="6226" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/638463" target="_blank">638463</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/roberto-arriaza/" target="_blank">Roberto Arriaza</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6226" checked="" />
+			                <label class="custom-control-label" for="customSwitch6226"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              22 <input type="hidden" id="boxer_name" value="Pedro Moreno" />
+			              <input type="hidden" id="boxer_id" value="6229" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/734359" target="_blank">734359</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/pedro-moreno/" target="_blank">Pedro Moreno</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6229" checked="" />
+			                <label class="custom-control-label" for="customSwitch6229"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              23 <input type="hidden" id="boxer_name" value="George Acosta" />
+			              <input type="hidden" id="boxer_id" value="6234" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/791376" target="_blank">791376</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/george-acosta/" target="_blank">George Acosta</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6234" checked="" />
+			                <label class="custom-control-label" for="customSwitch6234"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              24 <input type="hidden" id="boxer_name" value="Maximilliano Becerra" />
+			              <input type="hidden" id="boxer_id" value="6488" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/463706" target="_blank">463706</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/maximilliano-becerra/" target="_blank">Maximilliano
+			                Becerra</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6488" checked="" />
+			                <label class="custom-control-label" for="customSwitch6488"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              25 <input type="hidden" id="boxer_name" value="Louie Lopez" />
+			              <input type="hidden" id="boxer_id" value="6545" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/825721" target="_blank">825721</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/louie-lopez/" target="_blank">Louie Lopez</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6545" checked="" />
+			                <label class="custom-control-label" for="customSwitch6545"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              26 <input type="hidden" id="boxer_name" value="Richard Brewart" />
+			              <input type="hidden" id="boxer_id" value="6547" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/843739" target="_blank">843739</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/richard-brewart/" target="_blank">Richard Brewart</a>
+			            </td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch6547" checked="" />
+			                <label class="custom-control-label" for="customSwitch6547"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              27 <input type="hidden" id="boxer_name" value="Michael Dutchover" />
+			              <input type="hidden" id="boxer_id" value="5811" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/776170" target="_blank">776170</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/michael-dutchover/" target="_blank">Michael
+			                Dutchover</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5811" checked="" />
+			                <label class="custom-control-label" for="customSwitch5811"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              28 <input type="hidden" id="boxer_name" value="Ruben Torres" />
+			              <input type="hidden" id="boxer_id" value="5862" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/809433" target="_blank">809433</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/ruben-torres/" target="_blank">Ruben Torres</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch5862" checked="" />
+			                <label class="custom-control-label" for="customSwitch5862"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			          <tr class="align-middle text-center">
+			            <th scope="row">
+			              29 <input type="hidden" id="boxer_name" value="Arnold Dinong" />
+			              <input type="hidden" id="boxer_id" value="7245" />
+			            </th>
+			            <td class="boxrec-id"><a href="https://boxrec.com/en/boxer/824212" target="_blank">824212</a></td>
+			            <td><a href="https://www.thompsonboxing.local/fighter/arnold-dinong/" target="_blank">Arnold Dinong</a></td>
+			            <td>
+			              <div class="custom-control custom-switch">
+			                <input type="checkbox" class="custom-control-input" id="customSwitch7245" checked="" />
+			                <label class="custom-control-label" for="customSwitch7245"></label>
+			              </div>
+			            </td>
+			            <td>
+			              <button type="button" class="btn btn-danger check_fighter_boxrec_data" data-toggle="tooltip"
+			                data-placement="top" title="Check Fighter Boxrec Data">
+			                <i class="fa fa-refresh"></i>
+			              </button>
+			            </td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			  </div>
+		</div>
+	</main>
+	<script src="./assets/scripts/backend.js"></script>
+</body>
+
+</html>

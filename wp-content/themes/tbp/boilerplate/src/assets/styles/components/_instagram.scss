@@ -1,0 +1,147 @@
+.#{$prefix}-instagram {
+	margin-top: 120px;
+	position: relative;
+
+	@include media-breakpoint-down(xs) {
+		margin-top: 60px;
+	}
+
+	.#{$prefix}-instagram-shape {
+		background: $color-cardinal;
+		height: 920px;
+		position: absolute;
+		right: -300px;
+		top: -50px;
+		transform: skew(30deg);
+		width: 450px;
+
+		@include media-breakpoint-down(md) {
+			right: -245px;
+			width: 325px;
+		}
+
+		@include media-breakpoint-down(sm) {
+			right: -215px;
+			width: 215px;
+		}
+
+		@include media-breakpoint-down(xs) {
+			right: -275px;
+			top: 90px;
+			width: 325px;
+		}
+
+		@media (max-width: 380px) {
+			right: -340px;
+			top: 100px;
+		}
+	}
+
+	.#{$prefix}-inst-feed {
+		margin-top: 25px;
+		margin-bottom: -30px;
+
+		@include media-breakpoint-down(sm) {
+			margin-top: 30px;
+		}
+
+		.col-4 {
+			margin-bottom: 30px;
+			position: relative;
+
+			.#{$prefix}-video-overlay {
+				background: linear-gradient(
+					180deg,
+					rgba(17, 18, 24, 0.2) 0%,
+					$color-woodsmoke 100%
+				);
+				display: block;
+				height: 100%;
+				position: absolute;
+				width: calc(100% - 30px);
+
+				img {
+					left: 50%;
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%, -50%);
+
+					@include media-breakpoint-down(sm) {
+						width: 30px;
+					}
+
+					@include media-breakpoint-down(xs) {
+						width: 60px;
+					}
+				}
+			}
+
+			@include media-breakpoint-down(xs) {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			&.grid-col {
+				&:nth-last-child(-n + 3) {
+					@include media-breakpoint-down(xs) {
+						display: none;
+					}
+				}
+
+				a {
+					img {
+						transition: 0.1s ease;
+					}
+
+					&:hover {
+						.#{$prefix}-video-overlay {
+							height: calc(100% - 16px);
+							left: 24px;
+							top: 8px;
+							width: calc(100% - 46px);
+						}
+
+						> img {
+							border: 8px solid $color-white;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.#{$prefix}-inst-mobile {
+		display: none;
+
+		@include media-breakpoint-down(xs) {
+			display: flex;
+		}
+
+		.#{$prefix}-inst-social {
+			text-align: center;
+
+			a {
+				background: $color-white;
+				border-radius: 24px;
+				color: $color-cardinal;
+				display: inline-block;
+				height: 24px;
+				margin-right: 25px;
+				text-align: center;
+				width: 24px;
+
+				@include media-breakpoint-down(sm) {
+					margin-right: 14px;
+				}
+
+				&:hover {
+					color: rgba($color-cardinal, 0.8);
+				}
+
+				i {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

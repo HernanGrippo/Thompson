@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Language" content="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Single</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<meta name="description" content="">
+	<!-- Disable tap highlight on IE -->
+	<meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="./assets/styles/frontend.css">
+	<script type="text/javascript" src="https://assets.inplayer.com/paywall/latest/paywall.min.js"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
+<body>
+	<main role="main">
+		<section id="tbp-navigation" class="tbp-navigation">
+			<div class="top">
+				<div class="banner"></div>
+				<button class="nav-close d-flex align-items-center justify-content-center" id="tbp-navigation-icon-close">
+					<img src="./assets/images/navigation-close.svg" alt="" />
+				</button>
+			</div>
+			<ul class="list-unstyled tbp-menu">
+						<li>
+							<a href="/" title="Home" class="item">
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="/faqs.html" title="Questions" class="item">
+								Questions
+							</a>
+						</li>
+						<li class="buy-now">
+							<a href="javascript:;" title="Buy Now" class="item inplayer-fancy" data-fancybox="inplayer-3" data-src="#-inplayer-video">
+								Buy Now
+							</a>
+						</li>
+			</ul>
+			<div class="tbp-contact">
+				<h3 class="label">Contact Info</h3>
+				<p>282 South Anita Drive Orange, CA 92868</p>
+				<p>
+						<span class="text-upercase">P: </span>
+						<span>714-935-0900</span>
+						<span class="text-upercase">F: </span>
+						<span>714-935-0600</span>
+				</p>
+				<p>help@thompsonboxing.com</p>
+			</div>
+			<div class="tbp-social">
+				<h3 class="label">Follow Us</h3>
+				<ul class="list-unstyled tbp-social">
+					<li>
+						<a href="https://www.facebook.com/thompsonboxing/" title="Facebook" class="item" target="_blank">
+							Facebook
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/thompsonboxing/" title="Instagram" class="item" target="_blank">
+							Instagram
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com/thompsonboxing" title="Twitter" class="item" target="_blank">
+							Twitter
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/channel/UCg_u52-QbmfxyCJPc-v5htg" title="YouTube" class="item" target="_blank">
+							YouTube
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="tbp-top-bar">
+			<div class="container-fluid top-bar-wrapper">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="d-block d-md-none">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+								</div>
+								<p>Thompson Boxing is Back</p>
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="d-none d-md-block h-100">
+							<div class="h-100 d-flex align-items-center">
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" class="icon" alt="">
+								</div>
+								<p>Stay tuned for <strong>3. 2. 1 Boxing's</strong> next event!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 p-0">
+						<div class="d-none d-md-block h-100 w-100">
+							<div class="d-flex align-items-center justify-content-end h-100">
+								<a href="#tbp-hero" class="bar-close closed">View <strong>Thomspon Boxing’s</strong> latest!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<style>
+			.tbp-hero {
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: cover;
+				display: flex;
+				justify-content: center;
+				margin-top: 0;
+				opacity: 1;
+				position: relative;
+				text-align: center;
+				transition: visibility 0.25s, opacity 0.5s linear;
+				visibility: visible;
+				width: 100vw;
+				z-index: 100;
+			}
+		
+			.tbp-hero.closed {
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				transition: visibility 0.075s, opacity 0.125s linear;
+				display: none;
+			}
+		
+			.tbp-hero .wrapper {
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: flex;
+				height: 100%;
+				width: 100%;
+			}
+		
+			@media (min-width: 992px) {
+				.tbp-hero .wrapper {
+					background-position: center;
+					background-size: cover;
+				}
+			}
+		
+			@media (min-width: 1200px) {
+				.tbp-hero .wrapper {
+					align-self: center;
+				}
+			}
+		</style>
+		
+		<section id="tbp-hero" class="tbp-hero closed">
+			<div class="wrapper">
+				<div class="d-xl-flex h-100 w-100 justify-content-center align-items-center">
+					<div class="position-relative w-100 d-block d-md-none">
+						<img src="assets/images/hero/hero-mobile-11-01-2020.jpg" class="w-100 img-fluid">
+					</div>
+					<div class="position-relative w-100 d-none d-md-block">
+						<img src="assets/images/hero/hero-large-11-01-2020.jpg" class="w-100 img-fluid">
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="tbp-inplayer-video" class="tbp-inplayer-video">
+			<div class="stripe"></div>
+			<div id="inplayer-104946" class="inplayer-paywall"></div>
+			<script>
+				var paywall = new InplayerPaywall('42b45adc-1cd1-423e-a658-fe895950836b', [{
+					id: 104946
+				}]);
+			</script>
+		</div>
+
+		<div id="yield">
+				<div class="tbp-fix-social d-none d-lg-flex">
+					<a href="mailto:info@thompsonboxing.com" target="_blank"><img src="./assets/images/email-us.svg" alt="email us" class="email-us" /></a>
+					<ul class="socials">
+						<li>
+							<a href="#" title="Facebook">
+								<img src="./assets/images/facebook.svg" alt="facebook" />
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Instagram">
+								<img src="./assets/images/instagram.svg" alt="instagram" />
+							</a>
+						</li>
+						<li>
+							<a href="#" title="YouTube">
+								<img src="./assets/images/youtube.svg" alt="youtube" />
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Twitter">
+								<img src="./assets/images/twitter.svg" alt="twitter" />
+							</a>
+						</li>
+					</ul>
+					<img src="./assets/images/find-us-at.svg" alt="find us at" class="find-us-at" />
+				</div>
+
+			<header class="text-center d-flex" id="tbp-header">
+				<div class="container position-relative" >
+					<button class="tbp-navigation-icon-open" id="tbp-navigation-icon-open">
+						<div class="d-block d-md-none mobile">
+							<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect width="40" height="40" fill="#BE1E2D"/>
+								<rect x="10" y="19" width="19" height="2" fill="white"/>
+								<rect x="10" y="11" width="19" height="2" fill="white"/>
+								<rect x="10" y="27" width="19" height="2" fill="white"/>
+							</svg>
+						</div>
+						<div class="d-none d-md-block">
+							<span>MENU</span>
+							<svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect y="13" width="34" height="5" fill="white"/>
+								<rect width="34" height="5" fill="white"/>
+								<rect y="26" width="34" height="5" fill="white"/>
+							</svg>
+						</div>
+					</button>
+			
+					<div class="row tbp-logo">
+						<div class="col-12">
+							<!--
+							<a href="/" aria-label="Home" class="d-block d-md-none mobile">
+								<img class="img-fluid" src="assets/images/icon-logo-white-gray.svg" alt="TBP Logo">
+							</a>
+							-->
+							<a href="/" aria-label="Home">
+								<img class="img-fluid" src="assets/images/logo-light.svg" alt="TBP Logo">
+							</a>
+						</div>
+					</div>
+			
+					<!--
+					<div class="row">
+						<div class="col-12">
+							<div class="mb-5">
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe id="ls_embed_1595468705" src="https://livestream.com/accounts/23289909/events/9227014/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen> </iframe><script type="text/javascript" data-embed_id="ls_embed_1595468705" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>
+							</div>
+						</div>
+					</div>
+					-->
+			
+			
+				</div>
+			</header>
+
+				<div class="tbp-page tbp-page-single">
+					<div class="shape">
+						<section class="tbp-single-container">
+							<div class="container">
+								<div class="row align-items-center">
+									<div class="col-12">
+										<div class="d-flex justify-content-between">
+											<div class="d-flex align-items-center">
+												<img src="./assets/images/author.svg" alt="Thompson Boxing Promotions" class="avatar">
+												<span class="fullname">Thompson Boxing Promotions</span>
+											</div>
+											<div class="d-flex align-items-center">
+												<p class="m-0"><span class="location">Orange, Calif. - </span><span class="post-date">Jun 11, 2020</span></p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<div class="tbp-single-title">
+											<h4>Emanuel Navarrete Vs. Uriel Lopez Next Saturday On June 20</h4>
+											<input type="hidden" id="tbp-current-url" value="https://www.thompsonboxing.com/news/emanuel-navarrete/">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<div class="img-wrapper">
+											<div class="img-bg" style="background: url(./assets/images/single-header.jpg) no-repeat top; background-size: cover;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<div class="tbp-single-content d-flex align-items-center">
+											<div class="single-social-share">
+												<ul>
+													<li><a href="#" data-toggle="popover" title="Share on Facebook" id="tbp-facebook" target="_blank"><img src="./assets/images/icon/facebook.png"
+																alt="Share on Facebook"></a></li>
+													<li><a href="#" data-toggle="popover" title="Share on Twitter" id="tbp-twitter" target="_blank"><img src="./assets/images/icon/twitter.png"
+																alt="Share on Twitter"></a></li>
+													<li><a href="#" data-toggle="popover" title="Share Email" id="tbp-email" target="_blank"><img src="./assets/images/icon/mail.png"
+																alt="Share Email"></a></li>
+													<li><a href="#" data-toggle="popover" title="Copy To Clipboard" id="tbp-link" target="_blank"><img src="./assets/images/icon/link.png"
+																alt="Copy To Clipboard"></a></li>
+												</ul>
+												<span class="share-title">SHARE</span>
+											</div>
+											<div class="content-inner">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend dolor eu ligula dictum maximus. Nunc sit amet fermentum velit, ut imperdiet tellus. Etiam posuere porttitor eros, id pellentesque risus euismod auctor. Duis posuere, neque at efficitur facilisis, tortor metus consequat dui, vel sagittis nisi erat nec lectus. Nullam risus neque, interdum dignissim ipsum eu, dignissim sagittis mi. Mauris non magna tristique, sodales justo sit amet, sodales turpis. Vivamus ut finibus felis. Nunc non finibus risus, in posuere magna. Aenean euismod est eros, id maximus metus blandit placerat. Integer placerat pretium ultrices. Aliquam erat volutpat. Suspendisse cursus gravida dolor sed condimentum. Ut efficitur metus eu lacus tincidunt ultrices. Quisque pulvinar, magna a scelerisque varius, urna neque lobortis nisl, quis sodales tellus nulla ac urna. Donec mauris purus, sagittis ut eleifend vitae, egestas sit amet augue. Integer risus metus, dictum ut felis at, rhoncus commodo urna. Nam nibh massa, ullamcorper nec libero vel, facilisis porta ante. Nam eget dapibus lacus. Praesent egestas massa felis, vitae vehicula turpis molestie in. In molestie egestas leo ut porttitor. Praesent imperdiet ipsum et pellentesque lacinia. Aliquam sit amet auctor velit. Curabitur vulputate at odio vel fringilla. Morbi id luctus erat. Nulla lacus turpis, aliquet vitae vehicula in, venenatis id ante. Donec nec leo felis. Sed arcu nisl, commodo at varius quis, tristique tincidunt nisi.</p>
+												<img src="./assets/images/single-banner.jpg" alt="Banner" class="img-fluid" />
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend dolor eu ligula dictum maximus. Nunc sit amet fermentum velit, ut imperdiet tellus. Etiam posuere porttitor eros, id pellentesque risus euismod auctor. Duis posuere, neque at efficitur facilisis, tortor metus consequat dui, vel sagittis nisi erat nec lectus. Nullam risus neque, interdum dignissim ipsum eu, dignissim sagittis mi. Mauris non magna tristique, sodales justo sit amet, sodales turpis. Vivamus ut finibus felis. Nunc non finibus risus, in posuere magna. Aenean euismod est eros, id maximus metus blandit placerat. Integer placerat pretium ultrices. Aliquam erat volutpat. Suspendisse cursus gravida dolor sed condimentum. Ut efficitur metus eu lacus tincidunt ultrices. Quisque pulvinar, magna a scelerisque varius, urna neque lobortis nisl, quis sodales tellus nulla ac urna. Donec mauris purus, sagittis ut eleifend vitae, egestas sit amet augue. Integer risus metus, dictum ut felis at, rhoncus commodo urna. Nam nibh massa, ullamcorper nec libero vel, facilisis porta ante. Nam eget dapibus lacus. Praesent egestas massa felis, vitae vehicula turpis molestie in. In molestie egestas leo ut porttitor. Praesent imperdiet ipsum et pellentesque lacinia. Aliquam sit amet auctor velit. Curabitur vulputate at odio vel fringilla. Morbi id luctus erat. Nulla lacus turpis, aliquet vitae vehicula in, venenatis id ante. Donec nec leo felis. Sed arcu nisl, commodo at varius quis, tristique tincidunt nisi.</p>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend dolor eu ligula dictum maximus. Nunc sit amet fermentum velit, ut imperdiet tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend dolor eu ligula dictum maximus. Nunc sit amet fermentum velit, ut imperdiet tellus.</p>
+												<div class="clearfix gallery">
+															<a href="./assets/images/gallery1.png" class="main-thumb float-left" data-fancybox="gallery-emanuel-navarrete" style="background-image: url('./assets/images/gallery1.png')"></a>
+															<a href="./assets/images/gallery2.png" class="sub-thumb float-left" data-fancybox="gallery-emanuel-navarrete" style="background-image: url('./assets/images/gallery2.png')"></a>
+															<a href="./assets/images/gallery3.png" class="sub-thumb float-left" data-fancybox="gallery-emanuel-navarrete" style="background-image: url('./assets/images/gallery3.png')"></a>
+															<a href="./assets/images/gallery4.png" class="sub-thumb float-left" data-fancybox="gallery-emanuel-navarrete" style="background-image: url('./assets/images/gallery4.png')"></a>
+															<a href="./assets/images/gallery5.png" class="sub-thumb float-left" data-fancybox="gallery-emanuel-navarrete" style="background-image: url('./assets/images/gallery5.png')"></a>
+												</div>
+												<div class="d-block d-md-none">
+													<div class="container">
+														<div class="row">
+															<div class="col-12">
+																<div class="single-social-share-fighter">
+																	<div class="d-flex justify-content-between">
+																			<div class="clearfix">
+																				<a
+																					class="d-block"
+																					href="#"
+																					data-toggle="popover"
+																					title="Share on Facebook"
+																					id="tbp-facebook"
+																					target="_blank">
+																						<img src="./assets/images/icon/facebook.png" class="social" alt="Share on Facebook">
+																				</a>
+																			</div>
+																			<div class="clearfix">
+																				<a
+																					class="d-block"
+																					href="#"
+																					data-toggle="popover"
+																					title="Share on Twitter"
+																					id="tbp-twitter"
+																					target="_blank">
+																						<img src="./assets/images/icon/twitter.png" class="social" alt="Share on Twitter">
+																				</a>
+																			</div>
+																			<div class="clearfix">
+																				<a
+																					class="d-block"
+																					href="#"
+																					data-toggle="popover"
+																					title="Share Email"
+																					id="tbp-email"
+																					target="_blank">
+																						<img src="./assets/images/icon/mail.png" class="social" alt="Share Email">
+																				</a>
+																			</div>
+																			<div class="clearfix">
+																				<a
+																					class="d-block"
+																					href="#"
+																					data-toggle="popover"
+																					title="Copy To Clipboard"
+																					id="tbp-link"
+																					target="_blank">
+																						<img src="./assets/images/icon/link.png" class="social" alt="Copy To Clipboard">
+																				</a>
+																			</div>
+																		<div>
+																			<svg width="60" height="14" viewBox="0 0 60 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+																				<path d="M7.76 2.6C7.12 1.416 5.984 0.728 4.64 0.728C2.848 0.728 1.264 1.928 1.264 3.8C1.264 5.528 2.48 6.248 3.888 6.888L4.624 7.208C5.744 7.72 6.848 8.2 6.848 9.608C6.848 10.968 5.664 11.96 4.368 11.96C3.072 11.96 2.128 10.952 1.952 9.72L0.64 10.088C1.024 11.96 2.464 13.208 4.4 13.208C6.496 13.208 8.192 11.592 8.192 9.48C8.192 7.56 6.864 6.776 5.296 6.088L4.496 5.736C3.68 5.368 2.608 4.888 2.608 3.848C2.608 2.744 3.536 1.976 4.608 1.976C5.632 1.976 6.208 2.456 6.688 3.288L7.76 2.6ZM14.4415 5.832V0.936H13.0975V13H14.4415V7.08H20.6175V13H21.9615V0.936H20.6175V5.832H14.4415ZM34.2954 9.576L35.7194 13H37.2074L31.7834 0.36L26.2154 13H27.6874L29.1434 9.576H34.2954ZM33.7674 8.328H29.6874L31.7514 3.496L33.7674 8.328ZM42.7469 2.184H43.1469C44.7629 2.184 46.2189 2.376 46.2189 4.36C46.2189 6.232 44.6829 6.52 43.1629 6.52H42.7469V2.184ZM42.7469 7.704H43.0829L46.7309 13H48.3789L44.5389 7.592C46.3949 7.432 47.5629 6.12 47.5629 4.264C47.5629 1.544 45.4349 0.936 43.1469 0.936H41.4029V13H42.7469V7.704ZM52.9548 13H59.2108V11.752H54.2988V7.016H59.0668V5.768H54.2988V2.184H59.2108V0.936H52.9548V13Z" fill="#707174"/>
+																			</svg>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="news">
+									<div class="row">
+										<div class="col-12 text-center">
+											<h5>You may like</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+							<section class="tbp-related-posts-fixed ">
+								<div class="container">
+									<div class="row">
+												<div class="col-md-4">
+													<div class="card-wrapper">
+														<a class="card" title="Incididunt velit magna ullamco aliquip. Esse ipsum est consequat officia ipsum ut consectetur eu..." href="/single.html">
+															<div class="img-wrapper">
+																<div class="img-bg" style="background: url(./assets/images/gallery1.png) no-repeat top; background-size: cover;"></div>
+															</div>
+															<div class="card-body">
+																<p class="card-title">3, 2, 1 Boxing</p>
+																<p>
+																	Incididunt velit magna ullamco aliquip. Esse ipsum est consequat officia ipsum ut consectetur eu...
+																</p>
+																<small class="publication-date text-muted">1 day ago</small>
+															</div>
+														</a>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="card-wrapper">
+														<a class="card" title="Incididunt velit magna ullamco aliquip. Esse ipsum est" href="/single.html">
+															<div class="img-wrapper">
+																<div class="img-bg" style="background: url(./assets/images/gallery2.png) no-repeat top; background-size: cover;"></div>
+															</div>
+															<div class="card-body">
+																<p class="card-title">3, 2, 1 Boxing</p>
+																<p>
+																	Incididunt velit magna ullamco aliquip. Esse ipsum est
+																</p>
+																<small class="publication-date text-muted">1 day ago</small>
+															</div>
+														</a>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="card-wrapper">
+														<a class="card" title="Incididunt velit magna ullamco aliquip. Esse ipsum est consequat officia ipsum" href="/single.html">
+															<div class="img-wrapper">
+																<div class="img-bg" style="background: url(./assets/images/gallery3.png) no-repeat top; background-size: cover;"></div>
+															</div>
+															<div class="card-body">
+																<p class="card-title">3, 2, 1 Boxing</p>
+																<p>
+																	Incididunt velit magna ullamco aliquip. Esse ipsum est consequat officia ipsum
+																</p>
+																<small class="publication-date text-muted">1 day ago</small>
+															</div>
+														</a>
+													</div>
+												</div>
+									</div>
+								</div>
+							</section>
+						</section>
+					</div>
+				</div>
+
+			<section class="tbp-subscribe">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 text-center">
+							<img src="assets/images/icon-logo.svg" class="img-fluid" />
+							<h4>WE ELEVATE THE SPORT OF BOXING</h4>
+							<p>Be the first to know about our new calendar of events, sign up now!</p>
+							<form id="tbp-subscribe-form" class="form-inline" name="tbp-subscribe-form">
+								<div class="input-group col-9 mx-auto">
+									<input type="text" class="form-control" placeholder="Enter your email" name="email_address" id="email_address" />
+									<span class="input-group-btn">
+										<button class="btn tbp-subscribe-btn my-auto" type="submit"><img
+												src="assets/images/envelop-icon.svg" /></button>
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+		<footer id="tbp-footer">
+			<div class="container">
+				<div class="row no-gutters justify-content-md-center">
+					<div class="col-12 col-md-12 col-lg-4 mb-lg-0 mb-4">
+						<img src="assets/images/footer-logo.svg" class="img-fluid mx-lg-0 mx-auto logo" />
+						<p class="copyright d-lg-block d-none">©2020 Thompson Boxing Promotion. All Rights Reserved.</p>
+					</div>
+					<div class="col-12 col-md-6 col-lg-6">
+						<div class="contact">
+							<h4>Contact us</h4>
+							<p>282 South Anita Drive Orange, CA 92868</p>
+							<p>
+								<span class="phone">P: 714-935-0900</span>
+								<span class="fax">F: 714-935-0600</span>
+							</p>
+							<p>
+								<a href="mailto:info@thompsonboxing.com" target="_blank"
+									title="Thompson Boxing Promotions">info@thompsonboxing.com</a>
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3 col-lg-2">
+						<div class="social">
+							<h4>Follow Us</h4>
+							<ul>
+								<li><a href="" target="_blank">Facebook</a></li>
+								<li><a href="" target="_blank">Instagram</a></li>
+								<li><a href="" target="_blank">Twitter</a></li>
+								<li><a href="" target="_blank">YouTube</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row no-gutters justify-content-md-center">
+					<div class="col-lg-4 d-none d-md-block"></div>
+					<div class="footer-alt-container col-12 col-md-9 col-lg-8">
+						<div class="footer-alt-menu text-center text-md-left">
+							<ul>
+								<li><a href="page.html" target="_blank">Privacy Policy</a></li>
+								<li><a href="page.html" target="_blank">Cookies Policy</a></li>
+								<li><a href="page.html" target="_blank">Terms & Conditions</a></li>
+							</ul>
+						</div>
+						<p class="copyright d-lg-none">©2020 Thompson Boxing Promotion. All Rights Reserved.</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<section class="tbp-overlay" id="tbp-overlay"></section>
+	</main>
+  <script src="./assets/scripts/frontend.js"></script>
+</body>
+
+</html>

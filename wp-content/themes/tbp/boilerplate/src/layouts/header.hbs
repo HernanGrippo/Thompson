@@ -1,0 +1,23 @@
+<header class="text-center d-flex" id="{{prefix}}-header">
+	<div class="container position-relative" >
+		{{> components/navigation-icon-open prefix=prefix }}
+
+		{{> components/logo prefix=prefix }}
+
+		<!--
+		<div class="row">
+			<div class="col-12">
+				<div class="mb-5">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe id="ls_embed_1595468705" src="https://livestream.com/accounts/23289909/events/9227014/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen> </iframe><script type="text/javascript" data-embed_id="ls_embed_1595468705" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>
+				</div>
+			</div>
+		</div>
+		-->
+
+
+		{{#if isFrontPage}}
+			{{> components/intro data=global.home.intro prefix=prefix }}
+		{{/if}}
+	</div>
+</header>

@@ -1,0 +1,127 @@
+.#{$prefix}-sponsors {
+	margin-top: 80px;
+
+	@include media-breakpoint-down(xs) {
+		margin-bottom: -40px;
+	}
+
+	@include media-breakpoint-up(sm) {
+		margin-top: 120px;
+	}
+
+	.container {
+		.row {
+			align-items: center;
+			text-align: center;
+
+			&.sponsors-row {
+				.sponsors-header {
+					font-size: 20px;
+					font-weight: normal;
+					line-height: 32px;
+				}
+
+				hr {
+					background-color: $color-cardinal;
+					margin: 25px auto;
+					width: 160px;
+				}
+
+				.logo-container {
+					display: flex;
+					flex-flow: wrap;
+					justify-content: space-around;
+
+					@include media-breakpoint-up(md) {
+						display: block;
+					}
+
+					img {
+						margin-right: 35px;
+						max-height: 60px;
+
+						@include media-breakpoint-down(lg) {
+							margin-bottom: 35px;
+						}
+
+						@include media-breakpoint-down(xs) {
+							margin-right: 0;
+							width: 40%;
+						}
+
+						&:nth-child(even) {
+							@include media-breakpoint-down(xs) {
+								//margin-left: 3%;
+								margin-left: 0;
+							}
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+
+			&.partners-row {
+
+				@include media-breakpoint-up(xl) {
+					margin-top: 30px;
+				}
+
+				.partners-header {
+					color: #A7A9AC;
+					font-size: 16px;
+					font-weight: normal;
+					line-height: 24px;
+					margin-bottom: 25px;
+				}
+
+				.logo-container {
+					display: flex;
+					flex-flow: wrap;
+					justify-content: space-around;
+
+					@include media-breakpoint-up(md) {
+						display: block;
+					}
+
+					a {
+						margin-right: 60px;
+
+						@include media-breakpoint-down(lg) {
+							display: inline-block;
+							margin-bottom: 35px;
+							margin-right: 30px;
+						}
+
+						@include media-breakpoint-down(xs) {
+							align-items: center;
+							display: flex;
+							justify-content: center;
+							margin-right: 0;
+							width: 40%;
+						}
+
+						&:nth-child(even) {
+							@include media-breakpoint-down(xs) {
+								//margin-left: 15%;
+							}
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+
+						img {
+							@include media-breakpoint-down(xs) {
+								max-width: 100%;
+								max-height: 44px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

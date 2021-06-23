@@ -1,0 +1,74 @@
+# This is a sample build configuration for PHP.
+# Check our guides at https://confluence.atlassian.com/x/e8YWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: php:7.4.3
+
+pipelines:
+  branches:
+    # develop:
+    #   - step:
+    #       name: Deploy to develop
+    #       deployment: develop
+    #       script:
+    #         - echo "Deploying to develop environment"
+    #         - apt-get update
+    #         - apt-get install -y zip
+    #         - mv appspec-dev.yml appspec.yml
+    #         - zip -r admin-dev-elevate.zip . -x "appspec-pro.yml"
+    #         - pipe: atlassian/aws-code-deploy:0.6.0
+    #           variables:
+    #             AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+    #             AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+    #             AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+    #             APPLICATION_NAME: $APPLICATION_NAME_DEV
+    #             S3_BUCKET: $S3_BUCKET
+    #             COMMAND: 'upload'
+    #             ZIP_FILE: 'admin-dev-elevate.zip'
+    #             VERSION_LABEL: 'admin-dev-elevate-1.0.0'
+    #         - pipe: atlassian/aws-code-deploy:0.6.0
+    #           variables:
+    #             AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+    #             AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+    #             AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+    #             APPLICATION_NAME: $APPLICATION_NAME_DEV
+    #             DEPLOYMENT_GROUP: $DEPLOYMENT_GROUP_DEV
+    #             S3_BUCKET: $S3_BUCKET
+    #             COMMAND: 'deploy'
+    #             WAIT: 'true'
+    #             VERSION_LABEL: 'admin-dev-elevate-1.0.0'
+    #             IGNORE_APPLICATION_STOP_FAILURES: 'true'
+    #             FILE_EXISTS_BEHAVIOR: 'OVERWRITE'
+    master:
+      - step:
+          name: Deploy to production
+          deployment: production
+          script:
+            - echo "Deploying to production environment"
+            - apt-get update
+            - apt-get install -y zip
+            - zip -r tbp-v2-pro.zip .
+            - pipe: atlassian/aws-code-deploy:0.6.0
+              variables:
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                APPLICATION_NAME: $APPLICATION_NAME_PRO
+                S3_BUCKET: $S3_BUCKET
+                COMMAND: 'upload'
+                ZIP_FILE: 'tbp-v2-pro.zip'
+                VERSION_LABEL: 'tbp-v2-pro-1.0.0'
+            - pipe: atlassian/aws-code-deploy:0.6.0
+              variables:
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                APPLICATION_NAME: $APPLICATION_NAME_PRO
+                DEPLOYMENT_GROUP: $DEPLOYMENT_GROUP_PRO
+                S3_BUCKET: $S3_BUCKET
+                COMMAND: 'deploy'
+                WAIT: 'true'
+                VERSION_LABEL: 'tbp-v2-pro-1.0.0'
+                IGNORE_APPLICATION_STOP_FAILURES: 'true'
+                FILE_EXISTS_BEHAVIOR: 'OVERWRITE'

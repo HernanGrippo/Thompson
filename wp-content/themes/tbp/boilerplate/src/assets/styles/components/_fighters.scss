@@ -1,0 +1,169 @@
+.#{$prefix}-fighters {
+	margin-top: 56px;
+	position: relative;
+
+	.fighter-row {
+		margin-top: 60px;
+
+		a {
+			display: block;
+
+			.fighter-container {
+				margin-bottom: 30px;
+
+				@include media-breakpoint-up(md) {
+					margin-bottom: initial;
+				}
+
+				.image-wrapper {
+					position: relative;
+					max-width: 400px;
+					width: 100%;
+
+					@include media-breakpoint-up(sm) {
+						max-width: 80%;
+					}
+
+					img {
+						display: block;
+						margin: 0 auto;
+						max-width: 100%;
+					}
+
+					.image-overlay {
+						background: linear-gradient(
+							180deg,
+							rgba(0, 0, 0, 0.093) 0%,
+							rgba(190, 30, 45, 0.8) 83.85%
+						);
+						border-radius: 50% !important;
+						bottom: 0;
+						left: 0;
+						position: absolute;
+						right: 0;
+						top: 0;
+						transition: all 0.2s ease-in-out;
+						opacity: 1;
+					}
+
+					.play {
+						background-image: url(#{$image-path}/play.svg);
+						background-repeat: no-repeat;
+						background-size: contain;
+						content: "";
+						height: 66px;
+						left: 50%;
+						position: absolute;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						width: 49.5px;
+
+						@include media-breakpoint-up(md) {
+							height: 50px;
+							width: 37.66px;
+						}
+
+						@include media-breakpoint-up(lg) {
+							height: 66px;
+							width: 49.5px;
+						}
+					}
+				}
+
+				.fighter-meta {
+					color: $color-iron;
+					display: inline-block;
+					font-size: 12px;
+					font-weight: normal;
+					letter-spacing: 0.01em;
+					line-height: 16px;
+					margin-top: 30px;
+					width: 100%;
+
+					.status {
+						margin-right: 20px;
+						padding-top: 2px;
+
+						.bio-square {
+							display: block;
+							float: left;
+							height: 14px;
+							margin-right: 6px;
+							width: 14px;
+
+							&.color-1 {
+								background-color: $color-green;
+							}
+
+							&.color-2 {
+								background-color: $color-cardinal;
+							}
+
+							&.color-3 {
+								background-color: $color-disable;
+							}
+						}
+
+						.bio-text {
+							display: block;
+							float: left;
+							margin-left: 10px;
+						}
+					}
+				}
+
+				p {
+					margin-bottom: 0;
+				}
+
+				.fighter-name {
+					color: $color-white;
+					font-size: 18px;
+					font-weight: bold;
+					line-height: 28px;
+					margin-top: 15px;
+					text-transform: uppercase;
+				}
+
+				.nickname {
+					color: $color-iron;
+					font-size: 16px;
+					font-weight: normal;
+					line-height: 24px;
+					margin-top: 3px;
+				}
+
+				.fighter-bio-excerpt {
+					color: $color-iron;
+					font-size: 16px;
+					line-height: 24px;
+					margin-bottom: 4px;
+					margin-top: 20px;
+				}
+
+				.bio-read-more {
+					color: $color-cardinal;
+					display: block;
+					margin-top: 24px;
+					text-decoration: underline;
+				}
+			}
+
+			&:hover,
+			&:link,
+			&:visited {
+				text-decoration: none !important;
+			}
+
+			&:hover {
+				.fighter-container {
+					.image-wrapper {
+						.image-overlay {
+							opacity: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

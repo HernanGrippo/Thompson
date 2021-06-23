@@ -1,0 +1,62 @@
+
+@import "common/variables";
+@import "vendor/bootstrap/main";
+
+$fa-font-path: "../../../node_modules/font-awesome/fonts/" !default;// Your custom variables should be here
+$slick-font-path: "../../../node_modules/slick-carousel/slick/fonts/" !default;
+$slick-loader-path: "../../../node_modules/slick-carousel/slick/" !default;
+
+@import "~bootstrap/scss/bootstrap";
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+@import "../../../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss";
+@import "../../../node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss";
+@import "../../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+
+// Common
+@import "common/global";
+@import "common/mixins";
+@import "common/fonts";
+
+// Layouts
+@import "layouts/footer";
+@import "layouts/header";
+
+// Components
+@import "components/ask";
+@import "components/banner-728x90";
+@import "components/fighters";
+@import "components/fix_social";
+@import "components/inplayer-video";
+@import "components/instagram";
+@import "components/intro";
+@import "components/logo";
+@import "components/navigation-icon-open";
+@import "components/navigation";
+@import "components/overlay";
+@import "components/questions";
+@import "components/quote";
+@import "components/related-fixed";
+@import "components/related";
+@import "components/slider";
+@import "components/social-share-fighter";
+@import "components/social-share";
+@import "components/sponsors";
+@import "components/subscribe";
+@import "components/top-bar";
+@import "components/video_thumbs";
+@import "components/promotions";
+@import "components/headline";
+@import "components/paragraf-block";
+@import "components/list-block";
+@import "components/commercial";
+
+// Singe Page
+@import "layouts/single-content";
+@import "layouts/single-page";
+@import "layouts/single-fighter";
+
+// Pages
+@import "pages/home";
+@import "pages/faqs";
+@import "pages/fighter";
+@import "pages/single";

@@ -1,0 +1,15 @@
+{{#> layouts/base title="FAQs - Thompson Boxing Promotions" heroClosed=true}}
+	<div class="{{global.prefix}}-page {{global.prefix}}-page-faqs">
+		<div class="shape">
+			{{> components/questions
+							prefix=global.prefix }}
+
+			{{> components/banner-728x90
+							prefix=global.prefix}}
+
+			{{> components/ask
+							prefix=global.prefix
+							form_data=global.devData.contactForm }}
+		</div>
+	</div>
+{{/ layouts/base }}

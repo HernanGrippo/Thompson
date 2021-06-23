@@ -1,0 +1,9 @@
+<div class="single-social-share">
+	<ul>
+		{{#each data.social_share.socials}}
+		<li><a href="#" data-toggle="popover" title="{{title}}" id="{{id}}" target="_blank"><img src="{{icon}}"
+					alt="{{title}}"></a></li>
+		{{/each}}
+	</ul>
+	<span class="share-title">{{data.social_share.title}}</span>
+</div>

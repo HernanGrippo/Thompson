@@ -1,0 +1,41 @@
+<section class="{{prefix}}-instagram">
+	{{!-- <div class="{{prefix}}-instagram-shape"></div> --}}
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h4>{{{data.header}}}</h4>
+			</div>
+		</div>
+
+		{{!-- <div class="row">
+			<div class="{{prefix}}-inst-social col-5 {{prefix}}-inst-desktop">
+				{{#each data.social}}
+					<a href="{{link}}" target="_blank" title="{{alt}}">{{{icon}}}</a>
+				{{/each}}
+			</div>
+		</div> --}}
+
+		<div class="row {{prefix}}-inst-feed">
+			{{#each data.instaFeeds}}
+				<div class="col-4 grid-col">
+					<a href="{{link}}" target="_blank">
+						{{#if video}}
+							<div class="{{../prefix}}-video-overlay">
+								<img src="assets/images/video-overlay.png" />
+							</div>
+						{{/if}}
+						<img class="img-fluid" src="{{img}}" />
+					</a>
+				</div>
+			{{/each}}
+		</div>
+
+		{{!-- <div class="row {{prefix}}-inst-mobile">
+			<div class="{{prefix}}-inst-social col-12">
+				{{#each data.social}}
+					<a href="{{link}}" target="_blank" title="{{alt}}">{{{icon}}}</a>
+				{{/each}}
+			</div>
+		</div> --}}
+	</div>
+</section>

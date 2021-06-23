@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Language" content="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<meta name="description" content="">
+	<!-- Disable tap highlight on IE -->
+	<meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="./assets/styles/frontend.css">
+	<script type="text/javascript" src="https://assets.inplayer.com/paywall/latest/paywall.min.js"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
+<body>
+	<main role="main">
+		<section id="tbp-navigation" class="tbp-navigation">
+			<div class="top">
+				<div class="banner"></div>
+				<button class="nav-close d-flex align-items-center justify-content-center" id="tbp-navigation-icon-close">
+					<img src="./assets/images/navigation-close.svg" alt="" />
+				</button>
+			</div>
+			<ul class="list-unstyled tbp-menu">
+						<li>
+							<a href="/" title="Home" class="item">
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="/faqs.html" title="Questions" class="item">
+								Questions
+							</a>
+						</li>
+						<li class="buy-now">
+							<a href="javascript:;" title="Buy Now" class="item inplayer-fancy" data-fancybox="inplayer-3" data-src="#-inplayer-video">
+								Buy Now
+							</a>
+						</li>
+			</ul>
+			<div class="tbp-contact">
+				<h3 class="label">Contact Info</h3>
+				<p>282 South Anita Drive Orange, CA 92868</p>
+				<p>
+						<span class="text-upercase">P: </span>
+						<span>714-935-0900</span>
+						<span class="text-upercase">F: </span>
+						<span>714-935-0600</span>
+				</p>
+				<p>help@thompsonboxing.com</p>
+			</div>
+			<div class="tbp-social">
+				<h3 class="label">Follow Us</h3>
+				<ul class="list-unstyled tbp-social">
+					<li>
+						<a href="https://www.facebook.com/thompsonboxing/" title="Facebook" class="item" target="_blank">
+							Facebook
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/thompsonboxing/" title="Instagram" class="item" target="_blank">
+							Instagram
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com/thompsonboxing" title="Twitter" class="item" target="_blank">
+							Twitter
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/channel/UCg_u52-QbmfxyCJPc-v5htg" title="YouTube" class="item" target="_blank">
+							YouTube
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="tbp-top-bar">
+			<div class="container-fluid top-bar-wrapper">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="d-block d-md-none">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+								</div>
+								<p>Thompson Boxing is Back</p>
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="d-none d-md-block h-100">
+							<div class="h-100 d-flex align-items-center">
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" class="icon" alt="">
+								</div>
+								<p>Stay tuned for <strong>3. 2. 1 Boxing's</strong> next event!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 p-0">
+						<div class="d-none d-md-block h-100 w-100">
+							<div class="d-flex align-items-center justify-content-end h-100">
+								<a href="#tbp-hero" class="bar-close closed">View <strong>Thomspon Boxing’s</strong> latest!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<style>
+			.tbp-hero {
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: cover;
+				display: flex;
+				justify-content: center;
+				margin-top: 0;
+				opacity: 1;
+				position: relative;
+				text-align: center;
+				transition: visibility 0.25s, opacity 0.5s linear;
+				visibility: visible;
+				width: 100vw;
+				z-index: 100;
+			}
+		
+			.tbp-hero.closed {
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				transition: visibility 0.075s, opacity 0.125s linear;
+				display: none;
+			}
+		
+			.tbp-hero .wrapper {
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: flex;
+				height: 100%;
+				width: 100%;
+			}
+		
+			@media (min-width: 992px) {
+				.tbp-hero .wrapper {
+					background-position: center;
+					background-size: cover;
+				}
+			}
+		
+			@media (min-width: 1200px) {
+				.tbp-hero .wrapper {
+					align-self: center;
+				}
+			}
+		</style>
+		
+		<section id="tbp-hero" class="tbp-hero closed">
+			<div class="wrapper">
+				<div class="d-xl-flex h-100 w-100 justify-content-center align-items-center">
+					<div class="position-relative w-100 d-block d-md-none">
+						<img src="assets/images/hero/hero-mobile-11-01-2020.jpg" class="w-100 img-fluid">
+					</div>
+					<div class="position-relative w-100 d-none d-md-block">
+						<img src="assets/images/hero/hero-large-11-01-2020.jpg" class="w-100 img-fluid">
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="tbp-inplayer-video" class="tbp-inplayer-video">
+			<div class="stripe"></div>
+			<div id="inplayer-104946" class="inplayer-paywall"></div>
+			<script>
+				var paywall = new InplayerPaywall('42b45adc-1cd1-423e-a658-fe895950836b', [{
+					id: 104946
+				}]);
+			</script>
+		</div>
+
+		<div id="yield">
+
+			<header class="text-center d-flex" id="tbp-header">
+				<div class="container position-relative" >
+					<button class="tbp-navigation-icon-open" id="tbp-navigation-icon-open">
+						<div class="d-block d-md-none mobile">
+							<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect width="40" height="40" fill="#BE1E2D"/>
+								<rect x="10" y="19" width="19" height="2" fill="white"/>
+								<rect x="10" y="11" width="19" height="2" fill="white"/>
+								<rect x="10" y="27" width="19" height="2" fill="white"/>
+							</svg>
+						</div>
+						<div class="d-none d-md-block">
+							<span>MENU</span>
+							<svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect y="13" width="34" height="5" fill="white"/>
+								<rect width="34" height="5" fill="white"/>
+								<rect y="26" width="34" height="5" fill="white"/>
+							</svg>
+						</div>
+					</button>
+			
+					<div class="row tbp-logo">
+						<div class="col-12">
+							<!--
+							<a href="/" aria-label="Home" class="d-block d-md-none mobile">
+								<img class="img-fluid" src="assets/images/icon-logo-white-gray.svg" alt="TBP Logo">
+							</a>
+							-->
+							<a href="/" aria-label="Home">
+								<img class="img-fluid" src="assets/images/logo-light.svg" alt="TBP Logo">
+							</a>
+						</div>
+					</div>
+			
+					<!--
+					<div class="row">
+						<div class="col-12">
+							<div class="mb-5">
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe id="ls_embed_1595468705" src="https://livestream.com/accounts/23289909/events/9227014/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen> </iframe><script type="text/javascript" data-embed_id="ls_embed_1595468705" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>
+							</div>
+						</div>
+					</div>
+					-->
+			
+			
+				</div>
+			</header>
+
+				<div class="tbp-page tbp-page-policy">
+					<div class="shape">
+						<div class="tbp-page tbp-page-single">
+							<div class="container">
+								<div class="tbp-page-title mb-4">
+									<h4>Privacy Policy</h4>
+									<input type="hidden" id="tbp-current-url" value="https://www.thompsonboxing.com/privacy-policy/">
+								</div>
+							</div>
+						
+							<div class="shape">
+										<section class="tbp-page-headline">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner pb-0 w-100">
+														<h5>Privacy Policy</h5>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida duis amet magna suscipit neque. Sit vel sed in faucibus nunc sit convallis sit. Consequat, elit id tellus justo diam, egestas blandit. Amet, nisi, elementum porttitor ipsum est ullamcorper est in ut. Lacus molestie felis quam diam bibendum. Vivamus cras sem ut sodales diam. Vulputate pretium nunc, fusce urna. Neque id in neque interdum et convallis volutpat.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Diam dictumst aliquet vitae vitae eget tempor facilisis. Sagittis enim sodales ac mattis ut mauris, magna nunc, phasellus. Dapibus tristique hac nunc, arcu. Congue ligula habitant amet, mauris volutpat morbi sapien pharetra. Nec ac id sem quis augue turpis rhoncus. Augue libero, amet tincidunt vitae pulvinar a.<br> Varius fringilla sit faucibus venenatis sit massa mattis. Tellus neque vestibulum sit sed habitasse augue nec, in vitae. Odio et ornare purus tellus lectus id neque. Quis et pellentesque sed faucibus accumsan ipsum ac hac id. Pellentesque elit vel id odio. Risus eget quis nibh condimentum aenean ornare sed tortor. Facilisis est ultricies cursus pellentesque arcu faucibus cursus eget. Morbi feugiat ac mauris fermentum aliquam. Felis lacinia purus posuere nam mattis lorem et rhoncus. Molestie sagittis cursus egestas eget magna. Cursus at diam aliquam mattis amet, eget mauris, aenean.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Netus phasellus sit leo tortor velit nulla. Nam eu egestas ultrices a et ut. Arcu in tellus id magna. Phasellus dignissim massa sit in fermentum et vestibulum. Dignissim est scelerisque at facilisi ipsum. A eget dui consequat adipiscing fusce lectus nunc congue. Et faucibus aliquam interdum id vel massa tellus. Netus magna suspendisse tincidunt egestas est nisl eu lorem.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Commodo elit tellus tincidunt risus tristique viverra dignissim. Odio arcu adipiscing leo maecenas vulputate risus justo. Est enim sit ante est feugiat nam nunc sem vel. Nunc orci tincidunt pharetra neque nibh lacus fames pellentesque. Porttitor tortor amet, malesuada malesuada eget vestibulum odio ultrices aliquet. Nisl sit at elementum cursus sed rhoncus maecenas mattis. Bibendum arcu eget rutrum diam convallis dictumst nunc, feugiat consequat. Non id massa facilisi nunc sodales egestas blandit pellentesque. Maecenas mauris, et diam eu pellentesque. In aliquam praesent donec purus. Eget ut ac quam leo mi ullamcorper.`</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-headline">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner pb-0 w-100">
+														<h5>Cookies Policy</h5>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida duis amet magna suscipit neque. Sit vel sed in faucibus nunc sit convallis sit. Consequat, elit id tellus justo diam, egestas blandit. Amet, nisi, elementum porttitor ipsum est ullamcorper est in ut. Lacus molestie felis quam diam bibendum. Vivamus cras sem ut sodales diam. Vulputate pretium nunc, fusce urna. Neque id in neque interdum et convallis volutpat.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Magnis id eu cras porttitor. Quis volutpat varius pharetra, et mi. Mattis lacinia pulvinar et sed lacus turpis eget diam. Cursus donec sed sollicitudin laoreet ipsum rhoncus. Eget sem curabitur fusce dolor, hac arcu turpis in. Eget massa in magna posuere. Cras pulvinar scelerisque dui, ultricies sociis. Tristique pellentesque nulla enim magna at sed neque ornare. Nibh felis amet, sed non massa nunc, nibh sed morbi. Dignissim id lacus, at aliquam aliquet blandit nulla nisl aliquam. At quis dictum a, in. Amet, mattis amet, volutpat condimentum. Sed purus vestibulum augue sit augue quis a.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-list-block">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner pt-0 pb-0">
+														<ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> </ul>
+													</div>
+												</div>
+											</div>
+										</section>
+													<section class="tbp-page-headline">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner pb-0 w-100">
+														<h5>Terms and Conditions</h5>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida duis amet magna suscipit neque. Sit vel sed in faucibus nunc sit convallis sit. Consequat, elit id tellus justo diam, egestas blandit. Amet, nisi, elementum porttitor ipsum est ullamcorper est in ut. Lacus molestie felis quam diam bibendum. Vivamus cras sem ut sodales diam. Vulputate pretium nunc, fusce urna. Neque id in neque interdum et convallis volutpat.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Magnis id eu cras porttitor. Quis volutpat varius pharetra, et mi. Mattis lacinia pulvinar et sed lacus turpis eget diam. Cursus donec sed sollicitudin laoreet ipsum rhoncus. Eget sem curabitur fusce dolor, hac arcu turpis in. Eget massa in magna posuere. Cras pulvinar scelerisque dui, ultricies sociis. Tristique pellentesque nulla enim magna at sed neque ornare. Nibh felis amet, sed non massa nunc, nibh sed morbi. Dignissim id lacus, at aliquam aliquet blandit nulla nisl aliquam. At quis dictum a, in. Amet, mattis amet, volutpat condimentum. Sed purus vestibulum augue sit augue quis a.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-list-block">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner pt-0 pb-0">
+														<ol><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus cursus facilisi egestas a pellentesque urna facilisi consectetur adipiscing elit.</li> </ol>
+													</div>
+												</div>
+											</div>
+										</section>
+													<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Dictum ullamcorper vel sagittis vel sed. Sed eros, quis duis sed laoreet amet interdum magna. Feugiat risus netus ut euismod nisl at vitae ullamcorper. Facilisis orci, imperdiet mus ultrices sapien. Sagittis congue aliquam netus vestibulum turpis quis nascetur neque. Augue tellus est at massa eget viverra adipiscing ultricies.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Condimentum integer nulla eu nulla elementum adipiscing cursus sit purus. Non eleifend tempor facilisis fusce hendrerit commodo erat in imperdiet. Ante imperdiet aliquam duis nunc, nascetur condimentum ac amet. Tristique lobortis porta elementum purus, mollis ut pharetra. Ultrices pretium, quam luctus gravida aliquam pharetra, semper nisl. Vitae scelerisque lacus id gravida dictum eget morbi sollicitudin leo. Ultrices in iaculis et mi amet lectus adipiscing. Erat pellentesque amet vitae sed aliquam quis at vitae. Sit augue in amet volutpat commodo vitae dignissim turpis. Mauris id commodo blandit pulvinar tempor risus dui posuere eget. Blandit cras viverra pharetra tellus enim est cursus magna. Metus, diam non at et tempor nullam massa urna.</p>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-headline">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner pb-0 w-100">
+														<h5>Contact details</h5>
+													</div>
+												</div>
+											</div>
+										</section>
+										<section class="tbp-page-paragraf">
+											<div class="container">
+												<div class="tbp-page-content d-flex align-items-center">
+													<div class="content-inner w-100">
+														<p>Head Office:<br> Dictum ullamcorper vel sagittis vel sed.<br> Sed eros, quis duis sed laoreet amet interdum magna. Feugiat</p> <p>Telephone: 01234 5678 9<br> Email: INFO@TBP.COM</p> <p>Latest update: 8th November 2018</p>
+													</div>
+												</div>
+											</div>
+										</section>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<section class="tbp-subscribe">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 text-center">
+							<img src="assets/images/icon-logo.svg" class="img-fluid" />
+							<h4>WE ELEVATE THE SPORT OF BOXING</h4>
+							<p>Be the first to know about our new calendar of events, sign up now!</p>
+							<form id="tbp-subscribe-form" class="form-inline" name="tbp-subscribe-form">
+								<div class="input-group col-9 mx-auto">
+									<input type="text" class="form-control" placeholder="Enter your email" name="email_address" id="email_address" />
+									<span class="input-group-btn">
+										<button class="btn tbp-subscribe-btn my-auto" type="submit"><img
+												src="assets/images/envelop-icon.svg" /></button>
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+		<footer id="tbp-footer">
+			<div class="container">
+				<div class="row no-gutters justify-content-md-center">
+					<div class="col-12 col-md-12 col-lg-4 mb-lg-0 mb-4">
+						<img src="assets/images/footer-logo.svg" class="img-fluid mx-lg-0 mx-auto logo" />
+						<p class="copyright d-lg-block d-none">©2020 Thompson Boxing Promotion. All Rights Reserved.</p>
+					</div>
+					<div class="col-12 col-md-6 col-lg-6">
+						<div class="contact">
+							<h4>Contact us</h4>
+							<p>282 South Anita Drive Orange, CA 92868</p>
+							<p>
+								<span class="phone">P: 714-935-0900</span>
+								<span class="fax">F: 714-935-0600</span>
+							</p>
+							<p>
+								<a href="mailto:info@thompsonboxing.com" target="_blank"
+									title="Thompson Boxing Promotions">info@thompsonboxing.com</a>
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3 col-lg-2">
+						<div class="social">
+							<h4>Follow Us</h4>
+							<ul>
+								<li><a href="" target="_blank">Facebook</a></li>
+								<li><a href="" target="_blank">Instagram</a></li>
+								<li><a href="" target="_blank">Twitter</a></li>
+								<li><a href="" target="_blank">YouTube</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row no-gutters justify-content-md-center">
+					<div class="col-lg-4 d-none d-md-block"></div>
+					<div class="footer-alt-container col-12 col-md-9 col-lg-8">
+						<div class="footer-alt-menu text-center text-md-left">
+							<ul>
+								<li><a href="page.html" target="_blank">Privacy Policy</a></li>
+								<li><a href="page.html" target="_blank">Cookies Policy</a></li>
+								<li><a href="page.html" target="_blank">Terms & Conditions</a></li>
+							</ul>
+						</div>
+						<p class="copyright d-lg-none">©2020 Thompson Boxing Promotion. All Rights Reserved.</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<section class="tbp-overlay" id="tbp-overlay"></section>
+	</main>
+  <script src="./assets/scripts/frontend.js"></script>
+</body>
+
+</html>

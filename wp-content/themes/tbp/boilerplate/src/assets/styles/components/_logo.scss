@@ -1,0 +1,33 @@
+.#{$prefix}-logo {
+	margin: 40px 0 26px;
+	text-align: center;
+
+	img{
+		max-width: 205px;
+
+		@include media-breakpoint-up(sm) {
+			max-width: 265px;
+		}
+
+		@include media-breakpoint-up(md) {
+			max-width: unset;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		margin: 80px 0 80px;
+		text-align: left;
+	}
+
+	@include media-breakpoint-up(xl) {
+		margin: 80px 0 50px;
+		text-align: center;
+
+	}
+
+	.mobile {
+		height: 80px;
+		margin: 0 auto;
+		width: 80px;
+	}
+}

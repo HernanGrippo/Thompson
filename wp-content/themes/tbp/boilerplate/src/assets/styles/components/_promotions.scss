@@ -1,0 +1,24 @@
+.#{$prefix}-promotions {
+	margin-top: 120px;
+
+	.title {
+		margin-bottom: 32px;
+	}
+
+	.promotions-glide {
+		.glide__bullets {
+			bottom: -2em;
+
+			.glide__bullet {
+				border: none;
+				height: 16px;
+				box-shadow: none;
+				width: 16px;
+			}
+
+			.glide__bullet--active {
+				background-color: $color-cardinal;
+			}
+		}
+	}
+}

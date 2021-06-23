@@ -1,0 +1,48 @@
+<section id="{{prefix}}-navigation" class="{{prefix}}-navigation">
+	<div class="top">
+		<div class="banner"></div>
+		<button class="nav-close d-flex align-items-center justify-content-center" id="{{prefix}}-navigation-icon-close">
+			<img src="{{data.navigation_close.src}}" alt="{{data.navigation_close.alt}}" />
+		</button>
+	</div>
+	<ul class="list-unstyled {{prefix}}-menu">
+		{{#each data.navigation}}
+			{{#ifCond this.label "===" "Buy Now"}}
+				<li class="buy-now">
+					<a href="javascript:;" title="{{this.label}}" class="item inplayer-fancy" data-fancybox="inplayer-3" data-src="#{{prefix}}-inplayer-video">
+						{{this.label}}
+					</a>
+				</li>
+				{{else}}
+				<li>
+					<a href="{{this.url}}" title="{{this.label}}" class="item">
+						{{this.label}}
+					</a>
+				</li>
+			{{/ifCond}}
+		{{/each}}
+	</ul>
+	<div class="{{prefix}}-contact">
+		<h3 class="label">{{{data.contact.label}}}</h3>
+		<p>{{{data.contact.address}}}</p>
+		<p>
+			{{#each data.contact.phones}}
+				<span class="text-upercase">{{this.label}}: </span>
+				<span>{{this.number}}</span>
+			{{/each}}
+		</p>
+		<p>{{{data.contact.email}}}</p>
+	</div>
+	<div class="{{prefix}}-social">
+		<h3 class="label">{{{data.social.label}}}</h3>
+		<ul class="list-unstyled {{prefix}}-social">
+			{{#each data.social.networks}}
+			<li>
+				<a href="{{this.url}}" title="{{this.label}}" class="item" target="_blank">
+					{{this.label}}
+				</a>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</section>

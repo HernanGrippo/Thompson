@@ -1,0 +1,148 @@
+.#{$prefix}-navigation {
+	background: $color-woodsmoke;
+	bottom: 0;
+	height: 100%;
+	overflow-y: scroll;
+	padding-left: 38px;
+	padding-right: 38px;
+	padding-top: 88px;
+	position: fixed;
+	right: -600px;
+	top: 0;
+	transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+	width: 100%;
+	z-index: 99999;
+
+	&.show {
+		right: 0;
+	}
+
+	@include media-breakpoint-up(sm) {
+		padding-top: 34px;
+		width: 460px;
+	}
+
+	.top {
+		display: flex;
+		margin-bottom: 30px;
+
+		@include media-breakpoint-up(sm) {
+			margin-bottom: 40px;
+		}
+
+		.nav-close {
+			appearance: none;
+			background: $color-cardinal;
+			border: none;
+			cursor: pointer;
+			height: 40px;
+			line-height: 1;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			right: 15px;
+			text-align: center;
+			text-decoration: none;
+			top: 24px;
+			width: 40px !important;
+
+			@include media-breakpoint-up(sm) {
+				right: 40px;
+				top: 34px;
+			}
+
+			// img {}
+		}
+	}
+
+	ul {
+		padding-bottom: 0;
+	}
+
+	.#{$prefix}-menu {
+		.item {
+			color: $color-cardinal;
+			display: inline-block;
+			font-family: Futura Std Cond;
+			font-size: 34px;
+			font-style: normal;
+			font-weight: bold;
+			line-height: 44px;
+			margin-bottom: 10px;
+			text-transform: uppercase;
+			transition: color 0.25s ease;
+
+			&:hover {
+				color: $color-white;
+				text-decoration: none;
+			}
+
+			@include media-breakpoint-up(sm) {
+				font-size: 48px;
+				line-height: 58px;
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	.#{$prefix}-contact,
+	.#{$prefix}-social {
+		.label {
+			font-family: Futura Std;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: bold;
+			line-height: 22px;
+			margin-bottom: 22px;
+			text-transform: capitalize;
+
+			@include media-breakpoint-up(sm) {
+				font-size: 20px;
+				line-height: 32px;
+				margin-bottom: 32px;
+			}
+		}
+
+		p {
+			color: $color-aluminium;
+			font-size: 14px;
+			margin-bottom: 8px;
+
+			@include media-breakpoint-up(sm) {
+				font-size: 16px;
+			}
+
+			a {
+				text-decoration: none;
+				transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+
+				&:hover {
+					color: $white;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	.#{$prefix}-contact {
+		margin-bottom: 32px;
+	}
+
+	.#{$prefix}-social {
+		.item {
+			color: $color-white;
+			display: inline-block;
+			margin-bottom: 12px;
+			transition: color 0.25s ease;
+
+			&:hover {
+				color: $color-white;
+				text-decoration: underline;
+			}
+
+			@include media-breakpoint-up(sm) {
+				margin-bottom: 22px;
+			}
+		}
+	}
+}

@@ -1,0 +1,159 @@
+.#{$prefix}-questions {
+	margin-bottom: 80px;
+
+	@include media-breakpoint-up(md) {
+		margin-bottom: 90px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		margin-bottom: 112px;
+	}
+
+	.faq-head {
+		margin-bottom: 40px;
+
+		.title {
+			margin-bottom: 10px;
+		}
+
+		.everything {
+			font-family: Futura Std;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: normal;
+			line-height: 32px;
+			text-align: center;
+		}
+	}
+
+	.card {
+		border-radius: 0;
+
+		.card-header {
+			background-color: $color-white;
+			border-bottom: 0;
+			padding: 20px 30px;
+
+			@include media-breakpoint-up(md) {
+				padding: 30px 56px;
+			}
+
+			button {
+				background: none;
+				border: none;
+				color: $color-woodsmoke;
+				cursor: pointer;
+				font-family: Futura Std;
+				font-size: 24px;
+				font-style: normal;
+				font-weight: bold;
+				line-height: 29px;
+				outline: inherit;
+				padding: 0;
+				text-align: left;
+				text-decoration: none;
+				text-transform: uppercase;
+				width: 100%;
+
+				.text {
+					width: 90%;
+				}
+
+				.icon {
+					.wrapper {
+						align-items: center;
+						border-radius: 100%;
+						display: flex;
+						height: 32px;
+						justify-content: center;
+						opacity: 1;
+						transition: all 0.5s ease-in-out;
+						visibility: visible;
+						width: 32px;
+
+						&.closed {
+							.vertical {
+								transform: rotate(-90deg);
+								transition: all 0.5s ease-in-out;
+							}
+							.horizontal {
+								transform: rotate(-90deg);
+								transition: all 0.5s ease-in-out;
+							}
+						}
+
+						&.opened {
+							.vertical {
+								transform: rotate(90deg);
+								transition: all 0.5s ease-in-out;
+							}
+							.horizontal {
+								opacity: 0;
+								transform: rotate(90deg);
+								transition: all 0.5s ease-in-out;
+							}
+						}
+
+						.circle {
+							height: 18px;
+							position: relative;
+							width: 18px;
+
+							.horizontal {
+								background-color: $color-cardinal;
+								height: 3px;
+								left: 50%;
+								margin-left: -9px;
+								margin-top: -2px;
+								position: absolute;
+								top: 50%;
+								width: 18px;
+							}
+
+							.vertical {
+								background-color: $color-cardinal;
+								height: 18px;
+								left: 50%;
+								margin-left: -2px;
+								margin-top: -9px;
+								position: absolute;
+								top: 50%;
+								width: 3px;
+							}
+						}
+					}
+				}
+
+				&:hover:not(.opened) {
+					text-decoration: none;
+
+					.icon {
+						.wrapper {
+							background-color: rgba($color-cardinal, 0.125);
+
+							.horizontal {
+								opacity: 0;
+								transform: rotate(90deg);
+								transition: all 0.5s ease-in-out;
+								visibility: hidden;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.card-body {
+		padding: 12px 30px;
+
+		@include media-breakpoint-up(md) {
+			padding: 12px 56px 56px;
+		}
+
+		p {
+			color: $color-pale-sky;
+			text-align: left;
+		}
+	}
+}

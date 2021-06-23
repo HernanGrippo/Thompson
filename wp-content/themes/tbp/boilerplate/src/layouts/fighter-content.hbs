@@ -1,0 +1,236 @@
+<section class="{{prefix}}-single-fighter">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="fighter-header-inner">
+					<div class="header-overlay"></div>
+					<div class="img-wrapper">
+						<style>
+							.img-bg {
+								background-image: url({{data.header_img_xs}});
+								background-position: top;
+								background-repeat: no-repeat;
+								background-size: cover;
+								min-height: 600px;
+							}
+							@media (min-width: 576px) {
+								.img-bg {
+									background-image: url({{data.header_img_md}});
+									min-height: inherit;
+								}
+							}
+						</style>
+						<div class="img-bg">
+							<div class="fighter-caption position-absolute">
+								<p class="nickname">{{data.nickname}}</p>
+								<h1>{{data.title}}</h1>
+								<p class="records">{{data.records}}</p>
+								<div class="squares">
+									<div class="square color-1"></div>
+									<div class="square color-2"></div>
+									<div class="square color-1"></div>
+									<div class="square color-1"></div>
+									<div class="square color-3"></div>
+									<div class="square color-1"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<input type="hidden" id="{{prefix}}-current-url" value="{{data.fighter_url}}">
+				</div>
+				<div class="single-fighter-content">
+					<div class="content-inner">
+						<div class="d-none d-md-block">
+							{{> components/social-share data=data prefix=prefix }}
+						</div>
+						<div class="d-none d-md-block">
+							<div class="meta-right">
+								<div class="container">
+									<div class="row no-gutters">
+										<div class="col-4 d-lg-none">
+											<div class="d-flex align-items-center">
+												<img class="born-place" src="{{data.country.flag}}" alt="{{data.country.name}}">
+												<p class="d-inline-block m-0">
+													<span class="city d-block">Mariland</span>
+													<span class="state d-block">Texas</span>
+												</p>
+											</div>
+										</div>
+										<div class="col-8 col-lg-12">
+											<div class="container">
+												<div class="row">
+													<div class="col-6 col-lg-3 d-md-none d-lg-block">
+														<div class="d-flex align-items-center">
+															<div>
+																<img class="born-place" src="{{data.country.flag}}" alt="{{data.country.name}}">
+															</div>
+															{{!-- TODO: Need to split city and state from CMS --}}
+															<p class="d-inline-block m-0">
+																<span class="city d-block">Mariland</span>
+																<span class="state d-block">Texas</span>
+															</p>
+														</div>
+													</div>
+													<div class="col-6 col-lg-3">
+														<span class="meta-label">Born</span>
+														<span class="meta-text">{{data.birtday}}</span>
+													</div>
+													<div class="col-6 col-lg-3">
+														<span class="meta-label">Current Residence</span>
+														<span class="meta-text">{{data.current_residence}}</span>
+													</div>
+													<div class="col-6 col-lg-3">
+														<span class="meta-label">Height</span>
+														<span class="meta-text">{{data.height}}</span>
+													</div>
+													<div class="col-6 col-lg-3">
+														<span class="meta-label">Weight</span>
+														<span class="meta-text">{{data.weight}}</span>
+													</div>
+													<div class="col-6 col-lg-3">
+														<span class="meta-label">Amateur Record</span>
+														<span class="meta-text">{{data.amateur_record}}</span>
+													</div>
+													<div class="col-6 col-lg-3">
+														<span class="meta-label">Pro Record</span>
+														<span class="meta-text">{{data.pro_record}}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="fighter-content">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										{{#each data.content}}
+											<p>{{text}}</p>
+										{{/each}}
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="fighter-gallery">
+							<div class="container">
+								<div class="row">
+									{{#each data.gallery}}
+										<div class="col-6 col-lg-3">
+											<a href="{{img}}" class="d-block" data-fancybox="gallery-{{../data.fighter_slug}}">
+												<img src="{{thumb}}" class="img-fluid">
+											</a>
+										</div>
+									{{/each}}
+								</div>
+							</div>
+						</div>
+						<div class="amateur-highlights">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<p class="highlight-header text-center">{{data.highlights.header}}</p>
+									</div>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row">
+									{{#each data.highlights.items}}
+									{{!-- TODO: Need to explain Cholde why this change has been done of this way --}}
+									{{!-- Need to notify to Kerem remove ACF for cols sizing --}}
+										<div class="highlight-container col-12 col-lg-6">
+											<div class="d-flex flex-column flex-md-row">
+												<div><img src="{{icon}}" alt="Medal"></div>
+												<div class="d-flex flex-column">
+												<p class="highlight-title">{{title}}</p>
+												<p class="highlight-text" >{{text}}</p>
+												</div>
+											</div>
+										</div>
+									{{/each}}
+								</div>
+							</div>
+						</div>
+						<div class="sparring-partners">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<p class="partners-header">{{data.sparring_partners.header}}</p>
+									</div>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row">
+									{{#each data.sparring_partners.items}}
+										<div class="col-12 col-md-6 col-lg-4 partners-container">
+											<div class="d-flex flex-columns align-items-center">
+												<img src="{{img}}" alt="{{name}}" class="rounded-circle">
+												<span class="partners-text">{{name}}</span>
+											</div>
+										</div>
+									{{/each}}
+								</div>
+							</div>
+						</div>
+						<div class="high-school">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<p class="high-school-header">{{data.high_school.header}}</p>
+									</div>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<div class="high-school-container">
+											{{#each data.high_school.items}}
+												<p class="high-school-text">{{text}}</p>
+											{{/each}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="fighters">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 title text-center">
+								<h4 class="m-0">{{data.more_fighters.title}}</h4>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row justify-content-md-center">
+							{{#each data.more_fighters.fighters}}
+								<div class="col-12 col-sm-6 col-lg-4 d-none d-sm-block">
+									<div
+										class="fighter d-flex"
+										style="background-repeat: no-repeat; background-image: url({{img}}); background-size: cover;"
+									>
+										<p class="name">{{name}}</p>
+										<a href="#" class="link" >Read More</a>
+									</div>
+								</div>
+								<div class="col-12 d-block d-sm-none">
+									<div class="fighter d-flex">
+										<div class="thumb"
+											style="background-repeat: no-repeat; background-image: url({{img}}); background-size: cover;"></div>
+										<div class="overlay"></div>
+										<div class="d-flex flex-column align-items-center justify-content-center content">
+											<p class="name">{{name}}</p>
+											<a href="#" class="link" >Read More</a>
+										</div>
+									</div>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,52 @@
+/* Brand prefix */
+$prefix: "tbp";
+
+// Glyphicons font path
+$icon-font-path: "../fonts/";
+
+$image-path: "../images/";
+
+// Colors
+$color-aluminium: #a7a9ac;
+$color-black: #000000;
+$color-cape-cod: #4c5151;
+$color-cardinal: #be1e2d;
+$color-cerise-red: #e42e68;
+$color-disable: #d4d4d5;
+$color-error: #d9534f;
+$color-eucalyptus: #28a745;
+$color-gallery: #ebebeb;
+$color-green: #75e48f;
+$color-iron: #d4d4d5;
+$color-notice: #5bc0de;
+$color-pale-sky: #707174;
+$color-success: #c3e6cb;
+$color-warning: #ffeeba;
+$color-white: #ffffff;
+$color-woodsmoke: #111218;
+
+// Theme
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 920px,
+);
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+);
+$theme-colors: (
+	primary: $color-cerise-red,
+	secondary: $color-cape-cod,
+);
+$primary: map-get(
+	$map: $theme-colors,
+	$key: "primary",
+);
+$secondary: map-get(
+	$map: $theme-colors,
+	$key: "secondary",
+);

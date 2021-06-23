@@ -1,0 +1,20 @@
+.#{$prefix}-page-fighter {
+	position: relative;
+
+	.shape {
+		position: relative;
+
+		&:before {
+			background-color: $color-woodsmoke;
+			clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+			content: "";
+			height: 100%;
+			position: absolute;
+			width: 100%;
+
+			@include media-breakpoint-up(lg) {
+				clip-path: polygon(0 15%, 100% 5%, 100% 85%, 0 95%);
+			}
+		}
+	}
+}

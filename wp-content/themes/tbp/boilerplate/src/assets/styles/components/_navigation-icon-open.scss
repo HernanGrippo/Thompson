@@ -1,0 +1,58 @@
+.#{$prefix}-navigation-icon-open {
+	align-items: center;
+	appearance: none;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	height: 40px;
+	justify-content: center;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 15px;
+	text-align: center;
+	text-decoration: none;
+	top: 40px;
+	z-index: 10;
+
+	@include media-breakpoint-up(md) {
+		height: 56px;
+		top: 89px;
+		width: 157px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		right: 115px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		top: 94px;
+		right: -86.5px;
+	}
+
+	span{
+		color: #fff;
+		font-family: Futura Std;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 16px;
+		margin-right: 31px;
+	}
+
+	svg {
+		rect.bar {
+			transition: all 0.25s ease-in;
+		}
+	}
+
+	&:disabled,
+	&[disabled]{
+		svg {
+			rect.bar {
+				fill: $color-iron !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+$fa-font-path: "../../../node_modules/font-awesome/fonts/" !default; // Your custom variables should be here
+
+@import "~bootstrap/scss/bootstrap";
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+@import "../../../node_modules/jquery-ui/themes/base/all.css";
+
+.table tbody tr {
+  position: relative;
+}
+
+.update_all_records {
+  margin-top: -5px;
+}
+
+.fighter-msg p {
+  margin-bottom: 5px;
+}
+
+.result-msg {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.tbp-model {
+  width: 450px;
+  border: 2px solid #fff;
+  display: none;
+  margin: 10px auto !important;
+}

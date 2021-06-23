@@ -1,0 +1,20 @@
+.#{$prefix}-page-faqs {
+	position: relative;
+
+	.shape {
+		position: relative;
+
+		&:before {
+			background-color: $color-woodsmoke;
+			clip-path: polygon(0 24%, 100% 20%, 100% 96%, 0 100%);
+			content: "";
+			height: 100%;
+			position: absolute;
+			width: 100%;
+
+			@include media-breakpoint-up(lg) {
+				clip-path: polygon(0 30%, 100% 10%, 100% 80%, 0 100%);
+			}
+		}
+	}
+}

@@ -1,0 +1,166 @@
+footer {
+	background: $color-woodsmoke;
+	display: block;
+	margin-top: -28px;
+	padding-bottom: 26px;
+	padding-top: 108px;
+
+	.logo {
+		display: block;
+		margin-bottom: 20px;
+		width: 80%;
+		max-width: 235px;
+
+		@include media-breakpoint-up(lg) {
+			text-align: left;
+			margin-top: 13px;
+		}
+	}
+
+	h4 {
+		color: $color-cardinal;
+		font-size: 32px;
+		text-align: center;
+
+		@include media-breakpoint-up(md) {
+			text-align: left;
+		}
+	}
+
+	.contact {
+		margin-bottom: 48px;
+		text-align: center;
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: inherit;
+			text-align: left;
+		}
+
+		p {
+			color: $color-disable;
+			font-size: 16px;
+		}
+
+		.phone {
+			margin-right: 32px;
+		}
+
+		a {
+			color: $color-disable;
+
+			&:hover {
+				color: $color-cardinal;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.social {
+		text-align: center;
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: 48px;
+			text-align: left;
+		}
+
+		ul,
+		li {
+			list-style: none;
+			padding: 0;
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			@include media-breakpoint-up(md) {
+				display: block;
+				li {
+					margin: 0;
+				}
+			}
+
+			li {
+				margin: 0 7px 16px;
+
+				a {
+					color: $color-disable;
+					text-decoration: none;
+
+					&:hover {
+						color: $color-cardinal;
+					}
+				}
+			}
+		}
+	}
+
+	.copyright {
+		color: $color-aluminium;
+		font-size: 12px;
+		line-height: 18px;
+		margin-top: 5px;
+		text-align: center;
+
+		@include media-breakpoint-up(md) {
+			padding-right: 6rem;
+			text-align: left;
+		}
+	}
+
+	.footer-alt-container {
+		margin-top: 20px;
+
+		@include media-breakpoint-up(md) {
+			margin-top: 0;
+		}
+		.footer-alt-menu {
+			ul,
+			li {
+				list-style: none;
+				padding: 0;
+			}
+
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+
+				@include media-breakpoint-up(md) {
+					justify-content: start;
+					li {
+						&:first-child {
+							padding-left: 0;
+							margin-left: 0;
+						}
+					}
+				}
+
+				li {
+					margin: 0 10px 26px;
+					font-style: normal;
+					font-weight: normal;
+					font-size: 16px;
+					line-height: 24px;
+
+					@include media-breakpoint-up(md) {
+						margin-bottom: 0;
+					}
+
+					a {
+						color: $color-disable;
+						text-decoration: none;
+
+						&:hover {
+							color: $color-cardinal;
+						}
+					}
+				}
+			}
+		}
+		.copyright {
+			margin-top: 30px;
+		}
+	}
+}

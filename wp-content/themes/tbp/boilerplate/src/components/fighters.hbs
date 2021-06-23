@@ -1,0 +1,40 @@
+<section class="{{prefix}}-fighters">
+	<div class="container">
+		{{!-- <div class="row">
+			<div class="col-12">
+				<h4 id="fighter-header">
+					{{data.header}}
+				</h4>
+			</div>
+		</div> --}}
+		<div class="row fighter-row justify-content-start">
+			{{#each data.bios}}
+			<div class="col-12 col-md-6 col-lg-4">
+				<a href="{{read_more.link}}">
+					<div class="fighter-container">
+						<div class="image-wrapper mx-auto">
+							<img src="{{img}}" alt="{{fullname}}" class="img-fluid rounded-circle">
+							<div class="image-overlay"></div>
+							<div class="play"></div>
+						</div>
+						<div class="fighter-meta">
+							<div class="status">
+								<div class="bio-square color-1"></div>
+								<div class="bio-square color-1"></div>
+								<div class="bio-square color-1"></div>
+								<div class="bio-square color-1"></div>
+								<div class="bio-square color-1"></div>
+								<span class="bio-text">{{records}}</span>
+							</div>
+						</div>
+						<p class="fighter-name">{{fullname}}</p>
+						<p class="nickname">{{nickname}}</p>
+						<p class="fighter-bio-excerpt">{{excerpt}}</p>
+						<p class="bio-read-more">{{read_more.text}}</p>
+					</div>
+				</a>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</section>

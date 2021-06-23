@@ -1,0 +1,110 @@
+.#{$prefix}-related-posts {
+	.grid {
+		@include media-breakpoint-up(md) {
+			margin-left: -15px;
+			margin-right: -15px;
+		}
+		.grid-item, .grid-sizer {
+			width: 100%;
+
+			@include media-breakpoint-up(md) {
+				width: 50%;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+
+			@include media-breakpoint-up(lg) {
+				width: 33.33333%;
+			}
+		}
+	}
+
+	.card-wrapper {
+		margin-bottom: 28px;
+	}
+
+	.card {
+		border: none;
+		background-color: $color-woodsmoke;
+		border-radius: inherit;
+		color: $color-white;
+		display: block;
+		height: 100%;
+		margin: 0 0;
+		padding: 0;
+		text-decoration: none;
+
+		&:hover {
+			background-color: $color-white;
+			color: $color-woodsmoke;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		.card-img-top {
+			border: none;
+			border-radius: 0;
+		}
+
+		.card-body {
+			position: relative;
+
+			@include media-breakpoint-up(md) {
+				min-height: 198px;
+			}
+
+			.card-title {
+				border: 1px solid $color-cardinal;
+				border-radius: 8px;
+				box-sizing: border-box;
+				color: $color-cardinal;
+				display: inline-block;
+				font-family: Futura Std !important;
+				font-size: 12px;
+				font-weight: normal;
+				letter-spacing: 0.01em;
+				line-height: 18px;
+				padding: 5px 16px;
+			}
+
+			p {
+				font-size: 16px;
+				font-weight: bold;
+				line-height: 24px;
+			}
+
+			.publication-date {
+				color: $color-aluminium;
+				font-feature-settings: "kern" off;
+				font-size: 12px;
+				font-weight: normal;
+				letter-spacing: 0.01em;
+				line-height: 18px;
+
+				@include media-breakpoint-up(md) {
+					position: absolute;
+					bottom: 14px;
+				}
+			}
+		}
+	}
+
+	a{
+		&.load-more{
+			margin-top: 64px;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 28px;
+			text-transform: uppercase;
+			color: $color-white;
+			border: 2px solid $color-white;
+			box-sizing: border-box;
+			padding: 16px 24px;
+			text-decoration: none;
+			display: inline-block;
+		}
+	}
+}

@@ -1,0 +1,559 @@
+.#{$prefix}-single-fighter {
+	// > .container {
+	// 	padding: 0;
+
+	// 	@include media-breakpoint-up(lg) {
+	// 		padding: inherit;
+	// 	}
+	// }
+
+	.fighter-header-inner {
+		position: relative;
+		z-index: 10;
+
+		.header-overlay {
+			background: linear-gradient(
+				180deg,
+				rgba(17, 18, 24, 0) 0%,
+				rgba(17, 18, 24, 0.78) 91.67%
+			);
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 1;
+		}
+
+		.img-wrapper {
+			box-sizing: border-box;
+			max-width: 100%;
+			overflow: auto;
+			resize: horizontal;
+
+			.img-bg {
+				background-repeat: no-repeat;
+				width: 100%;
+				padding-bottom: 75%;
+				position: relative;
+
+				.fighter-caption {
+					bottom: 48px;
+					left: 50%;
+					position: absolute;
+					text-align: center;
+					transform: translateX(-50%);
+					width: 100%;
+					z-index: 2;
+
+					@include media-breakpoint-up(md) {
+						bottom: 25px;
+					}
+
+					h1 {
+						color: $color-white;
+						font-family: Futura Std;
+						font-size: 52px;
+						font-style: normal;
+						font-weight: bold;
+						line-height: 68px;
+						text-transform: uppercase;
+
+						@include media-breakpoint-up(sm) {
+							font-size: 40px;
+						}
+
+						@include media-breakpoint-up(md) {
+							font-size: 52px;
+						}
+
+						@include media-breakpoint-up(lg) {
+							font-size: 70px;
+							line-height: 86px;
+						}
+					}
+
+					p {
+						margin: 0;
+						padding: 0;
+					}
+
+					.nickname {
+						color: $white;
+						font-size: 16px;
+						font-weight: normal;
+						line-height: 16px;
+						margin-bottom: 16px;
+
+						@include media-breakpoint-up(md) {
+							color: $color-aluminium;
+							font-size: 20px;
+							line-height: 32px;
+						}
+					}
+
+					.records {
+						font-size: 16px;
+						font-weight: normal;
+						line-height: 24px;
+						margin-bottom: 7px;
+						margin-top: 4px;
+					}
+
+					.squares {
+						display: flex;
+						justify-content: center;
+						margin-top: 7px;
+						margin: 0;
+						padding: 0;
+						width: 100%;
+
+						> div {
+							display: block;
+							float: left;
+							height: 14px;
+							margin-right: 6px;
+							width: 14px;
+
+							&.color-1 {
+								background-color: $color-green;
+							}
+
+							&.color-2 {
+								background-color: $color-cardinal;
+							}
+
+							&.color-3 {
+								background-color: $color-disable;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		img {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	.single-fighter-content {
+		background-color: $white;
+		color: $color-woodsmoke;
+		font-size: 16px;
+		font-weight: normal;
+		line-height: 24px;
+		margin-bottom: 56px;
+		position: relative;
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: 80px;
+		}
+
+		.content-inner {
+			padding: 48px 10px;
+
+			@include media-breakpoint-up(md) {
+				padding: 90px 40px 90px 80px;
+			}
+
+			@include media-breakpoint-up(lg) {
+				padding: 64px 42px 90px 95px;
+			}
+
+			.single-social-share {
+				bottom: 30px;
+				display: block !important;
+				left: 50%;
+				top: inherit;
+				transform: translateX(-50%);
+				width: 24px;
+
+				@include media-breakpoint-up(sm) {
+					left: 50px;
+					top: 356px;
+				}
+
+				@include media-breakpoint-up(md) {
+					left: 50px;
+					top: 402px;
+				}
+
+				@include media-breakpoint-up(lg) {
+					left: 56px;
+					top: 328px;
+				}
+			}
+
+			.meta-right {
+				margin-bottom: 46px;
+
+				// > .container {
+				// 	padding: 0;
+
+				// 	@include media-breakpoint-up(lg) {
+				// 		padding: inherit;
+				// 	}
+				// }
+
+				.data-wrapper {
+					padding: 0;
+
+					// @include media-breakpoint-up(lg) {
+					// 	padding: inherit;
+					// }
+				}
+
+				.born-place {
+					border: none;
+					display: inline-block;
+					margin-right: 20px;
+					vertical-align: middle;
+					width: 48px;
+				}
+
+				.meta-label,
+				.meta-text {
+					display: block;
+					font-size: 16px;
+					line-height: 24px;
+
+					@include media-breakpoint-up(md) {
+						margin-right: 15px;
+					}
+				}
+
+				.meta-label {
+					color: $color-aluminium;
+					font-weight: bold;
+				}
+
+				.meta-text {
+					margin-bottom: 24px;
+				}
+			}
+
+			.fighter-content {
+				p {
+					margin-bottom: 40px;
+					margin: 0;
+					padding: 0;
+				}
+			}
+
+			.fighter-gallery {
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 40px;
+
+				@include media-breakpoint-up(md) {
+					margin-top: 65px;
+				}
+
+				a {
+					display: block;
+					margin-bottom: 30px;
+				}
+			}
+
+			.amateur-highlights {
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 10px;
+
+				@include media-breakpoint-up(md) {
+					margin-top: 26px;
+				}
+
+				.highlight-header {
+					display: block;
+					font-size: 18px;
+					font-weight: bold;
+					line-height: 28px;
+					margin-bottom: 24px;
+					padding: 0;
+					text-align: center;
+					text-transform: uppercase;
+					width: 100%;
+
+					@include media-breakpoint-up(md) {
+						margin-bottom: 24px;
+						text-align: left;
+					}
+				}
+
+				.highlight-container {
+					margin-bottom: 15px;
+					text-align: center;
+
+					@include media-breakpoint-up(md) {
+						margin-bottom: 20px;
+						text-align: left;
+					}
+
+					&:last-child {
+						margin-bottom: 0;
+
+						@include media-breakpoint-up(md) {
+							margin-bottom: inherit;
+						}
+					}
+
+					img {
+						display: block;
+						margin: 0 auto 18px;
+
+						@include media-breakpoint-up(md) {
+							display: inline;
+							margin-right: 18px;
+						}
+					}
+
+					.highlight-title {
+						text-decoration: underline;
+					}
+
+					.highlight-title,
+					.highlight-text {
+						font-size: 16px;
+						font-weight: normal;
+						line-height: 24px;
+						margin: 0;
+						padding: 0;
+						text-align: center;
+
+						@include media-breakpoint-up(md) {
+							text-align: left;
+						}
+					}
+				}
+			}
+
+			.sparring-partners {
+				margin-top: 40px;
+
+				@include media-breakpoint-up(md) {
+					margin-top: 54px;
+				}
+
+				.partners-header {
+					display: block;
+					font-size: 18px;
+					font-weight: bold;
+					line-height: 28px;
+					margin-bottom: 25px;
+					text-transform: uppercase;
+					width: 100%;
+					padding: 0;
+				}
+
+				.partners-container {
+					margin-bottom: 24px;
+
+					&:last-child {
+						margin-bottom: 0;
+
+						@include media-breakpoint-up(md) {
+							margin-bottom: inherit;
+						}
+					}
+
+					img {
+						width: 42px;
+						margin-right: 24px;
+
+						@include media-breakpoint-up(md) {
+							margin-right: 30px;
+						}
+					}
+
+					.partners-text {
+						font-size: 16px;
+						font-weight: normal;
+						line-height: 24px;
+						margin-left: 10px;
+						margin: 0;
+						padding: 0;
+					}
+				}
+			}
+
+			.high-school {
+				margin-bottom: 42px;
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 35px;
+
+				.high-school-header {
+					display: block;
+					font-size: 18px;
+					font-weight: bold;
+					line-height: 28px;
+					margin-bottom: 20px;
+					padding: 0;
+					text-transform: uppercase;
+					width: 100%;
+				}
+
+				.high-school-container {
+					width: 100%;
+
+					.high-school-text {
+						border-bottom: 1px solid $color-aluminium;
+						margin-bottom: 16px;
+						padding-bottom: 16px;
+
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+
+			.interests {
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 35px;
+
+				p {
+					margin: 0;
+					padding: 0;
+
+					&.interests-header {
+						display: block;
+						font-size: 18px;
+						font-weight: bold;
+						line-height: 28px;
+						margin-bottom: 20px;
+						text-transform: uppercase;
+						width: 100%;
+					}
+				}
+
+				.interests-container {
+					p {
+						&.interests-text {
+							border-bottom: 1px solid $color-aluminium;
+							margin-bottom: 16px;
+							padding-bottom: 16px;
+
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.fighters {
+		.title {
+			margin-bottom: 30px;
+
+			@include media-breakpoint-up(sm) {
+				margin-bottom: 56px;
+			}
+		}
+
+		.fighter {
+			background-color: $color-black !important;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background: center;
+			height: 200px;
+			margin-bottom: 30px;
+			position: relative;
+			width: 100%;
+
+			@include media-breakpoint-up(sm) {
+				margin-bottom: 56px;
+				padding-top: 30px;
+			}
+
+			@include media-breakpoint-up(md) {
+				height: 400px;
+			}
+
+			.thumb {
+				height: 100%;
+				width: 35%;
+			}
+
+			&:hover {
+				.link {
+					color: $color-white;
+					text-decoration: none;
+					border-bottom: 2px solid $color-cardinal;
+				}
+			}
+		}
+
+		.content {
+			height: 100%;
+			width: 65%;
+			z-index: 100;
+		}
+
+		.overlay {
+			background: linear-gradient(
+				to right,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0.5) 34%,
+				rgba(0, 0, 0, 1) 35%,
+				rgba(0, 0, 0, 1) 100%
+			);
+
+			bottom: 0;
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: 25;
+		}
+
+		.name,
+		.link {
+			border-bottom: 2px solid transparent;
+			color: $color-white;
+			font-family: Futura Std;
+			font-style: normal;
+			text-align: center;
+
+			@include media-breakpoint-up(sm) {
+				left: 50%;
+				position: absolute;
+				transform: translateX(-50%);
+			}
+		}
+
+		.name {
+			font-size: 18px;
+			font-weight: bold;
+			line-height: 28px;
+			text-transform: uppercase;
+			top: 20px;
+			width: auto;
+
+			@include media-breakpoint-up(sm) {
+				width: 100%;
+			}
+		}
+
+		.link {
+			bottom: 20px;
+			font-size: 16px;
+			line-height: 24px;
+			transition: border-color 0.15s ease-in-out;
+			width: auto;
+
+			@include media-breakpoint-up(sm) {
+				display: inline-block;
+			}
+		}
+	}
+}

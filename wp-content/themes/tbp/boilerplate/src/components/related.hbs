@@ -1,0 +1,33 @@
+<section class="{{prefix}}-related-posts {{class}}">
+	<div class="container">
+		<div class="grid">
+			<div class="grid-sizer"></div>
+			{{#each data.posts}}
+			{{#ifCond @index "<" ../data.limit}}
+			<div class="grid-item">
+				<div class="card-wrapper">
+					<a class="card" title="{{title}}" href="{{link}}">
+						<img data-id="{{@index}}" data-limit="{{data.limit}}" src="{{img}}" class="card-img-top"
+							alt="{{title}}">
+						<div class="card-body">
+							<p class="card-title">{{slogan}}</p>
+							<p>
+								{{title}}
+							</p>
+							<small class="publication-date text-muted">{{date}}</small>
+						</div>
+					</a>
+				</div>
+			</div>
+			{{/ifCond}}
+			{{/each}}
+		</div>
+		{{#if data.isFrontPage }}
+		{{#ifCond data.posts.length ">" data.limit}}
+		<div class="row justify-content-center">
+			<a href="#" class="load-more" data-page="1">Load More</a>
+		</div>
+		{{/ifCond}}
+		{{/if}}
+	</div>
+</section>

@@ -1,0 +1,78 @@
+.#{$prefix}-related-posts-fixed {
+	.card-wrapper {
+		margin-bottom: 28px;
+	}
+
+	.card {
+		border: none;
+		background-color: $color-woodsmoke;
+		border-radius: inherit;
+		color: $color-white;
+		display: block;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+
+		&:hover {
+			background-color: $color-white;
+			color: $color-woodsmoke;
+		}
+
+		.img-wrapper {
+			box-sizing: border-box;
+			max-width: 100%;
+			overflow: auto;
+			resize: horizontal;
+
+			.img-bg {
+				background-repeat: no-repeat;
+				width: 100%;
+				padding-bottom: 75%;
+				position: relative;
+			}
+		}
+
+		.card-body {
+			position: relative;
+
+			@include media-breakpoint-up(md) {
+				height: 230px;
+			}
+
+			.card-title {
+				border: 1px solid $color-cardinal;
+				border-radius: 8px;
+				box-sizing: border-box;
+				color: $color-cardinal;
+				display: inline-block;
+				font-family: Futura Std !important;
+				font-size: 12px;
+				font-weight: normal;
+				letter-spacing: 0.01em;
+				line-height: 18px;
+				padding: 5px 16px;
+			}
+
+			p {
+				font-size: 16px;
+				font-weight: bold;
+				line-height: 24px;
+			}
+
+			.publication-date {
+				color: $color-aluminium;
+				font-feature-settings: "kern" off;
+				font-size: 12px;
+				font-weight: normal;
+				letter-spacing: 0.01em;
+				line-height: 18px;
+
+				@include media-breakpoint-up(md) {
+					position: absolute;
+					bottom: 20px;
+				}
+			}
+		}
+	}
+}

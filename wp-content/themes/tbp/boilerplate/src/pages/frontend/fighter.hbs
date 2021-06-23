@@ -1,0 +1,9 @@
+{{#> layouts/base title="Fighter" heroClosed=true}}
+	<div class="{{global.prefix}}-page {{global.prefix}}-page-fighter">
+		<div class="shape">
+			{{> layouts/fighter-content
+						data=global.single_fighter
+						prefix=global.prefix }}
+		</div>
+	</div>
+{{/ layouts/base }}

@@ -1,0 +1,8 @@
+@include font-face("Futura Std", "../fonts/FuturaStdBook", normal, normal);
+@include font-face("Futura Std", "../fonts/FuturaStdBold", bold, normal);
+@include font-face(
+	"Futura Std Cond",
+	"../fonts/FuturaStdCondensedBold",
+	bold,
+	normal
+);

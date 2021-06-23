@@ -1,0 +1,25 @@
+.#{$prefix}-intro {
+
+	h1 {
+		align-self: center;
+		flex: none;
+		font-size: 48px;
+		line-height: 58px;
+		font-style: normal;
+		font-weight: bold;
+		line-height: 58px;
+		margin: 0 12px;
+		order: 0;
+		text-align: center;
+		text-transform: uppercase;
+
+		@include media-breakpoint-up(md){
+			margin: 0 140px;
+		}
+
+		@include media-breakpoint-up(xl){
+			font-size: 64px;
+			line-height: 77px;
+		}
+	}
+}

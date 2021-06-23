@@ -1,0 +1,21 @@
+.single-social-share-fighter {
+	display: block;
+	z-index: 1;
+
+	@include media-breakpoint-up(md) {
+		display: none;
+	}
+
+	.share-title {
+		color: $color-pale-sky;
+		display: inline-block;
+		font-size: 16px;
+		font-weight: normal;
+		letter-spacing: 0.18em;
+		line-height: 24px;
+		margin-left: -18px;
+		margin-top: 30px;
+		text-transform: uppercase;
+		transform: rotate(-90deg);
+	}
+}

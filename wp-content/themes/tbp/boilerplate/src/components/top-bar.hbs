@@ -1,0 +1,35 @@
+<section class="{{prefix}}-top-bar">
+	<div class="container-fluid top-bar-wrapper">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<div class="d-block d-md-none">
+					<div class="d-flex justify-content-between">
+						<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+						</div>
+						<p>Thompson Boxing is Back</p>
+						<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="d-none d-md-block h-100">
+					<div class="h-100 d-flex align-items-center">
+						<div class="d-flex align-items-center"><img src="assets/images/star.svg" class="icon" alt="">
+						</div>
+						<p>Stay tuned for <strong>3. 2. 1 Boxing's</strong> next event!</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 p-0">
+				<div class="d-none d-md-block h-100 w-100">
+					<div class="d-flex align-items-center justify-content-end h-100">
+						{{#if closed}}
+						<a href="#{{prefix}}-hero" class="bar-close closed">View <strong>Thomspon Boxing’s</strong> latest!</a>
+						{{else}}
+						<a href="#{{prefix}}-hero" class="bar-close">Close</a>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

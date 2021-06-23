@@ -1,0 +1,89 @@
+@mixin font-face(
+	$name,
+	$path,
+	$weight: null,
+	$style: null,
+	$exts: eot woff2 woff ttf
+) {
+	$src: null;
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_"),
+	);
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype",
+	);
+	@each $ext in $exts {
+		$extmod: if(
+			map-has-key($extmods, $ext),
+			$ext + map-get($extmods, $ext),
+			$ext
+		);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append(
+			$src,
+			url(quote($path + "." + $extmod)) format(quote($format)),
+			comma
+		);
+	}
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@mixin font-header {
+	font-family: "Futura Std Cond", sans-serif;
+	font-weight: bold;
+}
+
+@mixin font-regular {
+	font-family: "Futura Std", sans-serif;
+	font-weight: normal;
+}
+
+@mixin font-bold {
+	font-family: "Futura Std", sans-serif;
+	font-weight: bold;
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+@mixin grid-cleaner {
+	.container {
+		padding: 0 !important;
+		max-width: 100%;
+
+		.row {
+			margin: 0 !important;
+
+			div[class^="col-"] {
+				padding: 0 !important;
+			}
+		}
+	}
+}
+
+@mixin pulse {
+	@keyframes pulse {
+		from { transform: scale(1); }
+		50% { transform: scale(0.95); }
+		to { transform: scale(1); }
+	}
+}

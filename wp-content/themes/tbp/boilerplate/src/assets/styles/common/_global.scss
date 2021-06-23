@@ -1,0 +1,147 @@
+html,
+body {
+	color: $color-white;
+	font-family: Futura Std;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 24px;
+	overflow-x: hidden;
+}
+
+body {
+	background-color: $color-cardinal;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Futura Std Cond;
+	text-transform: uppercase;
+}
+
+.h1,
+h1 {
+	font-size: 80px;
+}
+
+.h2,
+h2 {
+	font-size: 64px;
+}
+
+.h3,
+h3 {
+	font-size: 48px;
+}
+
+.h4,
+h4 {
+	color: $color-white;
+	font-family: Futura Std Cond;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 38px;
+	text-transform: uppercase;
+
+	@include media-breakpoint-up(lg) {
+		font-size: 48px;
+		line-height: 58px;
+	}
+}
+
+.h5,
+h5 {
+	font-size: 16px;
+}
+
+.h6,
+h6 {
+	font-size: 12px;
+}
+
+strong {
+	font-family: Futura Std;
+	font-weight: bold;
+}
+
+main {
+	position: relative;
+}
+
+.gutters-15 {
+	margin-left: -7.5px;
+	margin-right: -7.5px;
+
+	> .col,
+	> [class*="col-"] {
+		margin-bottom: 15px;
+		padding-left: 7.5px;
+		padding-right: 7.5px;
+	}
+}
+.inplayer-paywall {
+	#close {
+		i {
+			background: $color-white !important;
+		}
+	}
+}
+
+// @include media-breakpoint-up(lg) {
+// 	.container{
+// 		max-width: 1100px;
+// 	}
+// }
+
+.#{$prefix}-inplayer-countdown {
+	align-items: center;
+	display: none;
+	justify-content: center;
+	margin-top: 48px;
+	position: relative;
+
+	@include media-breakpoint-up(md) {
+		display: flex;
+	}
+
+	> div {
+		align-items: center;
+		color: $color-white;
+		display: flex;
+		float: left;
+		font-size: 38px;
+		font-weight: normal;
+		line-height: 42px;
+		justify-content: center;
+		margin-right: 50px;
+
+		@include media-breakpoint-up(lg) {
+			font-size: 40px;
+			line-height: 44px;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		span {
+			color: $color-aluminium;
+			font-size: 12px;
+			font-weight: normal;
+			letter-spacing: 0.01em;
+			line-height: 18px;
+			margin-left: 10px;
+		}
+	}
+}

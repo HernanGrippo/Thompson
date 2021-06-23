@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Language" content="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Fighter</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<meta name="description" content="">
+	<!-- Disable tap highlight on IE -->
+	<meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="./assets/styles/frontend.css">
+	<script type="text/javascript" src="https://assets.inplayer.com/paywall/latest/paywall.min.js"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
+<body>
+	<main role="main">
+		<section id="tbp-navigation" class="tbp-navigation">
+			<div class="top">
+				<div class="banner"></div>
+				<button class="nav-close d-flex align-items-center justify-content-center" id="tbp-navigation-icon-close">
+					<img src="./assets/images/navigation-close.svg" alt="" />
+				</button>
+			</div>
+			<ul class="list-unstyled tbp-menu">
+						<li>
+							<a href="/" title="Home" class="item">
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="/faqs.html" title="Questions" class="item">
+								Questions
+							</a>
+						</li>
+						<li class="buy-now">
+							<a href="javascript:;" title="Buy Now" class="item inplayer-fancy" data-fancybox="inplayer-3" data-src="#-inplayer-video">
+								Buy Now
+							</a>
+						</li>
+			</ul>
+			<div class="tbp-contact">
+				<h3 class="label">Contact Info</h3>
+				<p>282 South Anita Drive Orange, CA 92868</p>
+				<p>
+						<span class="text-upercase">P: </span>
+						<span>714-935-0900</span>
+						<span class="text-upercase">F: </span>
+						<span>714-935-0600</span>
+				</p>
+				<p>help@thompsonboxing.com</p>
+			</div>
+			<div class="tbp-social">
+				<h3 class="label">Follow Us</h3>
+				<ul class="list-unstyled tbp-social">
+					<li>
+						<a href="https://www.facebook.com/thompsonboxing/" title="Facebook" class="item" target="_blank">
+							Facebook
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/thompsonboxing/" title="Instagram" class="item" target="_blank">
+							Instagram
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com/thompsonboxing" title="Twitter" class="item" target="_blank">
+							Twitter
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/channel/UCg_u52-QbmfxyCJPc-v5htg" title="YouTube" class="item" target="_blank">
+							YouTube
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="tbp-top-bar">
+			<div class="container-fluid top-bar-wrapper">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="d-block d-md-none">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+								</div>
+								<p>Thompson Boxing is Back</p>
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="d-none d-md-block h-100">
+							<div class="h-100 d-flex align-items-center">
+								<div class="d-flex align-items-center"><img src="assets/images/star.svg" class="icon" alt="">
+								</div>
+								<p>Stay tuned for <strong>3. 2. 1 Boxing's</strong> next event!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 p-0">
+						<div class="d-none d-md-block h-100 w-100">
+							<div class="d-flex align-items-center justify-content-end h-100">
+								<a href="#tbp-hero" class="bar-close closed">View <strong>Thomspon Boxing’s</strong> latest!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<style>
+			.tbp-hero {
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: cover;
+				display: flex;
+				justify-content: center;
+				margin-top: 0;
+				opacity: 1;
+				position: relative;
+				text-align: center;
+				transition: visibility 0.25s, opacity 0.5s linear;
+				visibility: visible;
+				width: 100vw;
+				z-index: 100;
+			}
+		
+			.tbp-hero.closed {
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				transition: visibility 0.075s, opacity 0.125s linear;
+				display: none;
+			}
+		
+			.tbp-hero .wrapper {
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: flex;
+				height: 100%;
+				width: 100%;
+			}
+		
+			@media (min-width: 992px) {
+				.tbp-hero .wrapper {
+					background-position: center;
+					background-size: cover;
+				}
+			}
+		
+			@media (min-width: 1200px) {
+				.tbp-hero .wrapper {
+					align-self: center;
+				}
+			}
+		</style>
+		
+		<section id="tbp-hero" class="tbp-hero closed">
+			<div class="wrapper">
+				<div class="d-xl-flex h-100 w-100 justify-content-center align-items-center">
+					<div class="position-relative w-100 d-block d-md-none">
+						<img src="assets/images/hero/hero-mobile-11-01-2020.jpg" class="w-100 img-fluid">
+					</div>
+					<div class="position-relative w-100 d-none d-md-block">
+						<img src="assets/images/hero/hero-large-11-01-2020.jpg" class="w-100 img-fluid">
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="tbp-inplayer-video" class="tbp-inplayer-video">
+			<div class="stripe"></div>
+			<div id="inplayer-104946" class="inplayer-paywall"></div>
+			<script>
+				var paywall = new InplayerPaywall('42b45adc-1cd1-423e-a658-fe895950836b', [{
+					id: 104946
+				}]);
+			</script>
+		</div>
+
+		<div id="yield">
+				<div class="tbp-fix-social d-none d-lg-flex">
+					<a href="mailto:info@thompsonboxing.com" target="_blank"><img src="./assets/images/email-us.svg" alt="email us" class="email-us" /></a>
+					<ul class="socials">
+						<li>
+							<a href="#" title="Facebook">
+								<img src="./assets/images/facebook.svg" alt="facebook" />
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Instagram">
+								<img src="./assets/images/instagram.svg" alt="instagram" />
+							</a>
+						</li>
+						<li>
+							<a href="#" title="YouTube">
+								<img src="./assets/images/youtube.svg" alt="youtube" />
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Twitter">
+								<img src="./assets/images/twitter.svg" alt="twitter" />
+							</a>
+						</li>
+					</ul>
+					<img src="./assets/images/find-us-at.svg" alt="find us at" class="find-us-at" />
+				</div>
+
+			<header class="text-center d-flex" id="tbp-header">
+				<div class="container position-relative" >
+					<button class="tbp-navigation-icon-open" id="tbp-navigation-icon-open">
+						<div class="d-block d-md-none mobile">
+							<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect width="40" height="40" fill="#BE1E2D"/>
+								<rect x="10" y="19" width="19" height="2" fill="white"/>
+								<rect x="10" y="11" width="19" height="2" fill="white"/>
+								<rect x="10" y="27" width="19" height="2" fill="white"/>
+							</svg>
+						</div>
+						<div class="d-none d-md-block">
+							<span>MENU</span>
+							<svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect y="13" width="34" height="5" fill="white"/>
+								<rect width="34" height="5" fill="white"/>
+								<rect y="26" width="34" height="5" fill="white"/>
+							</svg>
+						</div>
+					</button>
+			
+					<div class="row tbp-logo">
+						<div class="col-12">
+							<!--
+							<a href="/" aria-label="Home" class="d-block d-md-none mobile">
+								<img class="img-fluid" src="assets/images/icon-logo-white-gray.svg" alt="TBP Logo">
+							</a>
+							-->
+							<a href="/" aria-label="Home">
+								<img class="img-fluid" src="assets/images/logo-light.svg" alt="TBP Logo">
+							</a>
+						</div>
+					</div>
+			
+					<!--
+					<div class="row">
+						<div class="col-12">
+							<div class="mb-5">
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe id="ls_embed_1595468705" src="https://livestream.com/accounts/23289909/events/9227014/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen> </iframe><script type="text/javascript" data-embed_id="ls_embed_1595468705" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>
+							</div>
+						</div>
+					</div>
+					-->
+			
+			
+				</div>
+			</header>
+
+				<div class="tbp-page tbp-page-fighter">
+					<div class="shape">
+						<section class="tbp-single-fighter">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<div class="fighter-header-inner">
+											<div class="header-overlay"></div>
+											<div class="img-wrapper">
+												<style>
+													.img-bg {
+														background-image: url(./assets/images/fighter_header_xs.png);
+														background-position: top;
+														background-repeat: no-repeat;
+														background-size: cover;
+														min-height: 600px;
+													}
+													@media (min-width: 576px) {
+														.img-bg {
+															background-image: url(./assets/images/fighter_header_md.png);
+															min-height: inherit;
+														}
+													}
+												</style>
+												<div class="img-bg">
+													<div class="fighter-caption position-absolute">
+														<p class="nickname">West Texas Warrior</p>
+														<h1>Michael Dutchover</h1>
+														<p class="records">27 - 2 - 1</p>
+														<div class="squares">
+															<div class="square color-1"></div>
+															<div class="square color-2"></div>
+															<div class="square color-1"></div>
+															<div class="square color-1"></div>
+															<div class="square color-3"></div>
+															<div class="square color-1"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<input type="hidden" id="tbp-current-url" value="https://www.thompsonboxing.com/fighter/michael-dutchover/">
+										</div>
+										<div class="single-fighter-content">
+											<div class="content-inner">
+												<div class="d-none d-md-block">
+													<div class="single-social-share">
+														<ul>
+															<li><a href="#" data-toggle="popover" title="Share on Facebook" id="tbp-facebook" target="_blank"><img src="./assets/images/icon/facebook.png"
+																		alt="Share on Facebook"></a></li>
+															<li><a href="#" data-toggle="popover" title="Share on Twitter" id="tbp-twitter" target="_blank"><img src="./assets/images/icon/twitter.png"
+																		alt="Share on Twitter"></a></li>
+															<li><a href="#" data-toggle="popover" title="Share Email" id="tbp-email" target="_blank"><img src="./assets/images/icon/mail.png"
+																		alt="Share Email"></a></li>
+															<li><a href="#" data-toggle="popover" title="Copy To Clipboard" id="tbp-link" target="_blank"><img src="./assets/images/icon/link.png"
+																		alt="Copy To Clipboard"></a></li>
+														</ul>
+														<span class="share-title">SHARE</span>
+													</div>
+												</div>
+												<div class="d-none d-md-block">
+													<div class="meta-right">
+														<div class="container">
+															<div class="row no-gutters">
+																<div class="col-4 d-lg-none">
+																	<div class="d-flex align-items-center">
+																		<img class="born-place" src="./assets/images/flags/usa.png" alt="USA">
+																		<p class="d-inline-block m-0">
+																			<span class="city d-block">Mariland</span>
+																			<span class="state d-block">Texas</span>
+																		</p>
+																	</div>
+																</div>
+																<div class="col-8 col-lg-12">
+																	<div class="container">
+																		<div class="row">
+																			<div class="col-6 col-lg-3 d-md-none d-lg-block">
+																				<div class="d-flex align-items-center">
+																					<div>
+																						<img class="born-place" src="./assets/images/flags/usa.png" alt="USA">
+																					</div>
+																					<p class="d-inline-block m-0">
+																						<span class="city d-block">Mariland</span>
+																						<span class="state d-block">Texas</span>
+																					</p>
+																				</div>
+																			</div>
+																			<div class="col-6 col-lg-3">
+																				<span class="meta-label">Born</span>
+																				<span class="meta-text">Nov 15, 1997</span>
+																			</div>
+																			<div class="col-6 col-lg-3">
+																				<span class="meta-label">Current Residence</span>
+																				<span class="meta-text">Santa Fe Springs, CA</span>
+																			</div>
+																			<div class="col-6 col-lg-3">
+																				<span class="meta-label">Height</span>
+																				<span class="meta-text">5’7 1/2</span>
+																			</div>
+																			<div class="col-6 col-lg-3">
+																				<span class="meta-label">Weight</span>
+																				<span class="meta-text">135 (Lightweight)</span>
+																			</div>
+																			<div class="col-6 col-lg-3">
+																				<span class="meta-label">Amateur Record</span>
+																				<span class="meta-text">130-17</span>
+																			</div>
+																			<div class="col-6 col-lg-3">
+																				<span class="meta-label">Pro Record</span>
+																				<span class="meta-text">13-1, 10 KO’s</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="fighter-content">
+													<div class="container">
+														<div class="row">
+															<div class="col-12">
+																	<p>Lightweight Michael Dutchover is a top-flight prospect from Midland, Texas who signed with Thompson Boxing Promotions and Banner Promotions in October 2016.  The Texas native won numerous regional tournaments as an amateur and was a runner up at the 2016 National Golden Gloves competition in the 132-pound division.  He enters the professional ranks well prepared having gone 130-17 in the unpaid arena.</p>
+																	<p>“I felt an overwhelming amount of joy when I was signing my contract,” said Dutchover, who is managed and trained by Danny Zamora. “I’ve been doing this since I was eight years old. This is just the beginning.  I’m going to work hard to become a world champion. That’s all I want.”</p>
+																	<p>We are very pleased with the addition of Michael Dutchover,” said Ken Thompson, president at Thompson Boxing. “Michael brings a dynamic fighting style to the ring. It’s going to be exciting watching his career take off.”</p>
+																	<p>Dutchover turned professional on a Thompson Boxing card, Friday, Oct. 21, 2016. Dutchover started his career with a third-round knockout over Cesar Partida.  He worked off an effective jab that allowed him to land crisp power shots. In the third, he connected on a crushing combination that resulted in the fight’s only knockdown. Partida survived the round but was not allowed to come out for the fourth and final round.  In his next bout which took place at the Double Tree hotel on November 11, 2016, Dutchover scored a first round knockout, closing out the year with a bang.  This was a great start to Michael’s career as he entered 2017 with a record of 2-0, 2 KOs.</p>
+																	<p>On February 10, 2017, Dutchover returned to the ring, scoring another first round knockout over Jose Mora.  He followed that win with four more consecutive victories, defeating Eder Amaro Fajardo, Miguel Carrizoza, Carlos Flores and Anthony Sanchez, with two of those bouts taking place on the east coast.  He would go the distance for the first time in his career, winning a six round unanimous decision against Carrizoza.  His record now being 7-0, 5 KOs as he entered 2018.</p>
+																	<p>In 2018, Dutchover fought Ricardo Lopez Torres, Mike Fowler, Sergio Ramirez Martinez, Bergman Aguilar, and Ruben Tamayo, winning all five bouts, four by knockout, to remain undefeated.  His record would now stand at 12-0, 9 KOs.</p>
+																	<p>On May 10, 2019, Dutchover scored a first round knockout against, Rosekie Cristobal, a bout that took place at the Omega Products International event center in Corona, CA.  In his next fight, Ductchover would make his televised debut against Thomas Mattice, fighting on Showtime’s prospect series, ShoBox: The Next Generation.  In this bout, Dutchover would suffer his first career loss which ended controversially due to the doctor stopping the action in round eight due to a bad cut, bringing his current record to 13-1, 10 KOs.</p>
+																	<p>Dutchover, now 22, relocated to Santa Fe Springs, Calif., two years ago to take advantage of the Los Angeles area sparring.  “The sparring in Los Angeles is exceptional,” said Dutchover. “I’ve had an opportunity to mix it up with Petr Petrov and Ruben Villa. I see so many different styles that I think it’s going to speed my development.”</p>
+																	<p>Dutchover’s most emphatic win came during his first headlining event on July 20, 2018. Dutchover captivated a sold-out crowd with an electrifying one-punch knockout of Sergio Ramirez from the Doubletree Hotel in Ontario, Calif.  The close out punch, a right hand on Ramirez’s chin, occurred at the :43 mark of the second round. </p>
+																	<p>“I timed it just right,” said the 20-year-old Dutchover. “He came at me with a lazy punch and I just unloaded that right hand and he dropped like a fly.”</p>
+																	<p>“You go into every fight expecting a tough challenge,” Dutchover said. “I was ready to go the full eight rounds, but I’m glad I was able to end it early and give the fans something to talk about.”</p>
+																	<p>Dutchover was born on Nov. 15, 1997.</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="fighter-gallery">
+													<div class="container">
+														<div class="row">
+																<div class="col-6 col-lg-3">
+																	<a href="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-1.png" class="d-block" data-fancybox="gallery-michael-dutchover">
+																		<img src="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-1.jpg" class="img-fluid">
+																	</a>
+																</div>
+																<div class="col-6 col-lg-3">
+																	<a href="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-2.png" class="d-block" data-fancybox="gallery-michael-dutchover">
+																		<img src="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-2.jpg" class="img-fluid">
+																	</a>
+																</div>
+																<div class="col-6 col-lg-3">
+																	<a href="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-3.png" class="d-block" data-fancybox="gallery-michael-dutchover">
+																		<img src="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-3.jpg" class="img-fluid">
+																	</a>
+																</div>
+																<div class="col-6 col-lg-3">
+																	<a href="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-4.png" class="d-block" data-fancybox="gallery-michael-dutchover">
+																		<img src="./assets/images/fighter_gallery/tbp_inplayer_image_post-dutchover-4.jpg" class="img-fluid">
+																	</a>
+																</div>
+														</div>
+													</div>
+												</div>
+												<div class="amateur-highlights">
+													<div class="container">
+														<div class="row">
+															<div class="col-12">
+																<p class="highlight-header text-center">Amateur highlights:</p>
+															</div>
+														</div>
+													</div>
+													<div class="container">
+														<div class="row">
+																<div class="highlight-container col-12 col-lg-6">
+																	<div class="d-flex flex-column flex-md-row">
+																		<div><img src="./assets/images/highlight.svg" alt="Medal"></div>
+																		<div class="d-flex flex-column">
+																		<p class="highlight-title">Won 9 National amateur tournaments:</p>
+																		<p class="highlight-text" >Silver Gloves, Junior Golden Gloves, PAL Nationals</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="highlight-container col-12 col-lg-6">
+																	<div class="d-flex flex-column flex-md-row">
+																		<div><img src="./assets/images/highlight.svg" alt="Medal"></div>
+																		<div class="d-flex flex-column">
+																		<p class="highlight-title"></p>
+																		<p class="highlight-text" >Bronze medal at U.S. Olympic Trials in 2015</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="highlight-container col-12 col-lg-6">
+																	<div class="d-flex flex-column flex-md-row">
+																		<div><img src="./assets/images/highlight.svg" alt="Medal"></div>
+																		<div class="d-flex flex-column">
+																		<p class="highlight-title"></p>
+																		<p class="highlight-text" >Runner up at National Golden Gloves 2016 at 132 lbs.</p>
+																		</div>
+																	</div>
+																</div>
+																<div class="highlight-container col-12 col-lg-6">
+																	<div class="d-flex flex-column flex-md-row">
+																		<div><img src="./assets/images/highlight.svg" alt="Medal"></div>
+																		<div class="d-flex flex-column">
+																		<p class="highlight-title">First amateur fight:</p>
+																		<p class="highlight-text" >8 years old at 55 lbs.</p>
+																		</div>
+																	</div>
+																</div>
+														</div>
+													</div>
+												</div>
+												<div class="sparring-partners">
+													<div class="container">
+														<div class="row">
+															<div class="col-12">
+																<p class="partners-header">Notable sparring partners:</p>
+															</div>
+														</div>
+													</div>
+													<div class="container">
+														<div class="row">
+																<div class="col-12 col-md-6 col-lg-4 partners-container">
+																	<div class="d-flex flex-columns align-items-center">
+																		<img src="./assets/images/sparring_partners/author.svg" alt="Danny Roman" class="rounded-circle">
+																		<span class="partners-text">Danny Roman</span>
+																	</div>
+																</div>
+																<div class="col-12 col-md-6 col-lg-4 partners-container">
+																	<div class="d-flex flex-columns align-items-center">
+																		<img src="./assets/images/sparring_partners/author.svg" alt="Oscar Valdez" class="rounded-circle">
+																		<span class="partners-text">Oscar Valdez</span>
+																	</div>
+																</div>
+																<div class="col-12 col-md-6 col-lg-4 partners-container">
+																	<div class="d-flex flex-columns align-items-center">
+																		<img src="./assets/images/sparring_partners/author.svg" alt="Jessie Magdaleno" class="rounded-circle">
+																		<span class="partners-text">Jessie Magdaleno</span>
+																	</div>
+																</div>
+																<div class="col-12 col-md-6 col-lg-4 partners-container">
+																	<div class="d-flex flex-columns align-items-center">
+																		<img src="./assets/images/sparring_partners/author.svg" alt="Darleys Perez" class="rounded-circle">
+																		<span class="partners-text">Darleys Perez</span>
+																	</div>
+																</div>
+																<div class="col-12 col-md-6 col-lg-4 partners-container">
+																	<div class="d-flex flex-columns align-items-center">
+																		<img src="./assets/images/sparring_partners/author.svg" alt="Petr Petrov" class="rounded-circle">
+																		<span class="partners-text">Petr Petrov</span>
+																	</div>
+																</div>
+																<div class="col-12 col-md-6 col-lg-4 partners-container">
+																	<div class="d-flex flex-columns align-items-center">
+																		<img src="./assets/images/sparring_partners/author.svg" alt="Ruben Torres" class="rounded-circle">
+																		<span class="partners-text">Ruben Torres</span>
+																	</div>
+																</div>
+																<div class="col-12 col-md-6 col-lg-4 partners-container">
+																	<div class="d-flex flex-columns align-items-center">
+																		<img src="./assets/images/sparring_partners/author.svg" alt="Michael Conlan" class="rounded-circle">
+																		<span class="partners-text">Michael Conlan</span>
+																	</div>
+																</div>
+														</div>
+													</div>
+												</div>
+												<div class="high-school">
+													<div class="container">
+														<div class="row">
+															<div class="col-12">
+																<p class="high-school-header">High School:</p>
+															</div>
+														</div>
+													</div>
+													<div class="container">
+														<div class="row">
+															<div class="col-12">
+																<div class="high-school-container">
+																		<p class="high-school-text">Graduate of Midland High School Bulldogs (one of the top cross country schools in the country; routinely ranked in the Top 20 nationwide).</p>
+																		<p class="high-school-text">Ran Cross Country: his 3-mile time was 16:10.</p>
+																		<p class="high-school-text">Ran Track n’ Field; Ran the 800m: 2:05 and the 400m :53.</p>
+																		<p class="high-school-text">One of his goals in the future is to run a marathon</p>
+																		<p class="high-school-text">Was first introduced to the Los Angeles boxing scene the summer before his senior year of high school. He sparred with Darleys Perez, who was the WBA lightweight champion at the time (Perez was getting ready for England’s Anthony Crolla), and he knew he wanted to conduct training camps in L.A . once he turned professionally one year later.</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="fighters">
+											<div class="container">
+												<div class="row">
+													<div class="col-12 title text-center">
+														<h4 class="m-0">Here Are More Fighters You May Like</h4>
+													</div>
+												</div>
+											</div>
+											<div class="container">
+												<div class="row justify-content-md-center">
+														<div class="col-12 col-sm-6 col-lg-4 d-none d-sm-block">
+															<div
+																class="fighter d-flex"
+																style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"
+															>
+																<p class="name">Ruben Torres</p>
+																<a href="#" class="link" >Read More</a>
+															</div>
+														</div>
+														<div class="col-12 d-block d-sm-none">
+															<div class="fighter d-flex">
+																<div class="thumb"
+																	style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"></div>
+																<div class="overlay"></div>
+																<div class="d-flex flex-column align-items-center justify-content-center content">
+																	<p class="name">Ruben Torres</p>
+																	<a href="#" class="link" >Read More</a>
+																</div>
+															</div>
+														</div>
+														<div class="col-12 col-sm-6 col-lg-4 d-none d-sm-block">
+															<div
+																class="fighter d-flex"
+																style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"
+															>
+																<p class="name">Arnold Dinong</p>
+																<a href="#" class="link" >Read More</a>
+															</div>
+														</div>
+														<div class="col-12 d-block d-sm-none">
+															<div class="fighter d-flex">
+																<div class="thumb"
+																	style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"></div>
+																<div class="overlay"></div>
+																<div class="d-flex flex-column align-items-center justify-content-center content">
+																	<p class="name">Arnold Dinong</p>
+																	<a href="#" class="link" >Read More</a>
+																</div>
+															</div>
+														</div>
+														<div class="col-12 col-sm-6 col-lg-4 d-none d-sm-block">
+															<div
+																class="fighter d-flex"
+																style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"
+															>
+																<p class="name">Arnold Dinong</p>
+																<a href="#" class="link" >Read More</a>
+															</div>
+														</div>
+														<div class="col-12 d-block d-sm-none">
+															<div class="fighter d-flex">
+																<div class="thumb"
+																	style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"></div>
+																<div class="overlay"></div>
+																<div class="d-flex flex-column align-items-center justify-content-center content">
+																	<p class="name">Arnold Dinong</p>
+																	<a href="#" class="link" >Read More</a>
+																</div>
+															</div>
+														</div>
+														<div class="col-12 col-sm-6 col-lg-4 d-none d-sm-block">
+															<div
+																class="fighter d-flex"
+																style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"
+															>
+																<p class="name">Arnold Dinong</p>
+																<a href="#" class="link" >Read More</a>
+															</div>
+														</div>
+														<div class="col-12 d-block d-sm-none">
+															<div class="fighter d-flex">
+																<div class="thumb"
+																	style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"></div>
+																<div class="overlay"></div>
+																<div class="d-flex flex-column align-items-center justify-content-center content">
+																	<p class="name">Arnold Dinong</p>
+																	<a href="#" class="link" >Read More</a>
+																</div>
+															</div>
+														</div>
+														<div class="col-12 col-sm-6 col-lg-4 d-none d-sm-block">
+															<div
+																class="fighter d-flex"
+																style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"
+															>
+																<p class="name">Arnold Dinong</p>
+																<a href="#" class="link" >Read More</a>
+															</div>
+														</div>
+														<div class="col-12 d-block d-sm-none">
+															<div class="fighter d-flex">
+																<div class="thumb"
+																	style="background-repeat: no-repeat; background-image: url(./assets/images/fighter.png); background-size: cover;"></div>
+																<div class="overlay"></div>
+																<div class="d-flex flex-column align-items-center justify-content-center content">
+																	<p class="name">Arnold Dinong</p>
+																	<a href="#" class="link" >Read More</a>
+																</div>
+															</div>
+														</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+
+			<section class="tbp-subscribe">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 text-center">
+							<img src="assets/images/icon-logo.svg" class="img-fluid" />
+							<h4>WE ELEVATE THE SPORT OF BOXING</h4>
+							<p>Be the first to know about our new calendar of events, sign up now!</p>
+							<form id="tbp-subscribe-form" class="form-inline" name="tbp-subscribe-form">
+								<div class="input-group col-9 mx-auto">
+									<input type="text" class="form-control" placeholder="Enter your email" name="email_address" id="email_address" />
+									<span class="input-group-btn">
+										<button class="btn tbp-subscribe-btn my-auto" type="submit"><img
+												src="assets/images/envelop-icon.svg" /></button>
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+		<footer id="tbp-footer">
+			<div class="container">
+				<div class="row no-gutters justify-content-md-center">
+					<div class="col-12 col-md-12 col-lg-4 mb-lg-0 mb-4">
+						<img src="assets/images/footer-logo.svg" class="img-fluid mx-lg-0 mx-auto logo" />
+						<p class="copyright d-lg-block d-none">©2020 Thompson Boxing Promotion. All Rights Reserved.</p>
+					</div>
+					<div class="col-12 col-md-6 col-lg-6">
+						<div class="contact">
+							<h4>Contact us</h4>
+							<p>282 South Anita Drive Orange, CA 92868</p>
+							<p>
+								<span class="phone">P: 714-935-0900</span>
+								<span class="fax">F: 714-935-0600</span>
+							</p>
+							<p>
+								<a href="mailto:info@thompsonboxing.com" target="_blank"
+									title="Thompson Boxing Promotions">info@thompsonboxing.com</a>
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3 col-lg-2">
+						<div class="social">
+							<h4>Follow Us</h4>
+							<ul>
+								<li><a href="" target="_blank">Facebook</a></li>
+								<li><a href="" target="_blank">Instagram</a></li>
+								<li><a href="" target="_blank">Twitter</a></li>
+								<li><a href="" target="_blank">YouTube</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row no-gutters justify-content-md-center">
+					<div class="col-lg-4 d-none d-md-block"></div>
+					<div class="footer-alt-container col-12 col-md-9 col-lg-8">
+						<div class="footer-alt-menu text-center text-md-left">
+							<ul>
+								<li><a href="page.html" target="_blank">Privacy Policy</a></li>
+								<li><a href="page.html" target="_blank">Cookies Policy</a></li>
+								<li><a href="page.html" target="_blank">Terms & Conditions</a></li>
+							</ul>
+						</div>
+						<p class="copyright d-lg-none">©2020 Thompson Boxing Promotion. All Rights Reserved.</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<section class="tbp-overlay" id="tbp-overlay"></section>
+	</main>
+  <script src="./assets/scripts/frontend.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+.#{$prefix}-quote {
+	margin-top: 80px;
+
+	@include media-breakpoint-down(xs) {
+		margin-top: 30px;
+	}
+
+	blockquote {
+		display: inline-block;
+		font-size: 24px;
+		line-height: 36px;
+		margin: 0px auto;
+		padding: 0 5px;
+		position: relative;
+		text-align: center;
+		width: 450px;
+
+		@include media-breakpoint-down(xs) {
+			padding: 0 60px;
+			width: 100%;
+		}
+
+		i {
+			color: $color-cardinal;
+			position: absolute;
+
+			&.#{$prefix}-b-left {
+				filter: fliph;
+				left: -40px;
+				top: -10px;
+				transform: scaleX(-1);
+
+				@include media-breakpoint-down(xs) {
+					left: 35px;
+				}
+			}
+
+			&.#{$prefix}-b-right {
+				bottom: -10px;
+				right: -40px;
+
+				@include media-breakpoint-down(xs) {
+					right: 35px;
+				}
+			}
+		}
+	}
+}

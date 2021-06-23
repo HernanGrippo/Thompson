@@ -1,0 +1,30 @@
+<section class="{{prefix}}-video-thumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h4>{{data.header}}</h4>
+				<div class="glide">
+					<div data-glide-el="track" class="glide__track">
+						<ul class="glide__slides">
+							{{#each data.thumbs}}
+							<li class="glide__slide {{../prefix}}-slick-content">
+								<a href="{{video}}" target="_blank" title="{{title}}">
+									<div class="{{../prefix}}-slick-overlay"></div>
+									<img class="img-fluid" src="{{image}}" alt="{{alt}}" />
+									<h6><span>{{title}}</span></h6>
+								</a>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+					<div class="glide__bullets" data-glide-el="controls[nav]">
+						{{#each data.thumbs}}
+						<button class="glide__bullet" data-glide-dir="={{@index}}"></button>
+						{{/each}}
+					</div>
+				</div>
+				<p class="subText">{{data.subText}}</p>
+			</div>
+		</div>
+	</div>
+</section>

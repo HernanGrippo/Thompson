@@ -1,0 +1,73 @@
+<section class="{{prefix}}-single-container">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-12">
+				<div class="d-flex justify-content-between">
+					<div class="d-flex align-items-center">
+						<img src="{{data.author.image}}" alt="{{data.author.name}}" class="avatar">
+						<span class="fullname">{{data.author.name}}</span>
+					</div>
+					<div class="d-flex align-items-center">
+						<p class="m-0"><span class="location">Orange, Calif. - </span><span class="post-date">{{data.post_date}}</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="{{prefix}}-single-title">
+					<h4>{{data.post_title}}</h4>
+					<input type="hidden" id="{{prefix}}-current-url" value="{{data.post_url}}">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="img-wrapper">
+					<div class="img-bg" style="background: url({{data.featured_img}}) no-repeat top; background-size: cover;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="{{prefix}}-single-content d-flex align-items-center">
+					{{> components/social-share data=data prefix=prefix }}
+					<div class="content-inner">
+						<p>{{data.p_text1}}</p>
+						<img src="{{data.content_img}}" alt="Banner" class="img-fluid" />
+						<p>{{data.p_text2}}</p>
+						<p>{{data.p_text3}}</p>
+						<div class="clearfix gallery">
+							{{#each data.post_gallery}}
+								{{#if @first}}
+									<a href="{{img}}" class="main-thumb float-left" data-fancybox="gallery-{{../data.post_slug}}" style="background-image: url('{{thumb}}')"></a>
+								{{else}}
+									<a href="{{img}}" class="sub-thumb float-left" data-fancybox="gallery-{{../data.post_slug}}" style="background-image: url('{{thumb}}')"></a>
+								{{/if}}
+							{{/each}}
+						</div>
+						<div class="d-block d-md-none">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										{{> components/social-share-fighter data=data prefix=prefix }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="news">
+			<div class="row">
+				<div class="col-12 text-center">
+					<h5>You may like</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{> components/related-fixed
+		data=global.single
+		prefix=global.prefix }}
+</section>

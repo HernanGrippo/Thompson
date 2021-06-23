@@ -1,0 +1,13 @@
+.#{$prefix}-inplayer-video {
+	background-color: $color-white;
+	display: none;
+	height: auto;
+	margin: 0;
+	padding: 0;
+
+	.stripe {
+		background-color: $color-cardinal;
+		height: 45px;
+		width: 100%;
+	}
+}

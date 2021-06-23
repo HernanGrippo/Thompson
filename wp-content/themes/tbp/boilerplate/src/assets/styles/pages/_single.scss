@@ -1,0 +1,49 @@
+.#{$prefix}-page-single {
+
+	.shape {
+		position: relative;
+
+		&:before {
+			background-color: $color-woodsmoke;
+			clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+			content: "";
+			height: 100%;
+			position: absolute;
+			width: 100%;
+
+			@include media-breakpoint-up(lg) {
+				clip-path: polygon(0 15%, 100% 5%, 100% 85%, 0 95%);
+			}
+		}
+	}
+
+	.news {
+		h5 {
+			font-family: Futura Std;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 24px;
+			line-height: 29px;
+			margin-bottom: 32px;
+			margin-top: 56px;
+
+			@include media-breakpoint-up(md) {
+				margin-top: 80px;
+			}
+		}
+	}
+
+	.img-wrapper {
+		box-sizing: border-box;
+		max-width: 100%;
+		overflow: auto;
+		resize: horizontal;
+
+		.img-bg {
+			background-repeat: no-repeat;
+			width: 100%;
+			padding-bottom: 75%;
+			position: relative;
+		}
+	}
+}
