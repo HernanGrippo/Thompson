@@ -40,6 +40,7 @@
 
 # Files
 !appspec-*
+!appspec.yml
 !bitbucket-pipelines.yml
 
 # Folders

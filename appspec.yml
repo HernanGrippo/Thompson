@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/tbp.gocodistry.com
+hooks:
+  AfterInstall:
+    - location: deploy/AfterInstall.sh
+      timeout: 3000
+      runas: root
