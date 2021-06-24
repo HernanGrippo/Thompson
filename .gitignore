@@ -53,6 +53,10 @@
 !wp-content/plugins/ACF-PHP-Recovery/**
 !wp-content/plugins/advanced-custom-fields-pro
 !wp-content/plugins/advanced-custom-fields-pro/**
+!wp-content/plugins/contact-form-7
+!wp-content/plugins/contact-form-7/**
+!wp-content/plugins/contact-form-cfdb7
+!wp-content/plugins/contact-form-cfdb7/**
 !wp-content/plugins/custom-post-type-ui
 !wp-content/plugins/custom-post-type-ui/**
 !wp-content/plugins/disable-gutenberg

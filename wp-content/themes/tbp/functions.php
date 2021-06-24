@@ -91,6 +91,42 @@ function tbp_maintenance_assets()
     'topBarHeroClosedButtonText' => getGroupACFsubField('tbp_top_bar_options', 'tbp_hero_closed_button_text', 'home_options'),
   );
 
+  if (have_rows('page_elements')) :
+
+    while (have_rows('page_elements')) : the_row();
+
+      if (get_row_layout() == 'tbp_form') :
+
+        $scriptDatas['contactForm'] = array(
+          "id" => get_sub_field('contact_form_id')[0],
+          "firstname_required_text" => get_sub_field('first_name_required_text'),
+          "lastname_required_text" => get_sub_field('last_name_required_text'),
+          "email_required_text" => get_sub_field('email_required_text'),
+          "email_validate_text" => get_sub_field('email_validate_text'),
+          "message_required_text" => get_sub_field('message_required_text'),
+          "success_message" => get_sub_field('thanks_message'),
+          "failed_message" => get_sub_field('failed_message')
+        );
+
+      endif;
+
+    endwhile;
+
+  else :
+
+    $scriptDatas['contactForm'] = array(
+      "id" => "",
+      "firstname_required_text" => "",
+      "lastname_required_text" => "",
+      "email_required_text" => "",
+      "email_validate_text" => "",
+      "message_required_text" => "",
+      "success_message" => "",
+      "failed_message" => ""
+    );
+
+  endif;
+
   $stylePath = get_template_directory() . '/public/assets/styles';
   foreach (new DirectoryIterator($stylePath) as $fileInfo) {
     if ($fileInfo->getFilename() == 'frontend.css') {
