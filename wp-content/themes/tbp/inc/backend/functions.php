@@ -497,3 +497,51 @@ function next_event_deactivation()
   wp_unschedule_event($time_stamp, 'tbp_next_event_deactivation');
   wp_clear_scheduled_hook('tbp_next_event_deactivation');
 }
+
+
+function tbp_print_fighters_square($fighter_id, $template = 'home')
+{
+  $output = [];
+  $limit = 6;
+  $counter = 0;
+  if (have_rows('tbp_fighter_records', $fighter_id)) :
+    while (have_rows('tbp_fighter_records', $fighter_id)) : the_row();
+      if ($counter < $limit) {
+        if (get_sub_field('tbp_fighter_records_result', $fighter_id) == 'Win') {
+          $output[] = $template == "home" ? '<div class="bio-square color-1"></div>' : '<div class="square color-1"></div>';
+        } elseif (get_sub_field('tbp_fighter_records_result', $fighter_id) == 'Lost') {
+          $output[] = $template == "home" ? '<div class="bio-square color-2"></div>' : '<div class="square color-2"></div>';
+        } elseif (get_sub_field('tbp_fighter_records_result', $fighter_id) == 'Draw') {
+          $output[] = $template == "home" ? '<div class="bio-square color-3"></div>' : '<div class="square color-3"></div>';
+        }
+      }
+      $counter++;
+    endwhile;
+  endif;
+
+  return implode("\n", array_reverse($output));
+}
+
+function tbp_get_fighter_records($fighter_id)
+{
+  $win = 0;
+  $draw = 0;
+  $lost = 0;
+  if (have_rows('tbp_fighter_records', $fighter_id)) :
+    while (have_rows('tbp_fighter_records', $fighter_id)) : the_row();
+      if (get_sub_field('tbp_fighter_records_result', $fighter_id) == 'Win') {
+        $win++;
+      } elseif (get_sub_field('tbp_fighter_records_result', $fighter_id) == 'Lost') {
+        $lost++;
+      } elseif (get_sub_field('tbp_fighter_records_result', $fighter_id) == 'Draw') {
+        $draw++;
+      }
+    endwhile;
+  endif;
+
+  return [
+    'win' => $win,
+    'lost' => $lost,
+    'draw' => $draw,
+  ];
+}
