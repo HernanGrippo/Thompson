@@ -37,64 +37,62 @@ function getFighters(WP_REST_Request $request)
 
       if ($res->post->ID) { //($res->post->ID < 5819)
 
-        $delimiter = "[vc_row][vc_column]";
+        // $delimiter = "[vc_row][vc_column]";
 
-        $fighter_bio = array();
+        // $fighter_bio = array();
 
-        $fighter_bio_last = array();
+        // $fighter_bio_last = array();
 
-        if (!empty($res->post->post_content)) {
-          $fighter_bio = array_values(array_filter(array_map("trim", explode($delimiter, str_replace(array(
-            "\r",
-            "\n",
-            "&nbsp;"
-          ), array("", "", " "), strip_tags($res->post->post_content)))), function ($value) {
-            if ($value != "") {
-              return true;
-            }
-          }));
+        // if (!empty($res->post->post_content)) {
+        //   $fighter_bio = array_values(array_filter(array_map("trim", explode($delimiter, str_replace(array(
+        //     "\r",
+        //     "\n",
+        //     "&nbsp;"
+        //   ), array("", "", " "), strip_tags($res->post->post_content)))), function ($value) {
+        //     if ($value != "") {
+        //       return true;
+        //     }
+        //   }));
 
-          $fighter_bio = array_map(function ($value) {
-            $delimiter = "[vc_row][vc_column]";
+        //   $fighter_bio = array_map(function ($value) {
+        //     $delimiter = "[vc_row][vc_column]";
 
-            return $delimiter . $value;
-          }, $fighter_bio);
+        //     return $delimiter . $value;
+        //   }, $fighter_bio);
 
-          $textCounter  = 1;
-          $videoCounter = 1;
-          $quoteCounter = 1;
-          foreach ($fighter_bio as $fighter_line) {
-            if (strpos($fighter_line, 'vc_video') !== false) {
-              $video_link                                   = preg_match('/link=\"([^\"]+)\"/', $fighter_line, $video_link_array);
-              $video_title                                  = preg_match('/title=\"([^\"]+)\"/', $fighter_line, $video_title_array);
-              $fighter_bio_last['video_' . $videoCounter] = array(
-                "title" => $video_title_array[1],
-                "link"  => $video_link_array[1],
-              );
-              $videoCounter++;
-            } elseif (strpos($fighter_line, 'vc_column_text') !== false) {
-              $paragraph                                  = preg_match_all("/\[vc_column_text\]([^\]]*)\[\/vc_column_text\]/", $fighter_line, $paragraph_array);
-              $fighter_bio_last['text_' . $textCounter] = $paragraph_array[1][0];
-              $textCounter++;
-            } elseif (strpos($fighter_line, 'vc_coquote') !== false) {
-              $quote_title                                  = preg_match('/quote_title=\"([^\"]+)\"/', $fighter_line, $quote_title_array);
-              $quote_text                                   = preg_match('/quote_text=\"([^\"]+)\"/', $fighter_line, $quote_text_array);
-              $fighter_bio_last['quote_' . $quoteCounter] = array(
-                "title" => $quote_title_array[1],
-                "text"  => $quote_text_array[1],
-              );
-              $quoteCounter++;
-            }
-          }
-        }
-
-        $featured_image_detail = array();
+        //   $countIndex = 1;
+        //   foreach ($fighter_bio as $fighter_line) {
+        //     if (strpos($fighter_line, 'vc_video') !== false) {
+        //       $video_link                                   = preg_match('/link=\"([^\"]+)\"/', $fighter_line, $video_link_array);
+        //       $video_title                                  = preg_match('/title=\"([^\"]+)\"/', $fighter_line, $video_title_array);
+        //       $fighter_bio_last[$countIndex]['video'] = array(
+        //         "title" => $video_title_array[1],
+        //         "link"  => $video_link_array[1],
+        //       );
+        //       $videoCounter++;
+        //     } elseif (strpos($fighter_line, 'vc_column_text') !== false) {
+        //       $paragraph                                  = preg_match_all("/\[vc_column_text\]([^\]]*)\[\/vc_column_text\]/", $fighter_line, $paragraph_array);
+        //       $fighter_bio_last[$countIndex]['text'] = $paragraph_array[1][0];
+        //       $textCounter++;
+        //     } elseif (strpos($fighter_line, 'vc_coquote') !== false) {
+        //       $quote_title                                  = preg_match('/quote_title=\"([^\"]+)\"/', $fighter_line, $quote_title_array);
+        //       $quote_text                                   = preg_match('/quote_text=\"([^\"]+)\"/', $fighter_line, $quote_text_array);
+        //       $fighter_bio_last[$countIndex]['quote'] = array(
+        //         "title" => $quote_title_array[1],
+        //         "text"  => $quote_text_array[1],
+        //       );
+        //     }
+        //     $countIndex++;
+        //   }
+        // }
 
         $fighter_excerpt = '';
 
-        $fighter_gallery = array();
-
-        $featured_image_detail['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($res->post->ID), "full")[0];
+        $featured_image_detail = array(
+          'image' => wp_get_attachment_image_src(get_post_thumbnail_id($res->post->ID), "full")[0],
+          'credit'  => '',
+          'desc'    => ''
+        );
 
         if (have_rows('tbp_f_featured_photo_settings', $res->post->ID)) :
           while (have_rows('tbp_f_featured_photo_settings', $res->post->ID)) : the_row();
@@ -105,17 +103,18 @@ function getFighters(WP_REST_Request $request)
 
         $fighter_excerpt = get_field('tbp_fighter_excerpt', $res->post->ID);
 
-        if (have_rows('tbp_fighter_gallery', $res->post->ID)) :
-          while (have_rows('tbp_fighter_gallery', $res->post->ID)) : the_row();
+        // $fighter_gallery = array();
+        // if (have_rows('tbp_fighter_gallery', $res->post->ID)) :
+        //   while (have_rows('tbp_fighter_gallery', $res->post->ID)) : the_row();
 
-            $fighter_gallery[] = array(
-              'image'  => get_sub_field('tbp_fighter_gallery_photo', $res->post->ID),
-              'credit' => get_sub_field('tbp_fighter_gallery_credit', $res->post->ID),
-              'desc'   => get_sub_field('tbp_fighter_gallery_description', $res->post->ID),
-            );
+        //     $fighter_gallery[] = array(
+        //       'image'  => get_sub_field('tbp_fighter_gallery_photo', $res->post->ID),
+        //       'credit' => get_sub_field('tbp_fighter_gallery_credit', $res->post->ID),
+        //       'desc'   => get_sub_field('tbp_fighter_gallery_description', $res->post->ID),
+        //     );
 
-          endwhile;
-        endif;
+        //   endwhile;
+        // endif;
 
         $fighter_records = array();
 
@@ -148,8 +147,8 @@ function getFighters(WP_REST_Request $request)
         if (have_rows('tbp_fighter_profile_datas', $res->post->ID)) :
           while (have_rows('tbp_fighter_profile_datas', $res->post->ID)) : the_row();
             $fighter_profile_datas['nickname']   = get_sub_field('tbp_fighter_profile_nickname', $res->post->ID);
-            $fighter_profile_datas['birthdate']  = get_sub_field('tbp_fighter_profile_birthdate', $res->post->ID);
-            $fighter_profile_datas['birthplace'] = get_sub_field('tbp_fighter_profile_birthplace', $res->post->ID);
+            $fighter_profile_datas['birth_date']  = get_sub_field('tbp_fighter_profile_birthdate', $res->post->ID);
+            $fighter_profile_datas['birth_place'] = get_sub_field('tbp_fighter_profile_birthplace', $res->post->ID);
             $fighter_profile_datas['record']     = $win . "-" . $lost . "-" . $draw;
             $fighter_profile_datas['division']   = get_sub_field('tbp_fighter_profile_division', $res->post->ID);
             $fighter_profile_datas['stance']     = get_sub_field('tbp_fighter_profile_stance', $res->post->ID);
@@ -158,16 +157,16 @@ function getFighters(WP_REST_Request $request)
           endwhile;
         endif;
 
-        $fighter_content = '';
+        $fighter_content = new stdClass();
 
         if (get_field('f_elements', $res->post->ID)) {
           foreach (get_field('f_elements', $res->post->ID) as $elements) {
             if ($elements['acf_fc_layout'] === 'content') {
-              if ($elements['items']) {
-                foreach ($elements['items'] as $text) {
-                  $fighter_content = $fighter_content . strip_tags($text['text']);
-                }
-              }
+              $fighter_content = array(
+                'intro'     => strip_tags($elements['intro']),
+                'quote'     => strip_tags($elements['quote']),
+                'content'   => strip_tags($elements['text']),
+              );
             }
           }
         }
@@ -185,35 +184,36 @@ function getFighters(WP_REST_Request $request)
         }
 
         $multipleFighters[] = array(
-          'id'           => $res->post->ID,
-          'name'         => $first_name,
-          'last_name'    => $last_name,
-          'birth_date'   => $fighter_profile_datas ? $fighter_profile_datas['birthdate'] : null,
-          'birth_place'  => $fighter_profile_datas ? $fighter_profile_datas['birthplace'] : null,
-          'record'       => $fighter_profile_datas ? $fighter_profile_datas['record'] : null,
-          'division'     => $fighter_profile_datas ? $fighter_profile_datas['division'] : null,
-          'height'       => $fighter_profile_datas ? $fighter_profile_datas['height'] : null,
-          'detail'       => $fighter_profile_datas ? $fighter_profile_datas['nickname'] : null,
+          'id'            => $res->post->ID,
+          'name'          => $first_name,
+          'last_name'     => $last_name,
+          'profile'       => $fighter_profile_datas,
+          'content'         => $fighter_content,
+          // 'records'       => $fighter_records,
+          // 'gallery'       => $fighter_gallery,
+          // 'content'       => $fighter_bio_last,
+          // 'birth_date'   => $fighter_profile_datas ? $fighter_profile_datas['birthdate'] : null,
+          // 'birth_place'  => $fighter_profile_datas ? $fighter_profile_datas['birthplace'] : null,
+          // 'record'       => $fighter_profile_datas ? $fighter_profile_datas['record'] : null,
+          // 'division'     => $fighter_profile_datas ? $fighter_profile_datas['division'] : null,
+          // 'height'       => $fighter_profile_datas ? $fighter_profile_datas['height'] : null,
+          // 'detail'       => $fighter_profile_datas ? $fighter_profile_datas['nickname'] : null,
           //'boxrec_id'    => get_field('tbp_fighter_boxrec_id', $res->post->ID),
           //'slug'         => $res->post->post_name,
           //'url'          => get_site_url() . "/wp-json/tb/v1/fighters/" . $res->post->ID,
           //'publish_date' => get_the_date('F j, Y', $res->post->ID),
           //'publish_time' => get_the_date('g:i a', $res->post->ID),
           //'excerpt'      => wp_filter_nohtml_kses($fighter_excerpt),
-          //'profile'      => $fighter_profile_datas,
-          'content'        => $fighter_content,
-          //'records'      => $fighter_records,
-          //'gallery' => $fighter_gallery
-          'img_source'     => $featured_image_detail['image'],
+          // 'img_source'     => $featured_image_detail['image'],
         );
 
-        if (have_rows('tbp_fighter_gallery', $res->post->ID)) :
-          $galleryCounter = 1;
-          while (have_rows('tbp_fighter_gallery', $res->post->ID)) : the_row();
-            $multipleFighters[$figherIndex]['img_source' . $galleryCounter] = get_sub_field('tbp_fighter_gallery_photo', $res->post->ID);
-            $galleryCounter++;
-          endwhile;
-        endif;
+        // if (have_rows('tbp_fighter_gallery', $res->post->ID)) :
+        //   $galleryCounter = 1;
+        //   while (have_rows('tbp_fighter_gallery', $res->post->ID)) : the_row();
+        //     $multipleFighters[$figherIndex]['img_source' . $galleryCounter] = get_sub_field('tbp_fighter_gallery_photo', $res->post->ID);
+        //     $galleryCounter++;
+        //   endwhile;
+        // endif;
 
         $figherIndex++;
 
@@ -252,56 +252,57 @@ function getFighterById(WP_REST_Request $request)
   if (count($res)) {
     if (get_field('tbp_fighter_visibility', $res[0]->ID)) {
 
-      $delimiter = "[vc_row][vc_column]";
+      // $delimiter = "[vc_row][vc_column]";
 
-      $fighter_bio = array();
+      // $fighter_bio = array();
 
-      $fighter_bio_last = array();
+      // $fighter_bio_last = array();
 
-      if (!empty($res[0]->post_content)) {
-        $fighter_bio = array_values(array_filter(array_map("trim", explode($delimiter, str_replace(array(
-          "\r",
-          "\n",
-          "&nbsp;"
-        ), array("", "", " "), strip_tags($res[0]->post_content)))), function ($value) {
-          if ($value != "") {
-            return true;
-          }
-        }));
+      // if (!empty($res[0]->post_content)) {
+      //   $fighter_bio = array_values(array_filter(array_map("trim", explode($delimiter, str_replace(array(
+      //     "\r",
+      //     "\n",
+      //     "&nbsp;"
+      //   ), array("", "", " "), strip_tags($res[0]->post_content)))), function ($value) {
+      //     if ($value != "") {
+      //       return true;
+      //     }
+      //   }));
 
-        $fighter_bio = array_map(function ($value) {
-          $delimiter = "[vc_row][vc_column]";
+      //   $fighter_bio = array_map(function ($value) {
+      //     $delimiter = "[vc_row][vc_column]";
 
-          return $delimiter . $value;
-        }, $fighter_bio);
+      //     return $delimiter . $value;
+      //   }, $fighter_bio);
 
-        $textCounter  = 1;
-        $videoCounter = 1;
-        $quoteCounter = 1;
-        foreach ($fighter_bio as $fighter_line) {
-          if (strpos($fighter_line, 'vc_video') !== false) {
-            $video_link                                   = preg_match('/link=\"([^\"]+)\"/', $fighter_line, $video_link_array);
-            $video_title                                  = preg_match('/title=\"([^\"]+)\"/', $fighter_line, $video_title_array);
-            $fighter_bio_last['video_' . $videoCounter] = array(
-              "title" => $video_title_array[1],
-              "link"  => $video_link_array[1],
-            );
-            $videoCounter++;
-          } elseif (strpos($fighter_line, 'vc_column_text') !== false) {
-            $paragraph                                  = preg_match_all("/\[vc_column_text\]([^\]]*)\[\/vc_column_text\]/", $fighter_line, $paragraph_array);
-            $fighter_bio_last['text_' . $textCounter] = $paragraph_array[1][0];
-            $textCounter++;
-          } elseif (strpos($fighter_line, 'vc_coquote') !== false) {
-            $quote_title                                  = preg_match('/quote_title=\"([^\"]+)\"/', $fighter_line, $quote_title_array);
-            $quote_text                                   = preg_match('/quote_text=\"([^\"]+)\"/', $fighter_line, $quote_text_array);
-            $fighter_bio_last['quote_' . $quoteCounter] = array(
-              "title" => $quote_title_array[1],
-              "text"  => $quote_text_array[1],
-            );
-            $quoteCounter++;
-          }
-        }
-      }
+      //   $textCounter  = 1;
+      //   $videoCounter = 1;
+      //   $quoteCounter = 1;
+      //   $countIndex= 0;
+      //   foreach ($fighter_bio as $fighter_line) {
+      //     if (strpos($fighter_line, 'vc_video') !== false) {
+      //       $video_link                                   = preg_match('/link=\"([^\"]+)\"/', $fighter_line, $video_link_array);
+      //       $video_title                                  = preg_match('/title=\"([^\"]+)\"/', $fighter_line, $video_title_array);
+      //       $fighter_bio_last[$countIndex]['video'] = array(
+      //         "title" => $video_title_array[1],
+      //         "link"  => $video_link_array[1],
+      //       );
+      //       $videoCounter++;
+      //     } elseif (strpos($fighter_line, 'vc_column_text') !== false) {
+      //       $paragraph                                  = preg_match_all("/\[vc_column_text\]([^\]]*)\[\/vc_column_text\]/", $fighter_line, $paragraph_array);
+      //       $fighter_bio_last[$countIndex]['text'] = $paragraph_array[1][0];
+      //       $textCounter++;
+      //     } elseif (strpos($fighter_line, 'vc_coquote') !== false) {
+      //       $quote_title                                  = preg_match('/quote_title=\"([^\"]+)\"/', $fighter_line, $quote_title_array);
+      //       $quote_text                                   = preg_match('/quote_text=\"([^\"]+)\"/', $fighter_line, $quote_text_array);
+      //       $fighter_bio_last[$countIndex]['quote'] = array(
+      //         "title" => $quote_title_array[1],
+      //         "text"  => $quote_text_array[1],
+      //       );
+      //     }
+      //     $countIndex ++;
+      //   }
+      // }
 
       $featured_image_detail = array();
 
@@ -363,8 +364,8 @@ function getFighterById(WP_REST_Request $request)
       if (have_rows('tbp_fighter_profile_datas', $res[0]->ID)) :
         while (have_rows('tbp_fighter_profile_datas', $res[0]->ID)) : the_row();
           $fighter_profile_datas['nickname']   = get_sub_field('tbp_fighter_profile_nickname', $res[0]->ID);
-          $fighter_profile_datas['birthdate']  = get_sub_field('tbp_fighter_profile_birthdate', $res[0]->ID);
-          $fighter_profile_datas['birthplace'] = get_sub_field('tbp_fighter_profile_birthplace', $res[0]->ID);
+          $fighter_profile_datas['birth_date']  = get_sub_field('tbp_fighter_profile_birthdate', $res[0]->ID);
+          $fighter_profile_datas['birth_place'] = get_sub_field('tbp_fighter_profile_birthplace', $res[0]->ID);
           $fighter_profile_datas['record']     = $win . "-" . $lost . "-" . $draw;
           $fighter_profile_datas['division']   = get_sub_field('tbp_fighter_profile_division', $res[0]->ID);
           $fighter_profile_datas['stance']     = get_sub_field('tbp_fighter_profile_stance', $res[0]->ID);
@@ -373,14 +374,15 @@ function getFighterById(WP_REST_Request $request)
         endwhile;
       endif;
 
-      $fighter_content = '';
-
+      $fighter_content = new stdClass();
       if (get_field('f_elements', $res[0]->ID)) {
         foreach (get_field('f_elements', $res[0]->ID) as $elements) {
           if ($elements['acf_fc_layout'] === 'content') {
-            foreach ($elements['items'] as $text) {
-              $fighter_content = $fighter_content . strip_tags($text['text']);
-            }
+            $fighter_content = array(
+              'intro'     => strip_tags($elements['intro']),
+              'quote'     => strip_tags($elements['quote']),
+              'content'   => strip_tags($elements['text']),
+            );
           }
         }
       }
@@ -397,28 +399,29 @@ function getFighterById(WP_REST_Request $request)
         }
       }
 
-      $singleFighter[] = array(
-        'id'           => $res[0]->ID,
-        'name'         => $first_name,
-        'last_name'    => $last_name,
-        'birth_date'   => $fighter_profile_datas ? $fighter_profile_datas['birthdate'] : null,
-        'birth_place'  => $fighter_profile_datas ? $fighter_profile_datas['birthplace'] : null,
-        'record'       => $fighter_profile_datas ? $fighter_profile_datas['record'] : null,
-        'division'     => $fighter_profile_datas ? $fighter_profile_datas['division'] : null,
-        'height'       => $fighter_profile_datas ? $fighter_profile_datas['height'] : null,
-        'detail'       => $fighter_profile_datas ? $fighter_profile_datas['nickname'] : null,
-        //'boxrec_id'    => get_field('tbp_fighter_boxrec_id', $res->post->ID),
-        //'slug'         => $res->post->post_name,
-        //'url'          => get_site_url() . "/wp-json/tb/v1/fighters/" . $res->post->ID,
-        //'publish_date' => get_the_date('F j, Y', $res->post->ID),
-        //'publish_time' => get_the_date('g:i a', $res->post->ID),
-        //'excerpt'      => wp_filter_nohtml_kses($fighter_excerpt),
-        //'featured'     => $featured_image_detail,
-        //'profile'      => $fighter_profile_datas,
-        'content'        => $fighter_content,
-        //'records'      => $fighter_records,
-        //'gallery'      => $fighter_gallery,
-        'img_source'     => $featured_image_detail['image'],
+      $singleFighter = array(
+        'id'            => $res[0]->ID,
+        'name'          => $first_name,
+        'last_name'     => $last_name,
+        'featured'      => $featured_image_detail,
+        'profile'       => $fighter_profile_datas,
+        'content'       => $fighter_content,
+        'records'       => $fighter_records,
+        'gallery'       => $fighter_gallery,
+        // 'intro'         => $fighter_bio_last,
+        // 'birth_date'   => $fighter_profile_datas ? $fighter_profile_datas['birthdate'] : null,
+        // 'birth_place'  => $fighter_profile_datas ? $fighter_profile_datas['birthplace'] : null,
+        // 'record'       => $fighter_profile_datas ? $fighter_profile_datas['record'] : null,
+        // 'division'     => $fighter_profile_datas ? $fighter_profile_datas['division'] : null,
+        // 'height'       => $fighter_profile_datas ? $fighter_profile_datas['height'] : null,
+        // 'detail'       => $fighter_profile_datas ? $fighter_profile_datas['nickname'] : null,
+        // 'boxrec_id'    => get_field('tbp_fighter_boxrec_id', $res->post->ID),
+        // 'slug'         => $res->post->post_name,
+        // 'url'          => get_site_url() . "/wp-json/tb/v1/fighters/" . $res->post->ID,
+        // 'publish_date' => get_the_date('F j, Y', $res->post->ID),
+        // 'publish_time' => get_the_date('g:i a', $res->post->ID),
+        // 'excerpt'      => wp_filter_nohtml_kses($fighter_excerpt),
+        // 'img_source'     => $featured_image_detail['image'],
       );
 
       if (have_rows('tbp_fighter_gallery', $res[0]->ID)) :

@@ -41,12 +41,20 @@ function getGallery(WP_REST_Request $request)
 function getLivestreamUrl()
 {
 
-  $livestreamUrl = get_field('livestream_video', 'option');
+  $livestreamUrl = get_field('livestream_video', 'api_settings');
+  $livestreamDateTime = getGroupACFsubField('tbp_hero_options', 'tbp_countdown_time', 'home_options');
+  $livestreamActive = get_field('tbp_activation_of_event', 'home_options');
+  // $livestreamVideoId = getGroupACFsubField('tbp_hero_options', 'tbp_hero_video_id', 'home_options');
+  // $livestreamUrl = "https://livestream.com/accounts/23289909/events/" . $livestreamVideoId . "/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false";
+  $livestreamImage = getGroupACFsubField('tbp_hero_options', 'tbp_hero_mobile_app_image', 'home_options');
 
   return rest_ensure_response(array(
     'status' => $livestreamUrl ? 200 : 404,
     'data'   => array(
-      'url' => $livestreamUrl
+      'url'             => $livestreamUrl,
+      'event_datetime'  => $livestreamDateTime,
+      'active'          => $livestreamActive,
+      "poster"          => $livestreamImage
     )
   ));
 }
@@ -59,7 +67,12 @@ function getContactPage()
   // define page object
   $page = get_post($pId);
 
+  // Contact Form ID
+  $newsletterContactFormId = getGroupACFsubField('tbp_newsletter_options', 'contact_form_id', 'home_options');
+
   $output = array();
+
+  $output['contact_form_id'] = $newsletterContactFormId;
 
   $adress       = get_field('tbp_contact_address', $pId);
   $adress_array = explode("\n", $adress);

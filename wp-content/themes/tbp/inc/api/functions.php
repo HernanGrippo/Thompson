@@ -175,7 +175,11 @@ function getImagesFromContent($content)
     if (empty($results) && count($results) == 0) {
       $imageTags = $tempDoc->getElementsByTagName('img');
       foreach ($imageTags as $tag) {
-        $images[] = $tag->getAttribute('src');
+        $images[] = array(
+          'image'       => $tag->getAttribute('src'),
+          'credit'      => 'Archive',
+          'description' => $tag->getAttribute('alt')
+        );
       }
     }
 
@@ -233,7 +237,7 @@ function getAttachmentsById($attachmentId)
 // get meta, validate values from metadata
 function getMetaValue($value)
 {
-
+  if (!$value) return '';
   return count($value) ? $value[0] : '';
 }
 
@@ -295,30 +299,58 @@ function prepareFighterData($info, $metaInfo)
     }
   }
 
+  $images = getAttachmentsById(getMetaValue($metaInfo['_thumbnail_id']));
+
+  $featured_image_detail = array(
+    'image'       => $images[0],
+    'credit'      => 'Archive',
+    'description' => ''
+  );
+
+  $gallery = array_reduce($images, function($imgGallery, $value) {
+    $imgGallery[] = array(
+      'image'       => $value['url'],
+      'credit'      => 'Archive',
+      'description' => ''
+    );
+    return $imgGallery;
+  }, array());
+
+  $gallery = array_merge($gallery, getImagesFromContent($info->post_content));
+
+  $fighter_profile_datas = array(
+    'nickname'    => getMetaValue($metaInfo['nickname']),
+    'birth_date'  => getMetaValue($metaInfo['Born']),
+    'birth_place' => getMetaValue($metaInfo['Birth place']),
+    'record'      => getMetaValue($metaInfo['record']),
+    'division'    => getMetaValue($metaInfo['Division']),
+    'stance'      => getMetaValue($metaInfo['stance']),
+    'height'      => getMetaValue($metaInfo['height']),
+    'reach'       => getMetaValue($metaInfo['reach'])
+  );
+
   return array(
-    'id'             => $info->ID,
-    'name'           => $first_name,
-    'last_name'      => $last_name,
-    'nickname'       => getMetaValue($metaInfo['nickname']),
-    'born'           => getMetaValue($metaInfo['Born']),
-    'age'            => getMetaValue($metaInfo['Age']),
-    'height'         => getMetaValue($metaInfo['height']),
-    'shortTitle'     => getMetaValue($metaInfo['short_title']),
-    'birthPlace'     => getMetaValue($metaInfo['Birth place']),
-    'stance'         => getMetaValue($metaInfo['stance']),
-    'weightDivision' => getMetaValue($metaInfo['Weight Division']),
-    'record'         => getMetaValue($metaInfo['record']),
-    'reach'          => getMetaValue($metaInfo['reach']),
-    'homePageThumb'  => getMetaValue($metaInfo['home_page_thumb']),
+    'id'            => $info->ID,
+    'name'          => $first_name,
+    'last_name'     => $last_name,
+    'featured'      => $featured_image_detail,
+    'profile'       => $fighter_profile_datas,
+    'intro'         => '',
+    'content'       => array(
+      'intro' => '',
+      'quote' => '',
+      'text'  => strip_tags(html_entity_decode($info->post_content))
+    ),
+    'records'       => array(),
+    'gallery'       => $gallery,
+    // 'age'            => getMetaValue($metaInfo['Age']),
+    // 'shortTitle'     => getMetaValue($metaInfo['short_title'])
+    // 'weightDivision' => getMetaValue($metaInfo['Weight Division']),
+    // 'homePageThumb'  => getMetaValue($metaInfo['home_page_thumb']),
     // 'slideTemplate' => getMetaValue($metaInfo['slide_template']),
-    'division'       => getMetaValue($metaInfo['Division']),
-    'picture'        => getMetaValue($metaInfo['sm-pic']),
-    'images'         => getAttachmentsById(getMetaValue($metaInfo['_thumbnail_id'])),
-    'content'        => strip_tags(html_entity_decode($info->post_content)),
-    'htmlContent'    => $info->post_content,
-    'contentImages'  => getImagesFromContent($info->post_content),
-    'created'        => $info->post_date,
-    'modified'       => $info->post_modified
+    // 'picture'        => getMetaValue($metaInfo['sm-pic'])
+    // 'created'        => $info->post_date,
+    // 'modified'       => $info->post_modified
   );
 }
 

@@ -1,5 +1,5 @@
 <?php
-if (function_exists('acf_add_local_field_group')) :
+if( function_exists('acf_add_local_field_group') ):
 
   acf_add_local_field_group(array(
     'key' => 'group_5ef3cfd31caaf',
@@ -318,10 +318,10 @@ if (function_exists('acf_add_local_field_group')) :
             'display' => 'block',
             'sub_fields' => array(
               array(
-                'key' => 'field_5ef3d662d970f',
-                'label' => 'Items',
-                'name' => 'items',
-                'type' => 'repeater',
+                'key' => 'field_5ef3d2b0ce9a9',
+                'label' => 'Intro',
+                'name' => 'intro',
+                'type' => 'textarea',
                 'instructions' => '',
                 'required' => 0,
                 'conditional_logic' => 0,
@@ -330,32 +330,49 @@ if (function_exists('acf_add_local_field_group')) :
                   'class' => '',
                   'id' => '',
                 ),
-                'collapsed' => '',
-                'min' => 0,
-                'max' => 0,
-                'layout' => 'table',
-                'button_label' => '',
-                'sub_fields' => array(
-                  array(
-                    'key' => 'field_5ef3d2b0ce9a9',
-                    'label' => 'Text',
-                    'name' => 'text',
-                    'type' => 'wysiwyg',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                      'width' => '',
-                      'class' => '',
-                      'id' => '',
-                    ),
-                    'default_value' => '',
-                    'tabs' => 'all',
-                    'toolbar' => 'full',
-                    'media_upload' => 1,
-                    'delay' => 0,
-                  ),
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'new_lines' => '',
+              ),
+              array(
+                'key' => 'field_60ed23f0a39e5',
+                'label' => 'Quote',
+                'name' => 'quote',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                  'width' => '',
+                  'class' => '',
+                  'id' => '',
                 ),
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'new_lines' => '',
+              ),
+              array(
+                'key' => 'field_60ed253035c28',
+                'label' => 'Content',
+                'name' => 'content',
+                'type' => 'wysiwyg',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                  'width' => '',
+                  'class' => '',
+                  'id' => '',
+                ),
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
               ),
             ),
             'min' => '',
@@ -799,8 +816,8 @@ if (function_exists('acf_add_local_field_group')) :
     'label_placement' => 'top',
     'instruction_placement' => 'label',
     'hide_on_screen' => '',
-    'active' => 1,
+    'active' => true,
     'description' => '',
   ));
-
+  
 endif;
