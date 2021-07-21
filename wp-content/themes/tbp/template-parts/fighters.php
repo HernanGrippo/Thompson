@@ -9,7 +9,7 @@
         </div>
       </div> -->
       <div class="row fighter-row justify-content-start">
-        <?php while (have_rows('fighters')) : the_row(); ?>
+        <?php while (have_rows('s')) : the_row(); ?>
           <a href="<?php echo get_sub_field('link'); ?>" class="col-12 col-md-6 col-lg-4">
             <div class="fighter-container">
               <div class="image-wrapper mx-auto">

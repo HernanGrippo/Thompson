@@ -12,6 +12,19 @@ require_once 'others.php';
 
 add_action('rest_api_init', 'register_api_hooks');
 
+function contentFilterEmpty($item) {
+  return !!$item;
+}
+
+function splitContentInParagraphs($content) {
+  $content = str_replace("<br/>", "\n", $content);
+  $content = str_replace("<br>", "\n", $content);
+  $content = str_replace("\n\r", "\n", $content);
+  $content = str_replace("\r\n", "\n", $content);
+  $content = explode("\n", strip_tags($content));
+  return array_filter($content, 'contentFilterEmpty');
+}
+
 // Define custom hooks
 function register_api_hooks()
 {
