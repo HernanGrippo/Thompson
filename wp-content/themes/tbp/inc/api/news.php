@@ -1,4 +1,33 @@
 <?php 
+function getTimeAgoMessage($eventDateTime) {
+  $today = date_create('2021-06-26 04:29:24.000-07:00');
+  $eventDate = date_create($eventDateTime);
+  $diff = date_diff($today, $eventDate);
+  $short_message = date_format($eventDate, 'F j, Y') . ' at ' . date_format($eventDate, 'g:i A');
+  
+  if ($diff->invert) {
+    if ($diff->days === 0) {
+      if ($diff->h > 0) {
+        $short_message = $diff->h . 'hours ago';
+      } elseif ($diff->i > 0) {
+        $short_message = $diff->i . 'minutes ago';
+      } elseif ($diff->s > 0) {
+        $short_message = $diff->s . 'seconds ago';
+      }
+    } elseif ($diff->days === 1) {
+      $short_message = 'Yesterday at '. date_format($eventDate, 'g:i A');
+    } elseif ($diff->y === 0) {
+      $short_message = date_format($eventDate, 'F j') . ' at ' . date_format($eventDate, 'g:i A');
+    }
+  }
+
+  $long_message = date_format($eventDate, 'l, F j, Y') . ' at ' . date_format($eventDate, 'g:i A');
+
+  return array(
+    'short' => $short_message,
+    'long' => $long_message,
+  );
+}
 
 // Return requested news
 function getNews(WP_REST_Request $request)
@@ -29,13 +58,13 @@ function getNews(WP_REST_Request $request)
   }
 
 
-  // // add response to cache if not exist for perfomance
+  // // add response to cache if not exist for performance
   // if (false == ($multipleNews = get_transient('cmnews'))) {
   $res = new WP_Query($postObj);
 
   if ($res->have_posts()) {
-    $index = 1;
 
+    $multipleNews = array( 'featured' => array(), 'news' => array() );
     while ($res->have_posts()) {
       $res->the_post();
 
@@ -48,131 +77,44 @@ function getNews(WP_REST_Request $request)
         }
       }));
 
-      if ($res->post->ID) { //if ($res->post->ID > '6967')
+      $featured_image_detail = array(
+        'image'       => wp_get_attachment_image_src(get_post_thumbnail_id($res->post->ID), "full")[0],
+        'credit'      => '',
+        'description' => ''
+      );
 
-        $delimiter = "[vc_row][vc_column]";
 
-        $post_content = array();
+      if (have_rows('tbp_featured_photo_settings', $res->post->ID)) :
+        while (have_rows('tbp_featured_photo_settings', $res->post->ID)) : the_row();
+          $featured_image_detail['credit'] = get_sub_field('tbp_featured_photo_credit', $res->post->ID);
+          $featured_image_detail['description']   = get_sub_field('tbp_featured_photo_description', $res->post->ID);
+        endwhile;
+      endif;
 
-        $post_content_last = array();
+      $time_ago = getTimeAgoMessage(get_the_date('c', $res->post->ID));
 
-        if (!empty($res->post->post_content)) {
-          $post_content = array_values(array_filter(array_map("trim", explode($delimiter, str_replace(array(
-            "\r",
-            "\n",
-            "&nbsp;"
-          ), array("", "", " "), strip_tags($res->post->post_content)))), function ($value) {
-            if ($value != "") {
-              return true;
-            }
-          }));
+      $is_featured_news = get_field('tbp_news_is_featured_news') || false;
+      
+      $category = get_field('tbp_news_main_category');
+      $category = $category ? $category->name : 'Unclassified';
 
-          $post_content = array_map(function ($value) {
-            $delimiter = "[vc_row][vc_column]";
+      $news = array(
+        "id"                => $res->post->ID,
+        "title"             => $res->post->post_title,
+        "category"          => $category,
+        "is_featured_news"  => $is_featured_news,
+        "featured_photo"    => $featured_image_detail != null ? $featured_image_detail : null,
+        "time_ago"          => $time_ago,
+        "website_url"       => get_permalink(),
+        "api_url"           => get_site_url() . "/wp-json/tb/v1/news/" . $res->post->ID,
+        "post_time"         => get_the_date('c', $res->post->ID),
+        "reporter"          => get_the_author_meta('display_name', $res->post->post_author),
+      );
 
-            return $delimiter . $value;
-          }, $post_content);
-
-          $textCounter  = 1;
-          $videoCounter = 1;
-          $quoteCounter = 1;
-          foreach ($post_content as $news_line) {
-            if (strpos($news_line, 'vc_video') !== false) {
-              $video_link                                    = preg_match('/link=\"([^\"]+)\"/', $news_line, $video_link_array);
-              $video_title                                   = preg_match('/title=\"([^\"]+)\"/', $news_line, $video_title_array);
-              /*$post_content_last['video_' . $videoCounter] = array(
-                "title" => $video_title_array[1],
-                "link"  => $video_link_array[1],
-              );*/
-              $videoCounter++;
-            } elseif (strpos($news_line, 'vc_column_text') !== false) {
-              $paragraph                                   = preg_match_all("/\[vc_column_text\]([^\]]*)\[\/vc_column_text\]/", $news_line, $paragraph_array);
-              $post_content_last['text_' . $textCounter] = $paragraph_array[1][0];
-              $textCounter++;
-            } elseif (strpos($news_line, 'vc_coquote') !== false) {
-              $quote_title                                   = preg_match('/quote_title=\"([^\"]+)\"/', $news_line, $quote_title_array);
-              $quote_text                                    = preg_match('/quote_text=\"([^\"]+)\"/', $news_line, $quote_text_array);
-              /*$post_content_last['quote_' . $quoteCounter] = array(
-                "title" => $quote_title_array[1],
-                "text"  => $quote_text_array[1],
-              );*/
-              $quoteCounter++;
-            }
-          }
-        }
-
-        $featured_image_detail = array();
-
-        $news_excerpt = '';
-
-        $news_gallery = array();
-
-        $featured_image_detail['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($res->post->ID), "full")[0];
-
-        if (have_rows('tbp_featured_photo_settings', $res->post->ID)) :
-          while (have_rows('tbp_featured_photo_settings', $res->post->ID)) : the_row();
-            $featured_image_detail['credit'] = get_sub_field('tbp_featured_photo_credit', $res->post->ID);
-            $featured_image_detail['desc']   = get_sub_field('tbp_featured_photo_description', $res->post->ID);
-          endwhile;
-        endif;
-
-        if (have_rows('tbp_news_excerpt', $res->post->ID)) :
-          while (have_rows('tbp_news_excerpt', $res->post->ID)) : the_row();
-            $excerpt_location = get_sub_field('tbp_news_excerpt_location', $res->post->ID);
-            $excerpt_date     = get_sub_field('tbp_news_excerpt_date', $res->post->ID);
-            $excerpt_text     = get_sub_field('tbp_news_excerpt_text', $res->post->ID);
-
-            $news_excerpt .= (!empty($excerpt_location)) ? $excerpt_location : "";
-            $news_excerpt .= (!empty($excerpt_date)) ? " (" . $excerpt_date . ") " : "";
-            $news_excerpt .= (!empty($excerpt_text)) ? $excerpt_text : "";
-
-          endwhile;
-        endif;
-
-        $new_content = '';
-
-        if ($post_content_last != '') {
-          foreach ($post_content_last as $key => $content) {
-            $new_content = $new_content . $content;
-          }
-        }
-
-        $multipleNews[$index] = array(
-          'id'       => $res->post->ID,
-          //'slug'     => $res->post->post_name,
-          //'url'      => get_site_url() . "/wp-json/tb/v1/news/" . $res->post->ID,
-          //'time'     => get_the_date('g:i a', $res->post->ID),
-          'name'     => $res->post->post_title,
-          //'excerpt'  => $news_excerpt,
-          'content'    => $new_content,
-          'img_source' => $featured_image_detail != null ? $featured_image_detail['image'] : null,
-          //'gallery'  => $news_gallery,
-          'upload_time'     => get_the_date('F j, Y', $res->post->ID),
-        );
-
-        if (have_rows('tbp_news_gallery', $res->post->ID)) :
-          $galleryCounter = 0;
-          while (have_rows('tbp_news_gallery', $res->post->ID)) : the_row();
-            $multipleNews[$index]['info_img' . ($galleryCounter !== 0 ? $galleryCounter : null)] = get_sub_field('tbp_news_gallery_photo', $res->post->ID);
-            $galleryCounter++;
-          endwhile;
-        endif;
-
-        $index++;
+      if ($is_featured_news) {
+        $multipleNews['featured'][] = $news;
       } else {
-
-        $multipleNews[] = array(
-          'id'          => $res->post->ID,
-          'postName'    => $res->post->post_name,
-          'url'         => get_permalink(),
-          'title'       => $res->post->post_title,
-          //'content' => strip_tags(html_entity_decode($res[0]->post_content)),
-          'content'     => $post_content,
-          'htmlContent' => $res->post->post_content,
-          'images'      => getImagesFromContent($res->post->post_content),
-          'created'     => $res->post->post_date,
-          'modified'    => $res->post->post_modified
-        );
+        $multipleNews['news'][] = $news;
       }
     }
 
@@ -286,7 +228,7 @@ function getNewsById(WP_REST_Request $request)
       if (have_rows('tbp_featured_photo_settings', $res[0]->ID)) :
         while (have_rows('tbp_featured_photo_settings', $res[0]->ID)) : the_row();
           $featured_image_detail['credit'] = get_sub_field('tbp_featured_photo_credit', $res[0]->ID);
-          $featured_image_detail['desc']   = get_sub_field('tbp_featured_photo_description', $res[0]->ID);
+          $featured_image_detail['description']   = get_sub_field('tbp_featured_photo_description', $res[0]->ID);
         endwhile;
       endif;
 
@@ -309,7 +251,7 @@ function getNewsById(WP_REST_Request $request)
           $news_gallery[] = array(
             'image'  => get_sub_field('tbp_news_gallery_photo', $res[0]->ID),
             'credit' => get_sub_field('tbp_news_gallery_credit', $res[0]->ID),
-            'desc'   => get_sub_field('tbp_news_gallery_description', $res[0]->ID),
+            'description'   => get_sub_field('tbp_news_gallery_description', $res[0]->ID),
           );
 
         endwhile;
@@ -323,17 +265,21 @@ function getNewsById(WP_REST_Request $request)
         }
       }
 
+      $time_ago = getTimeAgoMessage(get_the_date('c', $res[0]->ID));
+
       $singleNews = array(
         'id'       => $res[0]->ID,
         'slug'     => $res[0]->post_name,
-        'url'      => get_site_url() . "/wp-json/tb/v1/news/" . $res[0]->ID,
         'time'     => get_the_date('g:i a', $res[0]->ID),
         'name'     => $res[0]->post_title,
         //'excerpt'  => $news_excerpt,
         'content'  => $new_content,
         'featured' => $featured_image_detail != null ? $featured_image_detail['image'] : null,
-        //'gallery'  => $news_gallery,
-        'upload_time'     => get_the_date('F j, Y', $res[0]->ID),
+        "time_ago"          => $time_ago,
+        "website_url"       => get_permalink(),
+        "api_url"           => get_site_url() . "/wp-json/tb/v1/news/" . $res->post->ID,
+        "post_time"         => get_the_date('c', $res->post->ID),
+        "reporter"          => get_the_author_meta('display_name', $res->post->post_author),
       );
 
       if (have_rows('tbp_news_gallery', $res[0]->ID)) :
