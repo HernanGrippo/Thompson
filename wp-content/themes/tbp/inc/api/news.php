@@ -276,10 +276,10 @@ function getNewsById(WP_REST_Request $request)
         'content'  => $new_content,
         'featured' => $featured_image_detail != null ? $featured_image_detail['image'] : null,
         "time_ago"          => $time_ago,
-        "website_url"       => get_permalink(),
-        "api_url"           => get_site_url() . "/wp-json/tb/v1/news/" . $res->post->ID,
-        "post_time"         => get_the_date('c', $res->post->ID),
-        "reporter"          => get_the_author_meta('display_name', $res->post->post_author),
+        "website_url"       => get_permalink($res[0]->ID),
+        "api_url"           => get_site_url() . "/wp-json/tb/v1/news/" . $res[0]->ID,
+        "post_time"         => get_the_date('c', $res[0]->ID),
+        "reporter"          => get_the_author_meta('display_name', $res[0]->post_author),
       );
 
       if (have_rows('tbp_news_gallery', $res[0]->ID)) :
