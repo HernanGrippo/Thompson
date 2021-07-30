@@ -116,9 +116,16 @@ function register_api_hooks()
   ));
 
   // Add api/v1/about-thompson route
+  register_rest_route('tb/v1', '/departments/', array(
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'getDepartmentsPage',
+    'permission_callback' => '__return_true'
+  ));
+
+  // Add api/v1/about-thompson route
   register_rest_route('tb/v1', '/about-thompson/', array(
     'methods'  => WP_REST_Server::READABLE,
-    'callback' => 'getContactPage',
+    'callback' => 'getAboutThompsonPage',
     'permission_callback' => '__return_true'
   ));
 

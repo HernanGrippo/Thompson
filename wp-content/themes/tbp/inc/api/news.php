@@ -217,13 +217,13 @@ function getNewsById(WP_REST_Request $request)
         }
       }
 
-      $featured_image_detail = array();
-
       $news_excerpt = '';
-
-      $news_gallery = array();
-
-      $featured_image_detail['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($res[0]->ID), "full")[0];
+      
+      $featured_image_detail = array(
+        'image'       => wp_get_attachment_image_src(get_post_thumbnail_id($res[0]->ID), "full")[0],
+        'credit'      => '',
+        'description' => ''
+      );
 
       if (have_rows('tbp_featured_photo_settings', $res[0]->ID)) :
         while (have_rows('tbp_featured_photo_settings', $res[0]->ID)) : the_row();
@@ -231,20 +231,21 @@ function getNewsById(WP_REST_Request $request)
           $featured_image_detail['description']   = get_sub_field('tbp_featured_photo_description', $res[0]->ID);
         endwhile;
       endif;
-
+    
       if (have_rows('tbp_news_excerpt', $res[0]->ID)) :
         while (have_rows('tbp_news_excerpt', $res[0]->ID)) : the_row();
           $excerpt_location = get_sub_field('tbp_news_excerpt_location', $res[0]->ID);
           $excerpt_date     = get_sub_field('tbp_news_excerpt_date', $res[0]->ID);
           $excerpt_text     = get_sub_field('tbp_news_excerpt_text', $res[0]->ID);
-
+          
           $news_excerpt .= (!empty($excerpt_location)) ? $excerpt_location : "";
           $news_excerpt .= (!empty($excerpt_date)) ? " (" . $excerpt_date . ") " : "";
           $news_excerpt .= (!empty($excerpt_text)) ? $excerpt_text : "";
-
+          
         endwhile;
       endif;
-
+  
+      $news_gallery = array();
       if (have_rows('tbp_news_gallery', $res[0]->ID)) :
         while (have_rows('tbp_news_gallery', $res[0]->ID)) : the_row();
 
@@ -274,7 +275,7 @@ function getNewsById(WP_REST_Request $request)
         'name'     => $res[0]->post_title,
         //'excerpt'  => $news_excerpt,
         'content'  => $new_content,
-        'featured' => $featured_image_detail != null ? $featured_image_detail['image'] : null,
+        'featured' => $featured_image_detail,
         "time_ago"          => $time_ago,
         "website_url"       => get_permalink($res[0]->ID),
         "api_url"           => get_site_url() . "/wp-json/tb/v1/news/" . $res[0]->ID,

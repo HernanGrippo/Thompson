@@ -59,8 +59,23 @@ function getLivestreamUrl()
   ));
 }
 
-// Return Contact Page Details
-function getContactPage()
+function getDepartmentsPage() {
+  $departments = array();
+  
+  if (have_rows('contact_form_departments', 'api_settings')) {
+    while (have_rows('contact_form_departments', 'api_settings')) {
+      the_row();
+      $departments[] = get_sub_field('contact_form_departments_department');
+    }
+  }
+  return rest_ensure_response(array(
+    'status' => $departments <> null ? 200 : 404,
+    'data'   => $departments
+  ));
+}
+
+// Return About Thompson Boxing Page Details
+function getAboutThompsonPage()
 {
   // prepare id
   $pId = 5801;
