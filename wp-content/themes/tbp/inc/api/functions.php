@@ -135,6 +135,13 @@ function register_api_hooks()
     'callback' => 'getLiveStreamUrl',
     'permission_callback' => '__return_true'
   ));
+
+  // Add api/v1/contact-form-id route
+  register_rest_route('tb/v1', '/contact-form-id/', array(
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'getContactFormId',
+    'permission_callback' => '__return_true'
+  ));
 }
 
 // Return data content for posts
