@@ -287,22 +287,15 @@ function getNewsById(WP_REST_Request $request)
           'time'     => get_the_date('g:i a', $res[0]->ID),
           'name'     => $res[0]->post_title,
           //'excerpt'  => $news_excerpt,
-          'content'  => $new_content,
-          'featured' => $featured_image_detail,
+          'content'   => $new_content,
+          'featured'  => $featured_image_detail,
           "time_ago"          => $time_ago,
+          'gallery'   => $news_gallery,
           "website_url"       => get_permalink($res[0]->ID),
-          "api_url"           => get_site_url() . "/wp-json/tb/v1/news/" . $res[0]->ID,
-          "post_time"         => get_the_date('c', $res[0]->ID),
-          "reporter"          => get_the_author_meta('display_name', $res[0]->post_author),
+          "api_url"   => get_site_url() . "/wp-json/tb/v1/news/" . $res[0]->ID,
+          "post_time" => get_the_date('c', $res[0]->ID),
+          "reporter"  => get_the_author_meta('display_name', $res[0]->post_author),
         );
-
-        if (have_rows('tbp_news_gallery', $res[0]->ID)) :
-          $galleryCounter = 0;
-          while (have_rows('tbp_news_gallery', $res[0]->ID)) : the_row();
-            $singleNews['info_img' . ($galleryCounter !== 0 ? $galleryCounter : null)] = get_sub_field('tbp_news_gallery_photo', $res[0]->ID);
-            $galleryCounter++;
-          endwhile;
-        endif;
       } else {
         $singleNews = array(
           'id'          => $res[0]->ID,
