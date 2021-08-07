@@ -54,7 +54,7 @@ function getFighters(WP_REST_Request $request)
 
           $featured_image_detail = array(
             'image'       => wp_get_attachment_image_src(get_post_thumbnail_id($res->post->ID), "full")[0],
-            'credit'      => '',
+            'credit'      => 'Archive',
             'description' => ''
           );
 
@@ -273,13 +273,16 @@ function getFighterById(WP_REST_Request $request)
         //   }
         // }
 
-        $featured_image_detail = array();
-
+        
         $fighter_excerpt = '';
-
+        
         $fighter_gallery = array();
-
-        $featured_image_detail['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($res[0]->ID), "full")[0];
+        
+        $featured_image_detail = array(
+          'image'       => wp_get_attachment_image_src(get_post_thumbnail_id($res[0]->ID), "full")[0],
+          'credit'      => 'Archive',
+          'description' => ''
+        );
 
         if (have_rows('tbp_f_featured_photo_settings', $res[0]->ID)) :
           while (have_rows('tbp_f_featured_photo_settings', $res[0]->ID)) : the_row();

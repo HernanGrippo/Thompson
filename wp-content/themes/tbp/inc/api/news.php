@@ -85,7 +85,7 @@ function getNews(WP_REST_Request $request)
 
         $featured_image_detail = array(
           'image'       => wp_get_attachment_image_src(get_post_thumbnail_id($res->post->ID), "full")[0],
-          'credit'      => '',
+          'credit'      => 'Archive',
           'description' => ''
         );
 
@@ -234,7 +234,7 @@ function getNewsById(WP_REST_Request $request)
         
         $featured_image_detail = array(
           'image'       => wp_get_attachment_image_src(get_post_thumbnail_id($res[0]->ID), "full")[0],
-          'credit'      => '',
+          'credit'      => 'Archive',
           'description' => ''
         );
 
