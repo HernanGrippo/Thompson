@@ -4,6 +4,7 @@
 require_once 'fighters.php';
 require_once 'news.php';
 require_once 'videos.php';
+require_once 'pages.php';
 require_once 'others.php';
 
 /**
@@ -140,6 +141,20 @@ function register_api_hooks()
   register_rest_route('tb/v1', '/contact-form-id/', array(
     'methods'  => WP_REST_Server::READABLE,
     'callback' => 'getContactFormId',
+    'permission_callback' => '__return_true'
+  ));
+
+  // Add api/v1/pages/:slug route
+  register_rest_route('tb/v1', '/page-struct-types', array(
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'getPageStructTypes',
+    'permission_callback' => '__return_true'
+  ));
+
+  // Add api/v1/pages/:slug route
+  register_rest_route('tb/v1', '/pages/(?P<slug>\S+)', array(
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'getPageBySlug',
     'permission_callback' => '__return_true'
   ));
 }
