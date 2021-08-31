@@ -73,6 +73,13 @@ function register_api_hooks()
     'callback' => 'getVideos',
     'permission_callback' => '__return_true'
   ));
+  
+  // Add api/v1/videos route
+  register_rest_route('tb/v2', '/videos/', array(
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'getVideosV2',
+    'permission_callback' => '__return_true'
+  ));
 
   // Add api/v1/video/:id route
   register_rest_route('tb/v1', '/video/(?P<id>\d+)', array(

@@ -58,6 +58,24 @@ function enable_extended_upload($mime_types = array())
   return $mime_types;
 }
 
+add_filter( 'rest_endpoints', 'remove_default_endpoints_smarter' );
+  
+function remove_default_endpoints_smarter( $endpoints ) {
+  $prefixToDelete = array("batch", "oembed", "yoast", "regenerate-thumbnails", "wp");
+
+  $droppedEndpoints = array();
+  foreach ( $endpoints as $endpoint => $details ) {
+    foreach( $prefixToDelete as $prefix) {
+      if ( fnmatch( '/' . $prefix . '/*', $endpoint, FNM_CASEFOLD ) ) {
+        $droppedEndpoints[$prefix] = true;
+        unset( $endpoints[$endpoint] );
+      }
+    }
+  }
+ 
+  return $endpoints;
+}
+
 function theme_setup()
 {
   add_theme_support('post-thumbnails');

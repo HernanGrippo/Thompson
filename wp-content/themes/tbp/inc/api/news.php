@@ -41,7 +41,7 @@ function getNews(WP_REST_Request $request)
   if (false == ($response = get_transient($cacheKey))) {
       
     // define items per page
-    $itemsPerPage = $request->get_param('per_page') ? (int) $request->get_param('per_page') : 9;
+    $itemsPerPage = $request->get_param('per_page') ? (int) $request->get_param('per_page') : 10;
     // define pagination
     $paged = $request->get_param('page') ? (int) $request->get_param('page') : 1;
     // define search
