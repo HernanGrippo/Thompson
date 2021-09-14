@@ -179,14 +179,22 @@ function getAboutThompsonPage()
 // Return current active home page image
 function getHomeImage()
 {
-  $desktopImg = get_theme_mod('desktop_hero_image');
-  $mobileImg  = get_theme_mod('mobile_hero_image');
+  $response = null;
+  $cacheKey = 'tbp_home_image';
+
+  // add response to cache if not exist for performance
+  if (false == ($response = get_transient($cacheKey))) {
+    $response = get_field('tbp_home_regular_image', 'home_options');
+
+    // cache for 30 minutes
+    $ctime = 60 * 10;
+    set_transient($cacheKey, $response, $ctime);
+  }
 
   return rest_ensure_response(array(
-    'status' => $desktopImg || $mobileImg ? 200 : 404,
+    'status' => $response ? 200 : 404,
     'data'   => array(
-      'desktop' => $desktopImg,
-      'mobile'  => $mobileImg
+      'image' => $response
     )
   ));
 }
